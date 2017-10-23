@@ -1,3 +1,3 @@
 # CinC
 Computing in Community case study
-Kat changes
+Kat changes 2
