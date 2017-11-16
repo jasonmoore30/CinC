@@ -13,6 +13,7 @@
           value="true"
           v-for="(item, i) in items"
           :key="i"
+          :to= 'item.url'
         >
           <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
@@ -44,7 +45,7 @@
       <v-content>
         <v-container fluid>
           <v-slide-y-transition mode="out-in">
-            <v-layout column align-center>
+            <router-view>
               <img src="/static/v.png" alt="Vuetify.js" class="mb-5">
               <blockquote>
                 &#8220;First, solve the problem. Then, write the code.&#8221;
@@ -54,7 +55,7 @@
                   </small>
                 </footer>
               </blockquote>
-            </v-layout>
+            </router-view>
           </v-slide-y-transition>
         </v-container>
       </v-content>
@@ -81,22 +82,34 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        clipped: false,
-        drawer: true,
-        fixed: false,
-        items: [{
-          icon: 'bubble_chart',
-          title: 'Inspire'
-        }],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
-        title: 'Vuetify.js'
-      }
-    }
+export default {
+  data() {
+    return {
+      clipped: false,
+      drawer: true,
+      fixed: false,
+      items: [
+        {
+          icon: "home",
+          title: "Home", 
+          url: '/'
+        },
+        {
+          icon: "chat",
+          title: "Experiences",
+          url: '/experiences'
+        },
+        {
+          icon: 'person',
+          title: 'Faculty',
+          url: '/faculty',
+        }
+      ],
+      miniVariant: false,
+      right: true,
+      rightDrawer: false,
+      title: "Vuetify.js"
+    };
   }
-
+};
 </script>
