@@ -17,9 +17,9 @@
           <v-tabs-item
             v-for="(item, i) in items"
             :key="i"
-            :href="'#tab-' + (i + 1)"
+            :href="src"
           >
-            {{ item }}
+            {{ item.title }}
           </v-tabs-item>
           <!--The drop down menu 
           <v-menu :nudge-width="100" left bottom>
@@ -41,11 +41,20 @@
           -->
         </v-tabs-bar>
       </v-toolbar>
-    <!-- The words that appear under the bar when the tab is clicked     -->
-
   </v-tabs>
-<!-- The 4 image boxes -->
+
 <v-content>
+      <v-carousel hide-delimiters>
+        <v-carousel-item v-for="(item,i) in items2" v-bind:src="item.src" :key="i"></v-carousel-item>
+      </v-carousel>
+      
+      <v-container>
+        <v-layout justify-space-between row wrap>
+        <span class="display-3 black--text" v-text="aboutTitle"></span>
+        <span class="display-2 black--text" v-text="about"></span>
+        </v-layout>
+      </v-container>
+
       <v-container fluid grid-list-xl >
         <v-layout justify-space-between row wrap>
           <v-flex
@@ -55,7 +64,7 @@
               <v-tooltip bottom>
                 <span>Interesting 2 sentence description of what the linked page is</span>
               <v-card-media slot="activator" :src="card.src" height="200px">
-
+               
                 <v-container fill-height fluid>
                   <v-layout row wrap align-center justify-center>
                     <v-flex xs12  class="text-xs-center">
@@ -63,12 +72,14 @@
                     </v-flex>
                   </v-layout>
                 </v-container>
+
               </v-card-media>
              </v-tooltip>
             </v-card>
           </v-flex>
         </v-layout>
       </v-container>
+
     </v-content>
 
     <v-footer :fixed="fixed" app>
@@ -85,35 +96,52 @@ export default {
     return {
       clipped: false,
       fixed: false,
-      items: ["Students", "Faculty", "Community Partners", "Community News"],
+      aboutTitle:"About statement:",
+      about:"This is our awesome about statement that is being used to seperate the two picture stuff",
+      title: "Computing in Community",
+      items: [
+        {
+          title:"Students",
+          src:"/Students"},
+        {        
+          title:"Faculty",
+          src:"/Faculty"},
+        {
+          title:"Community Partners", 
+          src:""},
+        {
+          title:"Community News",
+          src:""},
+          ],
+      items2: [
+          {
+            src: 'https://images.fineartamerica.com/images-medium-large-5/3-furman-university-charles-daniel-chapel-greenville-sc-willie-harper.jpg'},
+          {
+            src: 'https://s3.amazonaws.com/newsimg.furman.edu/wp-content/uploads/2017/01/13173308/furman-sign-entrance-700.jpg'},
+          {
+            src: 'https://gallabrae.com/wp-content/uploads/2015/09/Furman-main-gate.jpg'}
+        ],
       cards: [
         {
           title: "CinC Students",
           src: "https://c1.staticflickr.com/8/7304/9194117026_98de91b807_b.jpg",
-          flex: 6
-        },
+          flex: 6},
         {
           title: "CinC Courses",
           src:
             "https://campusmap.furman.edu/system/points/pictures/000/000/109/medium/PlylerHall.jpg?1407961614",
-          flex: 6
-        },
+          flex: 6},
         {
           title: "CinC Faculty",
           src:
             "https://gallabrae.com/wp-content/uploads/2015/09/Furman-main-gate.jpg",
-          flex: 6
-        },
+          flex: 6},
         {
           title: "CinC Commutity Partners",
           src:
             "https://images.fineartamerica.com/images-medium-large-5/3-furman-university-charles-daniel-chapel-greenville-sc-willie-harper.jpg",
-          flex: 6
-        }
-      ],
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      title: "Computing in Community"
+          flex: 6}
+        ],
     };
   }
 };
