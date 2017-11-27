@@ -103,6 +103,11 @@ export default {
           icon: 'person',
           title: 'Faculty',
           url: '/faculty',
+        }, 
+        {
+          icon: 'folder', 
+          title: 'Application', 
+          url: '/application'
         }
       ],
       miniVariant: false,
