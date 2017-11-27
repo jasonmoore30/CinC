@@ -15,11 +15,9 @@
         <v-tabs-bar class="purple" slot="extension">
           <!-- The toolbar items -->
           <v-tabs-item
-            v-for="(item, i) in items"
-            :key="i"
-            :href="src"
-          >
-            {{ item.title }}
+           v-for="(tabName, i) in tabNames" :key="i" :to="tabName.url" :href="'#tab-' + (i + 1)">
+            {{ tabName.title }}
+          
           </v-tabs-item>
           <!--The drop down menu 
           <v-menu :nudge-width="100" left bottom>
@@ -45,40 +43,77 @@
 
 <v-content>
       <v-carousel hide-delimiters>
-        <v-carousel-item v-for="(item,i) in items2" v-bind:src="item.src" :key="i"></v-carousel-item>
+        <v-carousel-item v-for="(pic,i) in carouselImg" v-bind:src="pic.src" :key="i"></v-carousel-item>
       </v-carousel>
       
+      <div id="aboutStatment">
       <v-container>
-        <v-layout justify-space-between row wrap>
+        <v-layout justify-space-between row wrap class="grey"> 
         <span class="display-3 black--text" v-text="aboutTitle"></span>
         <span class="display-2 black--text" v-text="about"></span>
         </v-layout>
       </v-container>
+      </div>
 
       <v-container fluid grid-list-xl >
-        <v-layout justify-space-between row wrap>
+        <v-layout flex-direction:column align-start>
           <v-flex
-            v-bind="{ [`xs${card.flex}`]: true }" 
-            v-for="card in cards":key="card.title">
-            <v-card height="200px">
-              <v-tooltip bottom>
-                <span>Interesting 2 sentence description of what the linked page is</span>
-              <v-card-media slot="activator" :src="card.src" height="200px">
+            v-bind="{ [`xs${card.flex}`]: true }"
+            v-for="card in cardsL":key="card.title"
+            :to="cardsL.url">
+            <v-card height="300px">
+              <v-tooltip >
+              <v-card-media slot="activator" :src="card.src" height="300px">
                
                 <v-container fill-height fluid>
-                  <v-layout row wrap align-center justify-center>
+                  <v-layout  align-left justify-center>
                     <v-flex xs12  class="text-xs-center">
                       <span class="headline white--text" v-text="card.title"></span>
                     </v-flex>
                   </v-layout>
                 </v-container>
-
               </v-card-media>
              </v-tooltip>
             </v-card>
           </v-flex>
         </v-layout>
       </v-container>
+
+      <v-container fluid grid-list-xl >
+        <v-layout flex-direction:column >
+          <v-flex contain>
+            <v-card >
+               <v-layout >
+                  
+               </v-layout>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+
+      <v-container fluid grid-list-xl >
+        <v-layout flex-direction:column>
+          <v-flex
+            v-bind="{ [`xs${card.flex}`]: true }"
+            v-for="card in cardsR":key="card.title" >
+            <v-card height="200px">
+              <v-tooltip >
+              <v-card-media slot="activator" :src="card.src" height="200px">
+               
+                <v-container fill-height fluid>
+                  <v-layout align-right justify-center>
+                    <v-flex xs12  class="text-xs-center">
+                      <span class="headline white--text" v-text="card.title"></span>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-card-media>
+             </v-tooltip>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+
 
     </v-content>
 
@@ -97,23 +132,28 @@ export default {
       clipped: false,
       fixed: false,
       aboutTitle:"About statement:",
-      about:"This is our awesome about statement that is being used to seperate the two picture stuff",
+      about:"This is our awesome about statement that is being used to seperate the two picture's stuff",
       title: "Computing in Community",
-      items: [
+      tabNames: [
         {
           title:"Students",
-          src:"/Students"},
+          url:"/Students"},
         {        
           title:"Faculty",
-          src:"/Faculty"},
+          url:"/Faculty"},
         {
           title:"Community Partners", 
-          src:""},
+          url:"/CommunityPartners"},
         {
-          title:"Community News",
-          src:""},
+          title:"Calendar",
+          url:"/Calendar"},
+        {
+          title:"Blog",
+          url:"/Blog"},
           ],
-      items2: [
+
+
+      carouselImg: [
           {
             src: 'https://images.fineartamerica.com/images-medium-large-5/3-furman-university-charles-daniel-chapel-greenville-sc-willie-harper.jpg'},
           {
@@ -121,26 +161,33 @@ export default {
           {
             src: 'https://gallabrae.com/wp-content/uploads/2015/09/Furman-main-gate.jpg'}
         ],
-      cards: [
+
+      cardsL: [
         {
           title: "CinC Students",
           src: "https://c1.staticflickr.com/8/7304/9194117026_98de91b807_b.jpg",
-          flex: 6},
+          url:"/Students" ,
+          flex: 4},
         {
           title: "CinC Courses",
+          link:"/Courses",
           src:
             "https://campusmap.furman.edu/system/points/pictures/000/000/109/medium/PlylerHall.jpg?1407961614",
-          flex: 6},
+          flex: 4},
+      ],
+      cardsR: [
         {
           title: "CinC Faculty",
           src:
             "https://gallabrae.com/wp-content/uploads/2015/09/Furman-main-gate.jpg",
-          flex: 6},
+          url: "/Faculty",
+          flex: 4},
         {
           title: "CinC Commutity Partners",
           src:
             "https://images.fineartamerica.com/images-medium-large-5/3-furman-university-charles-daniel-chapel-greenville-sc-willie-harper.jpg",
-          flex: 6}
+          url: "/CommunityPartners",  
+          flex: 4}
         ],
     };
   }
@@ -148,5 +195,8 @@ export default {
 </script>
 
 <style>
+  #aboutStatement {
+    background-color: grey;
+  }
 
 </style>
