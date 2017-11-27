@@ -168,8 +168,9 @@ export default {
       title: "Experiences",
       entryTitle: "",
       entryContent: "",
+      category: "",
       blogEntries: [
-        { title: "Fuck", category: "Research", body: "This is a fucking" }
+        { title: "Test", category: "Research", body: "This is a test" }
       ],
       emailRules: [
         v =>
