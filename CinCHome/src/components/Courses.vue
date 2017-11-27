@@ -23,7 +23,7 @@
     <div>
    <v-data-table
       v-bind:headers="headers"
-      :items="items"
+      :items="courses"
       class="elevation-1"
     >
     <template slot="headerCell" scope="props">
@@ -37,12 +37,12 @@
       </v-tooltip>
     </template>
 
-    <template slot="items" scope="props">
-      <td>{{ props.item.courseName }}</td>
+    <template slot="courses" scope="props">
+      <td>{{ props.course.courseName }}</td>
 
-      <td class="text-xs-left">{{ props.item.dept }}</td>
-      <td class="text-xs-left">{{ props.item.faculty }}</td>
-      <td class="text-xs-left">{{ props.item.descrip }}</td>
+      <td class="text-xs-left">{{ props.course.dept }}</td>
+      <td class="text-xs-left">{{ props.course.faculty }}</td>
+      <td class="text-xs-left">{{ props.course.descrip }}</td>
     <!--   <td>
       <i class="glyphicon glyphicon-chevron-up" @click="upvote" :class="{disabled: upvoted}"></i>
       <span class="label label-primary">{{ votes }}</span>
@@ -56,7 +56,7 @@
   <div>
     <v-data-table
       v-bind:headers="headers"
-      :items="items"
+      :items="courses"
       class="elevation-1"
     >
     <template slot="headerCell" scope="props">
@@ -70,12 +70,12 @@
       </v-tooltip>
     </template>
 
-    <template slot="items" scope="props">
-      <td>{{ props.item.courseName }}</td>
+    <template slot="courses" scope="props">
+      <td>{{ props.course.courseName }}</td>
 
-      <td class="text-xs-left">{{ props.item.dept }}</td>
-      <td class="text-xs-left">{{ props.item.faculty }}</td>
-      <td class="text-xs-left">{{ props.item.descrip }}</td>
+      <td class="text-xs-left">{{ props.course.dept }}</td>
+      <td class="text-xs-left">{{ props.course.faculty }}</td>
+      <td class="text-xs-left">{{ props.course.descrip }}</td>
     <!--   <td>
       <i class="glyphicon glyphicon-chevron-up" @click="upvote" :class="{disabled: upvoted}"></i>
       <span class="label label-primary">{{ votes }}</span>
@@ -176,7 +176,7 @@ export default {
           { text: 'Description', value: 'descrip', sortable: false, align: 'left',  },
           { text: 'Vote', value: 'vote', sortable: true, align: 'left', }
         ],
-        items: [
+        courses: [
           {
             value: false,
             courseName: 'Intro to Bioinformatics',
