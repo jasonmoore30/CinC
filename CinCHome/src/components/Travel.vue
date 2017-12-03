@@ -1,4 +1,14 @@
 <template>
+  <v-content>
+    <v-parallax src="http://www.furman.edu/admission/EngageFurman/Visit/PublishingImages/PlanVisit.jpg" height="500">
+      <v-layout column align-center justify-center class="white--text">
+        <h1 class="white--text mb-2 display-3">CinC Students</h1>
+      </v-layout>
+    </v-parallax>
+
+
+    <p></p>
+    <p></p>
   <v-layout column>
     <v-flex xs12 sm8 offset-sm2>
 
@@ -7,7 +17,7 @@
           <v-flex xs12 sm12 >
       <v-card>
         <v-card-media
-          src="https://www.splunk.com/content/dam/splunk-blogs/images/2017/10/gracehopper.png"
+          src="..\assets\gracehopper.png"
           height="300px"
 
         >
@@ -70,7 +80,7 @@
         </v-card-media>
         <v-card-title primary-title>
           <div>
-            <div class="headline">Programming Competitions</div>
+            <div class="headline">Research Conferences</div>
             <span class="grey--text">1,000 miles of wonder</span>
           </div>
         </v-card-title>
@@ -97,7 +107,7 @@
         </v-card-media>
         <v-card-title primary-title>
           <div>
-            <div class="headline">Top western road trips</div>
+            <div class="headline">Programming Competitions</div>
             <span class="grey--text">1,000 miles of wonder</span>
           </div>
         </v-card-title>
@@ -121,11 +131,15 @@
       </v-container>
     </v-flex>
   </v-layout>
+  </v-content>
 </template>
 <script>
   export default {
-    data: () => ({
+   data() {
       show: false
-    })
-  }
+      return {
+
+      }
+    }
+    }
 </script>

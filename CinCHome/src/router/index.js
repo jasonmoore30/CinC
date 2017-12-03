@@ -6,35 +6,68 @@ import Experiences from '@/components/Experiences'
 import Travel from '@/components/Travel'
 import Projects from '@/components/Projects'
 import Awards from '@/components/Awards'
+import Home from '@/components/Home'
+import Community from "@/components/Community"
+import Faculty from '@/components/Faculty'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/experiences',
+      path: '/Facutly/experiences',
       name: 'Experiences',
       component: Experiences
     },
     {
-      path: '/courses',
+      path: '/Faculty',
+      name: 'Faculty',
+      component: Faculty
+    },
+    {
+      path: '/Faculty/courses',
+      name: "Courses",
+      component: Courses
+    },
+    {
+      path: '/Students/experiences',
+      name: 'Experiences',
+      component: Experiences
+    },
+    {
+      path: '/Students/awards',
+      name: "Student Awards",
+      component: Awards
+    },
+    {
+      path: '/Students/courses',
       name: 'Courses',
       component: Courses
     },
     {
-      path: '/students',
+      path: '/Students',
       name: 'Students',
       component: Students
     },
     {
-      path: '/projects',
+      path: 'Students/projectops',
       name: 'Project Opportunities',
       components: Projects
     },
     {
-      path: '/travel',
+      path: '/Students/travelops',
       name: 'Travel Opportunities',
       component: Travel
+    },
+    {
+      path: '/',
+      name: 'CinC Home',
+      component: Home
+    },
+    {
+      path: '/CommunityPartners',
+      name: "CinC Community",
+      component: Community
     }
   ]
 })

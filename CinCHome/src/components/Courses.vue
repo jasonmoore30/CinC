@@ -1,21 +1,17 @@
 <template>
+ <v-content>
+    <v-parallax src="http://www.furman.edu/admission/EngageFurman/Visit/PublishingImages/PlanVisit.jpg" height="500">
+      <v-layout column align-center justify-center class="white--text">
+        <h1 class="white--text mb-2 display-3">CinC Students</h1>
+      </v-layout>
+    </v-parallax>
+
+
+    <p></p>
+    <p></p>
 <div id="app">
   <v-app id="inspire">
-    <header>
-          <v-parallax src= "http://www.furman.edu/admission/EngageFurman/Visit/PublishingImages/PlanVisit.jpg" height= "400">
 
-            <v-layout
-              column
-              align-center
-              justify-center
-              class="white--text"
-            >
-
-            <h1 class="white--text mb-2 display-3">CinC Courses</h1>
-            </v-layout>
-          </v-parallax>
-
-        </header>
     <p></p>
     <p></p>
     <p class="text-sm-center">Here you can find all of the suggested CinC courses and even suggest a CinC course</p>
@@ -157,6 +153,7 @@
   </v-app>
 
 </div>
+</v-content>
 </template>
 <<script>
 export default {
@@ -228,6 +225,7 @@ export default {
        {text: 'Sociology'},
        {text: 'Theatre Arts'},
     ],
+
     checkbox: false,
     email: '',
     emailRules: [
