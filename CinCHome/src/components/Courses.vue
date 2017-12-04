@@ -1,10 +1,6 @@
 <template>
  <v-content>
-    <v-parallax src="http://www.furman.edu/admission/EngageFurman/Visit/PublishingImages/PlanVisit.jpg" height="500">
-      <v-layout column align-center justify-center class="white--text">
-        <h1 class="white--text mb-2 display-3">CinC Students</h1>
-      </v-layout>
-    </v-parallax>
+
 
 
     <p></p>
@@ -39,6 +35,7 @@
       <td class="text-xs-left">{{ props.course.dept }}</td>
       <td class="text-xs-left">{{ props.course.faculty }}</td>
       <td class="text-xs-left">{{ props.course.descrip }}</td>
+
     <!--   <td>
       <i class="glyphicon glyphicon-chevron-up" @click="upvote" :class="{disabled: upvoted}"></i>
       <span class="label label-primary">{{ votes }}</span>

@@ -1,5 +1,11 @@
 <template>
   <v-app light>
+
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    </head>
     <v-spacer></v-spacer>
     <router-view></router-view>
     <v-tabs dark grow>
@@ -7,7 +13,7 @@
         app>
         <p></p>
 
-        <v-toolbar-title >Computing in Community</v-toolbar-title>
+        <v-toolbar-title>Computing in Community</v-toolbar-title>
         <v-spacer></v-spacer>
 
         <v-tabs-bar class="purple" slot="extension">
@@ -29,6 +35,7 @@
             </v-list>
           </v-menu>
           <p></p>
+          <p></p>
           <v-menu open-on-hover top offset-y>
             <v-tabs-item slot="activator">
               CinC Faculty
@@ -49,10 +56,14 @@
 
     <v-footer class="pa-3" color="grey lighten-1" :fixed="fixed" app>
       <v-spacer></v-spacer>
-      <div>
-        <p>3300 Poinsett Highway</p>
-        <p>Greenville, South Carolina, 29613</p>
-        <p>864-294-2000</p>
+      <div align="right">
+        <p>3300 Poinsett Highway Greenville, South Carolina, 29613</p>
+        <v-btn icon href="https://www.facebook.com/Furman-University-Computer-Science-130685927004923/">
+          <md-icon class="fa fa-facebook-official"></md-icon>
+        </v-btn> Connect with us on Facebook
+        <v-btn icon href="http://instagram.com/furmancompsci">
+          <md-icon class="fa fa-instagram"></md-icon>
+        </v-btn> Connect with us on Instagram
       </div>
     </v-footer>
   </v-app>
@@ -71,8 +82,7 @@
           title: "Home",
           url: '/'
         }],
-        tabNames: [
-          {
+        tabNames: [{
             title: "CinC Courses",
             url: '/Courses'
           },
@@ -83,14 +93,9 @@
           {
             title: "CinC Calendar",
             url: "/Calendar"
-          },
-          {
-            title: "Blog",
-            url: "/Blog"
-          },
+          }
         ],
-        cincstuds: [
-          {
+        cincstuds: [{
             title: "Students Home",
             url: '/Students'
           },
@@ -115,8 +120,7 @@
             url: '/Students/awards'
           }
         ],
-        cincfacs: [
-          {
+        cincfacs: [{
             title: "Faculty Home",
             url: '/Faculty'
           },

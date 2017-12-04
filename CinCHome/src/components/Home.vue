@@ -54,7 +54,7 @@
       <v-container fluid grid-list-xl>
         <v-layout flex-direction:column>
           <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cardsR" :key="card.title">
-            <v-card height="300px">
+            <v-card height="300px" >
               <v-tooltip>
                 <v-card-media slot="activator" :src="card.src" height="300px">
 
@@ -97,6 +97,7 @@
           },
           {
             src: 'https://gallabrae.com/wp-content/uploads/2015/09/Furman-main-gate.jpg'
+
           }
         ],
         cardsL: [{
@@ -108,19 +109,19 @@
           {
             title: "CinC Courses",
             link: "/Courses",
-            src: "https://campusmap.furman.edu/system/points/pictures/000/000/109/medium/PlylerHall.jpg?1407961614",
+            src: "/static/20170918_ComputerScience_Lab-184.jpg",
             flex: 4
           },
         ],
         cardsR: [{
             title: "CinC Faculty",
-            src: "https://gallabrae.com/wp-content/uploads/2015/09/Furman-main-gate.jpg",
+            src: "/static/20170918_ComputerScience_Lab-130.jpg",
             url: "/Faculty",
             flex: 4
           },
           {
             title: "CinC Commutity Partners",
-            src: "https://images.fineartamerica.com/images-medium-large-5/3-furman-university-charles-daniel-chapel-greenville-sc-willie-harper.jpg",
+            src: "https://parkergroupservices.com/wp-content/uploads/New-Home-The-Parker-Group.jpg",
             url: "/CommunityPartners",
             flex: 4
           }

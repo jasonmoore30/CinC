@@ -1,10 +1,6 @@
 <template>
   <v-content>
-    <v-parallax src="http://www.furman.edu/admission/EngageFurman/Visit/PublishingImages/PlanVisit.jpg" height="500">
-      <v-layout column align-center justify-center class="white--text">
-        <h1 class="white--text mb-2 display-3">CinC Students</h1>
-      </v-layout>
-    </v-parallax>
+
 
 
     <p></p>
@@ -17,8 +13,8 @@
           <v-flex xs12 sm12 >
       <v-card>
         <v-card-media
-          src="..\assets\gracehopper.png"
-          height="300px"
+          src="/static/gracehopper.png"
+          height="400px"
 
         >
         </v-card-media>
@@ -42,11 +38,12 @@
           </v-card-text>
         </v-slide-y-transition>
       </v-card>
-      <v-spacer></v-spacer>
+      <p></p>
+
       <v-card>
         <v-card-media
-          src="/static/doc-images/cards/sunshine.jpg"
-          height="200px"
+          src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/17800488_1403123846427785_3900485199143704262_n.jpg?oh=2c99b8a56109a2b91b0241cbc93b9c3a&oe=5AD57E1E"
+          height="400px"
 
         >
         </v-card-media>
@@ -70,11 +67,11 @@
           </v-card-text>
         </v-slide-y-transition>
       </v-card>
-      <v-spacer></v-spacer>
+      <p></p>
       <v-card>
         <v-card-media
-          src="/static/doc-images/cards/sunshine.jpg"
-          height="200px"
+          src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/17759701_1403482169725286_5912564940964148913_n.jpg?oh=8cccc6a7af6b950c92ecd5f4cda8429e&oe=5A8D55C1"
+          height="400px"
 
         >
         </v-card-media>
@@ -98,10 +95,11 @@
           </v-card-text>
         </v-slide-y-transition>
       </v-card>
+      <p></p>
       <v-card>
         <v-card-media
-          src="/static/doc-images/cards/sunshine.jpg"
-          height="200px"
+          src="https://globalhack.org/hack-resources/uploads/2017/05/Global-Hack-6-2710_FAQweb.jpg"
+          height="400px"
 
         >
         </v-card-media>
