@@ -1,120 +1,163 @@
 <template>
-  <v-app>
-    <v-navigation-drawer
-      persistent
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-      enable-resize-watcher
-      app
-    >
-      <v-list>
-        <v-list-tile
-          value="true"
-          v-for="(item, i) in items"
-          :key="i"
-          :to= 'item.url'
-        >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-toolbar fixed app :clipped-left="clipped">
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>remove</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+  <v-app light>
+ 
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    </head>
+    <v-spacer></v-spacer>
+    <router-view></router-view>
+    <v-tabs dark grow>
+      <v-toolbar extended color="purple" fixed prominent dark extended scroll threshold="100" scroll-target="#scrolling-techniques"
+        app>
+        <p></p>
+ 
+        <v-toolbar-title>Computing in Community</v-toolbar-title>
+        <v-spacer></v-spacer>
+ 
+        <v-tabs-bar class="purple" slot="extension">
+          <v-tabs-slider color="gray"></v-tabs-slider>
+ 
+          <!-- The toolbar items -->
+          <v-tabs-item v-for="(homeTab, i) in homeTabs" :key="i" :to="homeTab.url" :href="'#tab-' + (i + 1)">
+            {{ homeTab.title }}
+          </v-tabs-item>
+          <v-menu open-on-hover top offset-y>
+            <v-tabs-item slot="activator">
+              CinC Students
+              <v-icon>arrow_drop_down</v-icon>
+            </v-tabs-item>
+            <v-list class="grey lighten-3">
+              <v-list-tile tag="a" v-for="cincstud in cincstuds" :key="cincstud.title" :to="cincstud.url" @click="">
+                {{ cincstud.title }}
+              </v-list-tile>
+            </v-list>
+          </v-menu>
+          <p></p>
+          <p></p>
+          <v-menu open-on-hover top offset-y>
+            <v-tabs-item slot="activator">
+              CinC Faculty
+              <v-icon>arrow_drop_down</v-icon>
+            </v-tabs-item>
+            <v-list class="grey lighten-3">
+              <v-list-tile tag="a" v-for="cincfac in cincfacs" :key="cincfac.title" :to="cincfac.url" @click="">
+                {{ cincfac.title }}
+              </v-list-tile>
+            </v-list>
+          </v-menu>
+          <v-tabs-item v-for="(tabName, i) in tabNames" :key="i" :to="tabName.url" :href="'#tab-' + (i + 1)">
+            {{ tabName.title }}
+          </v-tabs-item>
+        </v-tabs-bar>
+        </v-toolbar>
+    </v-tabs>
+ 
+    <v-footer class="pa-3" color="grey lighten-1" :fixed="fixed" app>
       <v-spacer></v-spacer>
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>menu</v-icon>
-      </v-btn>
-    </v-toolbar>
-    <main>
-      <v-content>
-        <v-container fluid>
-          <v-slide-y-transition mode="out-in">
-            <router-view>
-              <img src="/static/v.png" alt="Vuetify.js" class="mb-5">
-              <blockquote>
-                &#8220;First, solve the problem. Then, write the code.&#8221;
-                <footer>
-                  <small>
-                    <em>&mdash;John Johnson</em>
-                  </small>
-                </footer>
-              </blockquote>
-            </router-view>
-          </v-slide-y-transition>
-        </v-container>
-      </v-content>
-    </main>
-    <v-navigation-drawer
-      temporary
-      :right="right"
-      v-model="rightDrawer"
-      app
-    >
-      <v-list>
-        <v-list-tile @click="right = !right">
-          <v-list-tile-action>
-            <v-icon>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2017</span>
+      <div align="right">
+        <p>3300 Poinsett Highway Greenville, South Carolina, 29613</p>
+        <v-btn icon href="https://www.facebook.com/Furman-University-Computer-Science-130685927004923/">
+          <md-icon class="fa fa-facebook-official"></md-icon>
+        </v-btn> Connect with us on Facebook
+        <v-btn icon href="http://instagram.com/furmancompsci">
+          <md-icon class="fa fa-instagram"></md-icon>
+        </v-btn> Connect with us on Instagram
+      </div>
     </v-footer>
   </v-app>
 </template>
-
+ 
 <script>
-export default {
-  data() {
-    return {
-      clipped: false,
-      drawer: true,
-      fixed: false,
-      items: [
-        {
-          icon: "home",
-          title: "Home", 
+  export default {
+    data() {
+      return {
+        clipped: false,
+        fixed: false,
+        aboutTitle: "About statement:",
+        about: "This is our awesome about statement that is being used to seperate the two picture's stuff",
+        title: "Computing in Community",
+        homeTabs: [{
+          title: "Home",
           url: '/'
-        },
-        {
-          icon: "chat",
-          title: "Experiences",
-          url: '/experiences'
-        },
-        {
-          icon: 'person',
-          title: 'Faculty',
-          url: '/faculty',
-        }, 
-        {
-          icon: 'folder', 
-          title: 'Application', 
-          url: '/application'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: "Vuetify.js"
-    };
+        }],
+        tabNames: [{
+            title: "CinC Courses",
+            url: '/Courses'
+          },
+          {
+            title: "CinC Community Partners",
+            url: "/CommunityPartners"
+          },
+          {
+            title: "CinC Calendar",
+            url: "/Calendar"
+          }
+        ],
+        cincstuds: [{
+            title: "Students Home",
+            url: '/Students'
+          },
+          {
+            title: "Project Opportunities",
+            url: '/Students/projectops'
+          },
+          {
+            title: "Student Experiences",
+            url: '/Students/experiences'
+          },
+          {
+            title: "CinC Courses",
+            url: '/Students/courses'
+          },
+          {
+            title: "Travel Opportunities",
+            url: '/Students/travelops'
+          },
+          {
+            title: "Student Awards",
+            url: '/Students/awards'
+          }
+        ],
+        cincfacs: [{
+            title: "Faculty Home",
+            url: '/Faculty'
+          },
+          {
+            title: "CinC Courses",
+            url: '/Faculty/courses'
+          },
+          {
+            title: "CinC Teaching Fellow",
+            url: "/Faculty/teachingfellow"
+          },
+          {
+            title: "CinC Student Fellow",
+            url: '/Faculty/studentfellow'
+          },
+          {
+            title: "CinC Faculty Scholars and Projects",
+            url: '/Faculty/facultyprojects'
+          },
+          {
+            title: "Faculty Experiences",
+            url: "/Faculty/experiences"
+          }, 
+          {
+            title: "Faculty Application", 
+            url: "/Faculty/application"
+          }
+        ]
+      }
+    }
   }
-};
+ 
 </script>
+ 
+<style>
+  #aboutStatement {
+    background-color: grey;
+  }
+ 
+</style>
