@@ -19,62 +19,29 @@
       </div>
 
       <v-container fluid grid-list-xl>
-        <v-layout flex-direction:column align-start>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cardsL" :key="card.title" :to="cardsL.url">
+        <v-layout justify-space-between row wrap>
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" :to="cards.url">
             <v-card height="300px">
               <v-tooltip>
                 <v-card-media slot="activator" :src="card.src" height="300px">
 
                   <v-container fill-height fluid>
-                    <v-layout align-left justify-center>
+                    <v-layout row wrap align-center justify-center>
                       <v-flex xs12 class="text-xs-center">
+                        <div id="backBox">
                         <span class="headline white--text" v-text="card.title"></span>
+                        </div>
                       </v-flex>
                     </v-layout>
                   </v-container>
+                  
                 </v-card-media>
               </v-tooltip>
             </v-card>
           </v-flex>
         </v-layout>
       </v-container>
-
-      <v-container fluid grid-list-xl>
-        <v-layout flex-direction:column>
-          <v-flex contain>
-            <v-card>
-              <v-layout>
-
-              </v-layout>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
-
-      <v-container fluid grid-list-xl>
-        <v-layout flex-direction:column>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cardsR" :key="card.title">
-            <v-card height="300px" >
-              <v-tooltip>
-                <v-card-media slot="activator" :src="card.src" height="300px">
-
-                  <v-container fill-height fluid>
-                    <v-layout align-right justify-center>
-                      <v-flex xs12 class="text-xs-center">
-                        <span class="headline white--text" v-text="card.title"></span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-card-media>
-              </v-tooltip>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
-
-
     </v-content>
-
 
   </v-app>
 </template>
@@ -100,30 +67,29 @@
 
           }
         ],
-        cardsL: [{
+        cards: [{
             title: "CinC Students",
             src: "https://c1.staticflickr.com/8/7304/9194117026_98de91b807_b.jpg",
             url: "/Students",
-            flex: 4
+            flex: 6
           },
           {
             title: "CinC Courses",
             link: "/Courses",
             src: "/static/20170918_ComputerScience_Lab-184.jpg",
-            flex: 4
+            flex: 6
           },
-        ],
-        cardsR: [{
+          {
             title: "CinC Faculty",
             src: "/static/20170918_ComputerScience_Lab-130.jpg",
             url: "/Faculty",
-            flex: 4
+            flex: 6
           },
           {
             title: "CinC Commutity Partners",
             src: "https://parkergroupservices.com/wp-content/uploads/New-Home-The-Parker-Group.jpg",
             url: "/CommunityPartners",
-            flex: 4
+            flex: 6
           }
         ],
       };
@@ -136,5 +102,10 @@
   #aboutStatement {
     background-color: grey;
   }
+
+  #backBox {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
 
 </style>
