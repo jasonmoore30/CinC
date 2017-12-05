@@ -1,5 +1,5 @@
 <template>
-  <v-app light class="">
+  <v-app light class="mt-5">
     <v-container class="mt-5">
       <v-layout flexbox class="mt-5">
         <!-- page title -->
@@ -7,10 +7,10 @@
           <v-card>
             <v-card-media class="lighten-4 purple">
               <v-layout row wrap class="my-3">
-                <v-flex xs8>
+                <v-flex xs8 flexbox>
                   <div class="headline text-xs-left my-font-color pl-3 pt-3">{{ title }}</div>
                 </v-flex>
-                <v-flex xs4>
+                <v-flex xs4 flexbox>
                     <v-select class="pr-3 pb-2"
                         white v-bind:items="categories" v-model="categorySearch" label="Sort By" single-line auto prepend-icon="search" hide-details
                     ></v-select>
@@ -20,17 +20,17 @@
                 </v-flex>
                 <!-- insert button -->
               <v-layout row justify-center>
-                <v-dialog v-model="dialog" persistent>
-                    <v-btn class= "pl-1" color="grey" dark slot="activator">Post an Entry</v-btn>
+                <v-dialog v-model="dialog" persistent width="50%">
+                    <v-btn class= "pl-1" color="grey" dark slot="activator">Post an Experience</v-btn>
                   <v-card>
                     <v-card-title>
-                      <span class="headline">Post an Entry</span>
+                      <span class="headline">Post an Experience</span>
                     </v-card-title>
                     <v-card-text>
                       <v-container grid-list-md>
                         <v-layout wrap>
                           <v-flex xs12>
-                            <v-text-field label="Name" required></v-text-field>
+                            <v-text-field label="Name" v-model="name" required></v-text-field>
                           </v-flex>
                           <v-flex xs12>
                             <v-text-field label="Email" v-model="email" :rules="emailRules" required></v-text-field>
@@ -39,19 +39,21 @@
                             <v-text-field label="Title" required v-model="entryTitle"></v-text-field>
                           </v-flex>
                           <v-flex xs6>
-                            <v-select required v-bind:items="categories" v-model="category" label="Select" single-line auto hide-details></v-select>
+                            <v-select required v-bind:items="categories" v-model="category" label="Select the type of experience" single-line auto hide-details></v-select>
                           </v-flex>
                           <v-flex xs12 sm12>
-                            <v-text-field multi-line label="Entry" required v-model="entryContent" :rules="entryRules" :counter="300"></v-text-field>
+                            <v-text-field multi-line label="Describe your experience. Be sure to describe what you did, learned, value, etc" required v-model="entryContent" :rules="entryRules" :counter="300"></v-text-field>
                           </v-flex>
+                          <v-checkbox label="Do you agree?" v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" required></v-checkbox>
                         </v-layout>
                       </v-container>
                       <small>*indicates required field</small>
                     </v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn disabled class="purple--text darken-1" flat v-on:click="submitEntry">Post</v-btn>
+                      <v-btn class="purple--text darken-1" flat @click="clear">Clear</v-btn>
                       <v-btn class="purple--text darken-1" flat v-on:click="dialog = false">Cancel</v-btn>
+                      <v-btn disabled class="purple--text darken-1" flat v-on:click="submitEntry">Post</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
@@ -86,7 +88,8 @@
                     <v-layout fill-height>
                       <v-flex xs12 align-end flexbox>
                         <span class="headline my-font-color">
-                          <em>{{format_date(blogEntry.created_at) }}:</em> {{ blogEntry.title }}</span>
+                          <em>{{format_date(blogEntry.created_at) }}:</em> {{ blogEntry.title }}
+                        </span>
                       </v-flex>
                     </v-layout>
                   </v-container>
@@ -107,10 +110,10 @@
                     </v-flex>
                     <v-layout row justify-left>
                       <v-dialog v-model="blogEntry.editdialog" persistent width="50%">
-                        <v-btn dark color="grey" slot="activator">Edit This Entry</v-btn>
+                        <v-btn dark color="grey" slot="activator">Edit This Experience</v-btn>
                         <v-card>
                           <v-card-title>
-                            <span class="headline">Edit This Entry</span>
+                            <span class="headline">Edit This Experience</span>
                           </v-card-title>
                           <v-card-text>
                             <v-container grid-list-md>
@@ -157,10 +160,12 @@
 export default {
   data() {
     return {
+      checkbox: false,
       dialog: false,
       deletealert: false,
       editalert: false,
       title: "Experiences",
+      email: "",
       entryTitle: "",
       entryContent: "",
       category: "",
@@ -199,6 +204,15 @@ export default {
   },
   created() {
     this.fetchEntries();
+  },
+  clear () {
+        this.$refs.form.reset()
+        this.name= ''
+        this.entryTitle = ''
+        this.entryContent = ''
+        this.email= ''
+        this.category = null
+        this.checkbox = false
   }
 };
 </script>

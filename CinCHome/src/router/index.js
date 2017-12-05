@@ -15,12 +15,12 @@ export default new Router({
       component: Hello
     }, 
     {
-      path: '/experiences',
+      path: '/Faculty/experiences',
       name: 'Experiences',
       component: Experiences
     },
     {
-      path: '/faculty',
+      path: '/Faculty',
       name: 'Faculty',
       component: Faculty
     } ,
