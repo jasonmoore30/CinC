@@ -23,7 +23,7 @@
           <v-tabs-item v-for="(homeTab, i) in homeTabs" :key="i" :to="homeTab.url" :href="'#tab-' + (i + 1)">
             {{ homeTab.title }}
           </v-tabs-item>
-          <v-menu open-on-hover top offset-y>
+          <v-menu open-on-hover bottom offset-y>
             <v-tabs-item slot="activator">
               CinC Students
               <v-icon>arrow_drop_down</v-icon>
@@ -36,7 +36,7 @@
           </v-menu>
           <p></p>
           <p></p>
-          <v-menu open-on-hover top offset-y>
+          <v-menu open-on-hover bottom offset-y>
             <v-tabs-item slot="activator">
               CinC Faculty
               <v-icon>arrow_drop_down</v-icon>

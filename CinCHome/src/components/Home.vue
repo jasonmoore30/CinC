@@ -18,12 +18,13 @@
         </v-container>
       </div>
 
+      <div id= "cardColumns">
       <v-container fluid grid-list-xl>
-        <v-layout justify-space-between row wrap>
+        <v-layout justify-space-between column wrap>
           <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" :to="cards.url">
-            <v-card height="300px">
+            <v-card height="300px" width="300px">
               <v-tooltip>
-                <v-card-media slot="activator" :src="card.src" height="300px">
+                <v-card-media slot="activator" :src="card.src" height="300px" width="300px">
 
                   <v-container fill-height fluid>
                     <v-layout row wrap align-center justify-center>
@@ -34,13 +35,39 @@
                       </v-flex>
                     </v-layout>
                   </v-container>
-                  
+
                 </v-card-media>
               </v-tooltip>
             </v-card>
           </v-flex>
         </v-layout>
       </v-container>
+      </div>
+
+     <v-container fluid grid-list-xl>
+        <v-layout justify-space-between column wrap>
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calCard" :key="card.title" :to="calCard.url">
+            <v-card height="300px" width="300px">
+              <tooltip>
+                <v-card-media slot="activator" :src="card.src" height="300px" width= "300px">
+
+                  <v-container fill-height fluid>
+                    <v-layout column wrap align-center justify-center>
+                      <v-flex xs12 class="text-xs-center">
+                        <div id="backBox">
+                        <span class="headline white--text" v-text="calCard.title"></span>
+                        </div>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+
+                </v-card-media>
+                </tooltip>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+
     </v-content>
 
   </v-app>
@@ -75,7 +102,7 @@
           },
           {
             title: "CinC Courses",
-            link: "/Courses",
+            url: "/Courses",
             src: "/static/20170918_ComputerScience_Lab-184.jpg",
             flex: 6
           },
@@ -92,6 +119,11 @@
             flex: 6
           }
         ],
+        calCard: [{
+            title: "Calendar",
+            src: "http://www.delhifbc.com/uploads/2/1/9/6/21960794/upcomingevents_orig.jpg",
+            flex: 6
+        }],
       };
     }
   };
@@ -107,5 +139,9 @@
     background-color: rgba(0, 0, 0, 0.3);
   }
 
+  #cardColumns {
+    column-count: 2;
+    column-width: 300px;
+   }
 
 </style>
