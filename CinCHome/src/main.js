@@ -10,7 +10,8 @@ import App from './App'
 import router from './router'
 
 Vue.use(Vuetify)
-
+var AddToCalendar = require('vue-add-to-calendar');
+Vue.use(AddToCalendar);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

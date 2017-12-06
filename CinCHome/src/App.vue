@@ -17,7 +17,7 @@
         <v-spacer></v-spacer>
 
         <v-tabs-bar class="purple" slot="extension">
-          <v-tabs-slider color="gray"></v-tabs-slider>
+          <v-tabs-slider color="gr3y darken 2"></v-tabs-slider>
 
           <!-- The toolbar items -->
           <v-tabs-item v-for="(homeTab, i) in homeTabs" :key="i" :to="homeTab.url" :href="'#tab-' + (i + 1)">
@@ -59,10 +59,10 @@
       <div align="right">
         <p>3300 Poinsett Highway Greenville, South Carolina, 29613</p>
         <v-btn icon href="https://www.facebook.com/Furman-University-Computer-Science-130685927004923/">
-          <md-icon class="fa fa-facebook-official"></md-icon>
+          <md-icon class=" md-size-2x fa fa-facebook-official"></md-icon>
         </v-btn> Connect with us on Facebook
         <v-btn icon href="http://instagram.com/furmancompsci">
-          <md-icon class="fa fa-instagram"></md-icon>
+          <md-icon class="md-size-2x fa fa-instagram"></md-icon>
         </v-btn> Connect with us on Instagram
       </div>
     </v-footer>
