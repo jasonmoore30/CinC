@@ -51,6 +51,11 @@ export default new Router({
       component: Students
     },
     {
+      path: '/Courses',
+      name: 'Courses',
+      component: Courses
+    },
+    {
       path: '/Calendar',
       name:'Calendar',
       component: Calendar
