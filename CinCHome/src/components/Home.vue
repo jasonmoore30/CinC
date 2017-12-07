@@ -18,9 +18,10 @@
         </v-container>
       </div>
 
+      <aside class="aside aside-1">
       <div id= "cardColumns">
       <v-container fluid grid-list-xl>
-        <v-layout justify-space-between column wrap>
+        <v-layout column wrap>
           <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" :to="cards.url">
             <v-card height="300px" width="300px">
               <v-tooltip>
@@ -43,7 +44,9 @@
         </v-layout>
       </v-container>
       </div>
+      </aside>
 
+    <aside class="aside aside-2">
      <v-container fluid grid-list-xl>
         <v-layout justify-space-between column wrap>
           <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calCard" :key="card.title" :to="calCard.url">
@@ -67,6 +70,7 @@
           </v-flex>
         </v-layout>
       </v-container>
+    </aside>
 
     </v-content>
 
@@ -96,7 +100,7 @@
         ],
         cards: [{
             title: "CinC Students",
-            src: "https://c1.staticflickr.com/8/7304/9194117026_98de91b807_b.jpg",
+            src: "/static/studentspic.jpg",
             url: "/Students",
             flex: 6
           },
@@ -141,7 +145,6 @@
 
   #cardColumns {
     column-count: 2;
-    column-width: 300px;
    }
 
 </style>
