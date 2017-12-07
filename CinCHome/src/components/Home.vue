@@ -12,8 +12,8 @@
       <div id="aboutStatment">
         <v-container>
           <v-layout justify-space-between row wrap class="grey">
-            <span class="display-3 black--text" v-text="aboutTitle"></span>
-            <span class="display-2 black--text" v-text="about"></span>
+            <span class="display-2 black--text" v-text="aboutTitle"></span>
+            <span class="display-1 black--text" v-text="about"></span>
           </v-layout>
         </v-container>
       </div>
@@ -83,12 +83,12 @@
       return {
         clipped: false,
         fixed: false,
-        aboutTitle: "About statement:",
-        about: "This is our awesome about statement that is being used to seperate the two picture's stuff",
+        aboutTitle: "Mission Statement:",
+        about: "Bring the Greenville-Furman communities together through computing in daily life.",
         title: "Computing in Community",
 
         carouselImg: [{
-            src: 'https://images.fineartamerica.com/images-medium-large-5/3-furman-university-charles-daniel-chapel-greenville-sc-willie-harper.jpg'
+            src: '/static/carousel1.jpg'
           },
           {
             src: 'https://s3.amazonaws.com/newsimg.furman.edu/wp-content/uploads/2017/01/13173308/furman-sign-entrance-700.jpg'
