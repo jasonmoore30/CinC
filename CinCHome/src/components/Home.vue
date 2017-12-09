@@ -9,19 +9,17 @@
         <v-carousel-item v-for="(pic,i) in carouselImg" v-bind:src="pic.src" :key="i"></v-carousel-item>
       </v-carousel>
 
-      <div id="aboutStatment">
-        <v-container>
-          <v-layout justify-space-between row wrap class="grey">
+      <div class="grey lighten-3">
+        <v-container >
+          <v-layout justify-space-between row wrap >
             <span class="display-2 black--text" v-text="aboutTitle"></span>
             <span class="display-1 black--text" v-text="about"></span>
           </v-layout>
         </v-container>
       </div>
 
-      <aside class="aside aside-1">
-      <div id= "cardColumns">
       <v-container fluid grid-list-xl>
-        <v-layout column wrap>
+        <v-layout row wrap justify-space-between>
           <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" :to="cards.url">
             <v-card height="300px" width="300px">
               <v-tooltip>
@@ -43,19 +41,17 @@
           </v-flex>
         </v-layout>
       </v-container>
-      </div>
-      </aside>
 
-    <aside class="aside aside-2">
+  
      <v-container fluid grid-list-xl>
-        <v-layout justify-space-between column wrap>
+        <v-layout justify-space-between row wrap>
           <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calCard" :key="card.title" :to="calCard.url">
             <v-card height="300px" width="300px">
               <tooltip>
                 <v-card-media slot="activator" :src="card.src" height="300px" width= "300px">
 
                   <v-container fill-height fluid>
-                    <v-layout column wrap align-center justify-center>
+                    <v-layout row wrap align-center justify-center>
                       <v-flex xs12 class="text-xs-center">
                         <div id="backBox">
                         <span class="headline white--text" v-text="calCard.title"></span>
@@ -70,7 +66,6 @@
           </v-flex>
         </v-layout>
       </v-container>
-    </aside>
 
     </v-content>
 
@@ -135,10 +130,6 @@
 </script>
 
 <style>
-  #aboutStatement {
-    background-color: grey;
-  }
-
   #backBox {
     background-color: rgba(0, 0, 0, 0.3);
   }
