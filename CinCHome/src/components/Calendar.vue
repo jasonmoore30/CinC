@@ -63,26 +63,12 @@ export default {
   data () {
     return {
       cincEvents: [{
+        // format = year/month/day
         date: `2017/12/25`,
         title: 'Christmas Day',
         desc: 'Time to see if Santa delivered me the winning powerball ticket.',
         location: 'Johns Hall'
-      }, {
-        // format = year/month/day
-        date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate() + 1}`,
-        title: 'Web Dev Presentation',
-        desc: 'Final presentation during lab.'
-      }, {
-// example of a date that is calculated based on the current date
-        date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate() + 3}`,
-        title: 'Hump day',
-        desc: 'It\'s hump DAAAAYYYY'
-      },
-      {
-// example of a hard-coded date (how our calendar will be with dates from the database)
-        date: `2017/12/31`,
-        title: 'New Year\'s Eve',
-        desc: 'Last day of 2017.'
+ 
       }
       ],
       welcomeMessage: 'Suggest an Event',
