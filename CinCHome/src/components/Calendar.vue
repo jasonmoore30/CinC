@@ -56,7 +56,7 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 
 export default {
   name: 'cal',
@@ -66,7 +66,9 @@ export default {
         // format = year/month/day
         date: `2017/12/25`,
         title: 'Christmas Day',
-        desc: 'Time to see if Santa delivered me the winning powerball ticket.'
+        desc: 'Time to see if Santa delivered me the winning powerball ticket.',
+        location: 'Johns Hall'
+ 
       }
       ],
       welcomeMessage: 'Suggest an Event',
@@ -85,6 +87,9 @@ export default {
         'December'
       ],
       month: null,
+      day: null,
+      title: '',
+      description: '',
       email: ''
     }
   },
