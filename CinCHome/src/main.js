@@ -8,8 +8,10 @@ import './stylus/main.styl'
 
 import App from './App'
 import router from './router'
+import axios from 'axios'
 
 Vue.use(Vuetify)
+Vue.use(axios)
 var AddToCalendar = require('vue-add-to-calendar');
 Vue.use(AddToCalendar);
 Vue.config.productionTip = false
