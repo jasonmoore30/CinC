@@ -6,12 +6,12 @@
     >
 
       <template scope = "props">
-        <div v-for="(event,index) in props.showEvents" class="event-item">
-          Date: {{date}}<br>
-          Title: {{title}}<br>
-          Description: {{desc}}<br>
-          Location: {{location}}<br>
-          Start Time: {{startTime}}
+        <div v-for="events in props.showEvents" class="event-item" :key="events.title">
+          Date: {{events.date}}<br>
+          Title: {{events.title}}<br>
+          Description: {{events.desc}}<br>
+          Location: {{events.location}}<br>
+          Start Time: {{events.startTime}}
         </div>
       </template>
     </vue-event-calendar>
