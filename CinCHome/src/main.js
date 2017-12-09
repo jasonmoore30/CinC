@@ -10,8 +10,11 @@ import App from './App'
 import router from './router'
 import 'vue-event-calendar/dist/style.css'
 import vueEventCalendar from 'vue-event-calendar'
+import axios from 'axios'
+
 
 Vue.use(Vuetify)
+Vue.use(axios)
 var AddToCalendar = require('vue-add-to-calendar');
 Vue.use(AddToCalendar);
 Vue.use(vueEventCalendar, {locale: 'us', color: 'purple'})

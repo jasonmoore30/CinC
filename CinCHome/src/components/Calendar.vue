@@ -56,9 +56,8 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 
-let today = new Date()
 export default {
   name: 'cal',
   data () {
@@ -66,7 +65,8 @@ export default {
       cincEvents: [{
         date: `2017/12/25`,
         title: 'Christmas Day',
-        desc: 'Time to see if Santa delivered me the winning powerball ticket.'
+        desc: 'Time to see if Santa delivered me the winning powerball ticket.',
+        location: 'Johns Hall'
       }, {
         // format = year/month/day
         date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate() + 1}`,
@@ -101,6 +101,9 @@ export default {
         'December'
       ],
       month: null,
+      day: null,
+      title: '',
+      description: '',
       email: ''
     }
   },
