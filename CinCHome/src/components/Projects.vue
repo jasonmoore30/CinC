@@ -17,7 +17,6 @@
         <tr @click="props.expanded = !props.expanded">
           <td>
            {{ props.item.name }}
-
         </td>
         <td class="text-xs-right">{{ props.item.semester }}</td>
         <td class="text-xs-right">{{ props.item.type }}</td>

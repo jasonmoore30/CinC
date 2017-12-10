@@ -22,7 +22,6 @@
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat>Share</v-btn>
           <v-btn flat color="purple" href="https://ghc.anitab.org/">Learn More</v-btn>
           <v-spacer></v-spacer>
           <v-btn icon @click.native="show1 = !show1">
@@ -49,12 +48,12 @@ The Grace Hopper Celebration consists of a combination of technical sessions and
         <v-card-title primary-title>
           <div>
             <div class="headline">Research Competitions</div>
-            <span class="grey--text">1,000 miles of wonder</span>
+            <span class="grey--text">Present your original research at a CS research conference</span>
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat>Share</v-btn>
-          <v-btn flat color="purple">Learn More</v-btn>
+
+          <v-btn flat color="purple"  href="https://www.acm.org/conferences">Learn More</v-btn>
           <v-spacer></v-spacer>
           <v-btn icon @click.native="show2 = !show2">
             <v-icon>{{ show2 ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
@@ -62,7 +61,7 @@ The Grace Hopper Celebration consists of a combination of technical sessions and
         </v-card-actions>
         <v-slide-y-transition>
           <v-card-text v-show="show2">
-            I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+            Student Research Competitions offer a unique forum for undergraduate and graduate students to present their original research at sponsored and co-sponsored conferences before a panel of judges and attendees.
           </v-card-text>
         </v-slide-y-transition>
       </v-card>
@@ -77,12 +76,12 @@ The Grace Hopper Celebration consists of a combination of technical sessions and
         <v-card-title primary-title>
           <div>
             <div class="headline">Research Conferences</div>
-            <span class="grey--text">1,000 miles of wonder</span>
+            <span class="grey--text">Explore other student and professional computer science research</span>
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat>Share</v-btn>
-          <v-btn flat color="purple">Explore</v-btn>
+
+          <v-btn flat color="purple" href="https://www.computer.org/web/conferences/calendar">Learn More</v-btn>
           <v-spacer></v-spacer>
           <v-btn icon @click.native="show3 = !show3">
             <v-icon>{{ show3 ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
@@ -90,7 +89,7 @@ The Grace Hopper Celebration consists of a combination of technical sessions and
         </v-card-actions>
         <v-slide-y-transition>
           <v-card-text v-show="show3">
-            I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+            The open exchange of ideas and the freedom of thought and expression are central to the aims and goals of CS conferences.  These aims and goals require an environment that recognizes the inherent worth of every person and group, that fosters dignity, understanding, and mutual respect, and that embraces diversity.
           </v-card-text>
         </v-slide-y-transition>
       </v-card>
@@ -105,12 +104,13 @@ The Grace Hopper Celebration consists of a combination of technical sessions and
         <v-card-title primary-title>
           <div>
             <div class="headline">Programming Competitions</div>
-            <span class="grey--text">1,000 miles of wonder</span>
+            <span class="grey--text">It's an opportunity for students to test their ability in designing, understanding and implementing algorithms.
+</span>
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat>Share</v-btn>
-          <v-btn flat color="purple">Explore</v-btn>
+
+          <v-btn flat color="purple" href="http://trycomputing.org/inspire/computing-student-opportunities">Learn More</v-btn>
           <v-spacer></v-spacer>
           <v-btn icon @click.native="show4 = !show4">
             <v-icon>{{ show4 ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
@@ -118,7 +118,7 @@ The Grace Hopper Celebration consists of a combination of technical sessions and
         </v-card-actions>
         <v-slide-y-transition>
           <v-card-text v-show="show4">
-            I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+            A programming competition generally involves the host presenting a set of logical or mathematical problems to the contestants (who can vary in number from tens to several thousands), and contestants are required to write computer programs capable of solving each problem. Judging is based mostly upon number of problems solved and time spent for writing successful solutions, but may also include other factors (quality of output produced, execution time, program size, etc.)
           </v-card-text>
         </v-slide-y-transition>
       </v-card>

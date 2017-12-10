@@ -67,7 +67,7 @@
         </div>
         <v-layout row justify-center>
           <v-dialog v-model="dialog" ref="form" persistent max-width="800px">
-            <v-btn color="primary" dark slot="activator">Suggest a Course</v-btn>
+            <v-btn color="purple darken-3" dark slot="activator">Suggest a Course</v-btn>
             <v-card>
               <v-card-title>
                 <span class="headline">Course Suggestions</span>
@@ -106,9 +106,9 @@
               <v-checkbox label="Do you agree?" v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" required></v-checkbox>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" flat @click.native="dialog = false">Close</v-btn>
-                <v-btn color="blue darken-1" flat @click="clear">Clear</v-btn>
-                <v-btn color="blue darken-1" flat @click="submit" :disabled="!valid">Submit</v-btn>
+                <v-btn color="purple darken-2" flat @click.native="dialog = false">Close</v-btn>
+                <v-btn color="purple darken-2" flat @click="clear">Clear</v-btn>
+                <v-btn color="purple darken-2" flat @click="submit" :disabled="!valid">Submit</v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -130,6 +130,18 @@ export default {
             align: 'left',
             sortable: true,
             value: 'courseName'
+          },
+          { text: 'Department(s)', value: 'dept', sortable: false, align: 'left',  },
+          { text: 'Taught By', value: 'faculty', sortable: false, align: 'left',  },
+          { text: 'Description', value: 'descrip', sortable: false, align: 'left',  },
+          { text: 'Vote', value: 'vote', sortable: true, align: 'left', }
+        ],
+        headers2: [
+          {
+            text: 'Suggested Course Name',
+            align: 'left',
+            sortable: true,
+            value: 'sugcourseName'
           },
           { text: 'Department(s)', value: 'dept', sortable: false, align: 'left',  },
           { text: 'Taught By', value: 'faculty', sortable: false, align: 'left',  },
