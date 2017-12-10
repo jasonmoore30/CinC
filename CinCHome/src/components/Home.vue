@@ -23,7 +23,7 @@
   
       <v-container fluid grid-list-xl>
         <v-layout row wrap justify-space-between>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" @click.native="cards.url">
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" :href="cards.url">
             <v-card height="300px" width="300px">
               <v-tooltip>
                 <v-card-media slot="activator" :src="card.src" height="300px" width="300px">
@@ -31,7 +31,7 @@
                   <v-container fill-height fluid>
                     <v-layout row wrap align-center justify-center>
                       <v-flex xs12 class="text-xs-center">
-                        <div id="backBox">
+                        <div id="backBox" href="/Courses">
                         <span class="headline white--text" v-text="card.title"></span>
                         </div>
                       </v-flex>
@@ -48,7 +48,7 @@
   
      <v-container fluid grid-list-xl>
         <v-layout justify-space-between row wrap>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calBlogCards" :key="card.title" :to="calBlogCards.url">
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calBlogCards" :key="card.title" :href="calBlogCards.url">
             <v-card height="100px">
               <tooltip>
                 <v-card-media slot="activator" :src="card.src" height="100px">
@@ -98,13 +98,13 @@
         calEvent: [],
 
         carouselImg: [{
+            src: '/static/mallPic.jpg'
+          },
+          {
             src: '/static/carousel1.jpg'
           },
           {
-            src: 'https://s3.amazonaws.com/newsimg.furman.edu/wp-content/uploads/2017/01/13173308/furman-sign-entrance-700.jpg'
-          },
-          {
-            src: 'https://gallabrae.com/wp-content/uploads/2015/09/Furman-main-gate.jpg'
+            src: '/static/fancyPic.jpg'
 
           }
         ],
@@ -140,15 +140,15 @@
         },
         {
             title: "Blog",
-            src: "",
+            src:"/static/blogPic.jpg",
             flex: 6
         }],
       };
     },
 
-    methods() {
-      
-      performGetRequest1() {
+    methods() { 
+
+      performGetRequest1(); {
         var resultElement = document.getElementById('1');
         resultElement.innerHTML = '';
       }

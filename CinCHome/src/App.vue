@@ -14,10 +14,7 @@
         <p></p>
 
         <v-toolbar-title class="display-3"> <p></p> <p> </p> Computing in Community</v-toolbar-title>
-        <v-spacer></v-spacer>
-  
-        <!--<v-btn v-bind:src="btnLogo.src" :to="btnLogo.url" large right>logo </v-btn> -->
-        
+        <v-spacer></v-spacer>      
 
         <v-tabs-bar class="purple" slot="extension">
           <v-tabs-slider color="gray"></v-tabs-slider>
