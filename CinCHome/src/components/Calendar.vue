@@ -159,7 +159,7 @@ export default {
         .catch(function (error) {
           console.log(error);
         })
-      },*/
+      },
     addEvent () {
       console.log('adding event')
       axios.post('/api/calendar/events/new') {
@@ -177,7 +177,7 @@ export default {
         .catch(function(error) {
           console.log(error);
         })
-      }
+      }*/
 }
 }
 </script>
