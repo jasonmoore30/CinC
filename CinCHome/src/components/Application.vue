@@ -5,30 +5,31 @@
         <h1 class="white--text mb-2 display-3">Cinc Applications</h1>
       </v-layout>
     </v-parallax>
-            <v-data-table
-              :headers="headers"
-              :items="items"
-              hide-actions
-              item-key="name"
-            >
-              <template slot="items" slot-scope="props">
-                <tr @click="props.expanded = !props.expanded">
-                  <td>{{ props.item.name }}</td>
-                  <td class="text-xs-right">{{ props.item.faculty }}</td>
-                  <td class="text-xs-right">{{ props.item.type }}</td>
-                  <td class="text-xs-right">{{ props.item.credit }}</td>
-                  <td class="text-xs-right">{{ props.item.paid }}</td>
-                </tr>
-              </template>
-              <template slot="expand" slot-scope="props">
-                <v-card flat>
-                  <v-card-text>{{ props.item.expand }}</v-card-text>
-                <v-btn dark color="purple" href="http://cs.furman.edu/~kmcgowin/testdoc.docx">Download Application</v-btn>
-                </v-card>
-              </template>
-            </v-data-table>
-            <v-btn dark color="purple">Submit Application</v-btn>
-            <v-btn disabled dark color="purple">Submit Opportunity</v-btn>
+    <v-data-table
+      :headers="headers"
+      :items="items"
+      hide-actions
+      item-key="name"
+    >
+      <template slot="items" slot-scope="props">
+        <tr @click="props.expanded = !props.expanded">
+          <td>{{ props.item.name }}</td>
+          <td class="text-xs-right">{{ props.item.faculty }}</td>
+          <td class="text-xs-right">{{ props.item.type }}</td>
+          <td class="text-xs-right">{{ props.item.credit }}</td>
+          <td class="text-xs-right">{{ props.item.paid }}</td>
+        </tr>
+      </template>
+      <template slot="expand" slot-scope="props">
+        <v-card flat>
+          <v-card-text>{{ props.item.expand }}</v-card-text>
+        <v-btn dark color="purple" href="http://cs.furman.edu/~kmcgowin/testdoc.docx">Download Application</v-btn>
+        </v-card>
+      </template>
+      
+    </v-data-table>
+    <v-btn dark color="purple">Submit Application</v-btn>
+    <v-btn disabled dark color="purple">Submit Opportunity</v-btn>
   </v-content>
 </template>
 
@@ -36,6 +37,10 @@
 export default {
   data() {
     return {
+      options: {
+          url: '/upload',
+          paramName: 'file'
+      },
       categories: ["Research", "Internship"],
       headers: [
         {
