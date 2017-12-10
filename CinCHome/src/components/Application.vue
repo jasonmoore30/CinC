@@ -32,7 +32,7 @@
         </template>
 
         <template slot="clip-uploader-body" scope="props">
-          <div v-for="file in props.files">
+          <div v-for="file in props.files" :key="file.dataUrl">
             <img v-bind:src="file.dataUrl" />
               {{ file.name }} {{ file.status }}          
           </div>
