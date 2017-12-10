@@ -7,13 +7,8 @@
           <v-card>
             <v-card-media class="lighten-4 purple">
               <v-layout row wrap class="my-3">
-                <v-flex xs8 flexbox>
+                <v-flex xs12 flexbox>
                   <div class="headline text-xs-left my-font-color pl-3 pt-3">{{ title }}</div>
-                </v-flex>
-                <v-flex xs4 flexbox>
-                    <v-select class="pr-3 pb-2"
-                        white v-bind:items="categories" v-model="categorySearch" label="Sort By" single-line auto prepend-icon="search" hide-details
-                    ></v-select>
                 </v-flex>
                 <v-flex xs9>
                   <div class="subheading text-xs-left my-font-color pl-3" >Computing in Community</div>
@@ -21,30 +16,30 @@
                 <!-- insert button -->
               <v-layout row justify-center>
                 <v-dialog v-model="dialog" persistent width="50%">
-                    <v-btn class= "pl-1" color="grey" dark slot="activator">Post an Experience</v-btn>
+                    <v-btn class= "pl-1" color="grey" dark slot="activator">Post in Blog</v-btn>
                   <v-card>
                     <v-card-title>
-                      <span class="headline">Post an Experience</span>
+                      <span class="headline">Post</span>
                     </v-card-title>
                     <v-card-text>
                       <v-container grid-list-md>
                         <v-layout wrap>
-                          <v-flex xs12>
-                            <v-text-field label="Name" v-model="name" required></v-text-field>
+                          <v-flex xs6>
+                            <v-text-field label="First Name" v-model="firstname" required></v-text-field>
+                          </v-flex>
+                          <v-flex xs6>
+                              <v-text-field label="Last Name" v-model="lastname" required></v-text-field>
                           </v-flex>
                           <v-flex xs12>
                             <v-text-field label="Email" v-model="email" :rules="emailRules" required></v-text-field>
                           </v-flex>
                           <v-flex xs12>
-                            <v-text-field label="Title" required v-model="entryTitle"></v-text-field>
-                          </v-flex>
-                          <v-flex xs6>
-                            <v-select required v-bind:items="categories" v-model="category" label="Select the type of experience" single-line auto hide-details></v-select>
+                            <v-text-field label="Title" required v-model="title"></v-text-field>
                           </v-flex>
                           <v-flex xs12 sm12>
-                            <v-text-field multi-line label="Describe your experience. Be sure to describe what you did, learned, value, etc" required v-model="entryContent" :rules="entryRules" :counter="300"></v-text-field>
+                            <v-text-field multi-line label="Body" required v-model="body" :rules="entryRules" :counter="300"></v-text-field>
                           </v-flex>
-                          <v-checkbox label="Do you agree?" v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" required></v-checkbox>
+                          <v-checkbox label="Do you agree to your information being posted to the website?" v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" required></v-checkbox>
                         </v-layout>
                       </v-container>
                       <small>*indicates required field</small>
@@ -53,7 +48,7 @@
                       <v-spacer></v-spacer>
                       <v-btn class="purple--text darken-1" flat @click="clear">Clear</v-btn>
                       <v-btn class="purple--text darken-1" flat v-on:click="dialog = false">Cancel</v-btn>
-                      <v-btn class="purple--text darken-1" flat v-on:click="NewExperience">Post</v-btn>
+                      <v-btn class="purple--text darken-1" flat v-on:click="NewBlogPost">Post</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
@@ -78,7 +73,7 @@
 
         <v-flex xs12>
           <!-- entries -->
-          <div v-for="experience in experiences" :key="experience.title">
+          <div v-for="post in posts" :key="post.title">
             <v-flex xs12>
               <!-- entry layout -->
               <v-card>
@@ -88,11 +83,8 @@
                     <v-layout fill-height>
                       <v-flex xs10 align-end flexbox>
                         <span class="headline my-font-color">
-                          <em>{{format_date(experience.created_at) }}:</em> {{ experience.title }}
+                          <em>{{format_date(post.created_at) }}:</em> {{ post.title }}
                         </span>
-                      </v-flex>
-                      <v-flex xs2 align-end flexbox>
-                        <span class="headline my-font-color" v-html="experience.type"></span>
                       </v-flex>
                     </v-layout>
                   </v-container>
@@ -101,43 +93,41 @@
                   <!-- entry content -->
                   <v-layout row wrap>
                     <v-flex xs9>
-                      <span v-html="experience"></span>
+                      <span v-html="post"></span>
                     </v-flex>
                     <v-flex xs9>
                       <!-- columns for text -->
-                      <span v-html="experience.description"></span>
+                      <span v-html="post.body"></span>
                     </v-flex>
                     <v-flex xs3>
                       <!-- columns for picture -->
-                      <v-card-media v-bind:src="`http://cs.furman.edu/~ktreu/journal-advanced/images/${experience.image_url}`" height="125px" contain></v-card-media>
+                      <v-card-media v-bind:src="`http://cs.furman.edu/~ktreu/journal-advanced/images/${post.image_url}`" height="125px" contain></v-card-media>
                     </v-flex>
                     <v-flex xs12 md2>
-                      <v-btn dark color="red" v-on:click="deleteEntry(experience.id)">Delete Entry</v-btn>
+                      <v-btn dark color="red" v-on:click="DeleteBlogPost(post.id)">Delete Post</v-btn>
                     </v-flex>
                     <v-layout row justify-left>
-                      <v-dialog v-model="experience.editdialog" persistent width="50%">
-                        <v-btn dark color="grey" slot="activator">Edit This Experience</v-btn>
+                      <v-dialog v-model="post.editdialog" persistent width="50%">
+                        <v-btn dark color="grey" slot="activator">Edit This Post</v-btn>
                         <v-card>
                           <v-card-title>
-                            <span class="headline">Edit This Experience</span>
+                            <span class="headline">Edit This Post</span>
                           </v-card-title>
                           <v-card-text>
                             <v-container grid-list-md>
                               <v-layout wrap>
                                 <v-flex xs12>
-                                  <v-text-field label="Name" required></v-text-field>
+                                  <v-text-field label="First Name" required></v-text-field>
+                                  <v-text-field label="Last Name" required></v-text-field>
                                 </v-flex>
                                 <v-flex xs12>
                                   <v-text-field label="Email" required></v-text-field>
                                 </v-flex>
                                 <v-flex xs12>
-                                  <v-text-field label="Title" required v-model="experience.title"></v-text-field>
-                                </v-flex>
-                                <v-flex xs6>
-                                  <v-select label="Type of Experience" v-bind:items="categories" v-model="experience.type" single-line auto hide-details></v-select>
+                                  <v-text-field label="Title" required v-model="post.title"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 sm12>
-                                  <v-text-field multi-line label="Entry" required v-model="experience.description"></v-text-field>
+                                  <v-text-field multi-line label="Body" required v-model="post.body"></v-text-field>
                                 </v-flex>
                               </v-layout>
                             </v-container>
@@ -145,8 +135,8 @@
                           </v-card-text>
                           <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn disabled class="blue--text darken-1" flat v-on:click="UpdateExperience(experience.id)">Update</v-btn>
-                            <v-btn class="blue--text darken-1" flat v-on:click="closeDialog(blogEntry)">Cancel</v-btn>
+                            <v-btn disabled class="blue--text darken-1" flat v-on:click="EditBlogPost(experience.id)">Update</v-btn>
+                            <v-btn class="blue--text darken-1" flat v-on:click="closeDialog(post)">Cancel</v-btn>
                           </v-card-actions>
                         </v-card>
                       </v-dialog>
@@ -170,14 +160,14 @@ export default {
       dialog: false,
       deletealert: false,
       editalert: false,
-      title: "Experiences",
+      title: "Blog",
+      firstname: "",
+      lastname: "",
       email: "",
-      entryTitle: "",
-      entryContent: "",
-      category: "",
-      experiences: [
-        
-      ],
+      blogTitle: "",
+      desc: "",
+      type: "",
+      posts: [],
       emailRules: [
         v =>
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
@@ -186,9 +176,6 @@ export default {
       entryRules: [
         (v) => v && v.length <= 300 || 'Entry must be less than 300 words'
       ],
-      categories: ["Research", "Internship"],
-      categorySearch: "",
-      category: ""
     };
   },
   methods: {
@@ -208,30 +195,30 @@ export default {
     }
   },
   created() {
-    this.GetExperiences();
+    this.GetBlogPosts();
   },
-  GetExperiences() {
+  GetBlogPosts() {
     let self = this
-    axios.get('https://safe-beach-15501.herokuapp.com/api/experiences').then(
+    axios.get('https://safe-beach-15501.herokuapp.com/api/blog/posts').then(
       response => {
         console.log(response)
         let temp = response.data
         temp.forEach(obj => {obj.editdialog = false})  // new field added just for edit dialog
-        self.experiences = temp
+        self.posts = temp
       }
     )
   },
-  GetExperience(id) {
-    axios.get('https://safe-beach-15501.herokuapp.com/api/experiences/{id}')
+  GetBlogPost() {
+    axios.get('https://safe-beach-15501.herokuapp.com/api/blog/posts/{entry_id}')
   },
-  NewExperience() {
-    axios.post('https://safe-beach-15501.herokuapp.com/api/experiences/new')
+  NewBlogPost() {
+    axios.post('https://safe-beach-15501.herokuapp.com/api/blog/posts/new')
   },
-  UpdateExperience(id, entryTitle, entryContent) {
-    axios.put('https://safe-beach-15501.herokuapp.com/api/experiences/new')
+  EditBlogPost() {
+    axios.put('https://safe-beach-15501.herokuapp.com/api/blog/posts/update/{entry_id}')
   },
-  DeleteExperience(id) {
-    axios.delete('https://safe-beach-15501.herokuapp.com/api/experiences/delete/{id}')
+  DeleteBlogPost(id) {
+    axios.delete('https://safe-beach-15501.herokuapp.com/api/blog/posts/delete/{entry_id}')
   }
 };
 </script>
