@@ -1,13 +1,10 @@
 <template>
   <v-content>
-
-
-
     <p></p>
     <p></p>
   <v-layout column>
     <v-flex xs12 sm8 offset-sm2>
-
+ 
       <v-container fluid grid-list-md class="grey lighten-4">
         <v-layout row wrap>
           <v-flex xs12 sm12 >
@@ -15,116 +12,118 @@
         <v-card-media
           src="/static/gracehopper.png"
           height="400px"
-
+ 
         >
         </v-card-media>
         <v-card-title primary-title>
           <div>
             <div class="headline">Grace Hopper Celebration for Women in Comuting</div>
-            <span class="grey--text">1,000 miles of wonder</span>
+            <span class="grey--text">GHC 18 will be Sep. 26–28 in Houston, TX.</span>
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat>Share</v-btn>
-          <v-btn flat color="purple">Explore</v-btn>
+          <v-btn flat color="purple" href="https://ghc.anitab.org/">Learn More</v-btn>
           <v-spacer></v-spacer>
-          <v-btn icon @click.native="show = !show">
-            <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
+          <v-btn icon @click.native="show1 = !show1">
+            <v-icon>{{ show1 ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
           </v-btn>
-        </v-card-actions>
+            </v-card-actions>
         <v-slide-y-transition>
-          <v-card-text v-show="show">
-            I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+          <v-card-text v-show="show1">
+The Grace Hopper Celebration is the world's largest gathering of women technologists.
+It is produced by AnitaB.org and presented in partnership with ACM.
+The Grace Hopper Celebration consists of a combination of technical sessions and career sessions and includes a poster session, career fair, awards ceremony, and more. The conference features 650 presenters. Potential presenters submit proposals for panels, workshops, presentations, Birds of a Feather sessions, New Investigators papers, PhD Forum, and Poster Session, including ACM Student Research Competition.
           </v-card-text>
         </v-slide-y-transition>
       </v-card>
       <p></p>
-
+ 
       <v-card>
         <v-card-media
-          src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/17800488_1403123846427785_3900485199143704262_n.jpg?oh=2c99b8a56109a2b91b0241cbc93b9c3a&oe=5AD57E1E"
+          src="/static/travel1.jpg"
           height="400px"
-
+ 
         >
         </v-card-media>
         <v-card-title primary-title>
           <div>
             <div class="headline">Research Competitions</div>
-            <span class="grey--text">1,000 miles of wonder</span>
+            <span class="grey--text">Present your original research at a CS research conference</span>
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat>Share</v-btn>
-          <v-btn flat color="purple">Explore</v-btn>
+ 
+          <v-btn flat color="purple"  href="https://www.acm.org/conferences">Learn More</v-btn>
           <v-spacer></v-spacer>
-          <v-btn icon @click.native="show = !show">
-            <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
+          <v-btn icon @click.native="show2 = !show2">
+                      <v-icon>{{ show2 ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
           </v-btn>
         </v-card-actions>
         <v-slide-y-transition>
-          <v-card-text v-show="show">
-            I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+          <v-card-text v-show="show2">
+            Student Research Competitions offer a unique forum for undergraduate and graduate students to present their original research at sponsored and co-sponsored conferences before a panel of judges and attendees.
           </v-card-text>
         </v-slide-y-transition>
       </v-card>
       <p></p>
       <v-card>
         <v-card-media
-          src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/17759701_1403482169725286_5912564940964148913_n.jpg?oh=8cccc6a7af6b950c92ecd5f4cda8429e&oe=5A8D55C1"
+          src="/static/travel2.jpg"
           height="400px"
-
+ 
         >
         </v-card-media>
         <v-card-title primary-title>
           <div>
             <div class="headline">Research Conferences</div>
-            <span class="grey--text">1,000 miles of wonder</span>
+            <span class="grey--text">Explore other student and professional computer science research</span>
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat>Share</v-btn>
-          <v-btn flat color="purple">Explore</v-btn>
+ 
+          <v-btn flat color="purple" href="https://www.computer.org/web/conferences/calendar">Learn More</v-btn>
           <v-spacer></v-spacer>
-          <v-btn icon @click.native="show = !show">
-            <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
-          </v-btn>
+          <v-btn icon @click.native="show3 = !show3">
+            <v-icon>{{ show3 ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
+              </v-btn>
         </v-card-actions>
         <v-slide-y-transition>
-          <v-card-text v-show="show">
-            I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+          <v-card-text v-show="show3">
+            The open exchange of ideas and the freedom of thought and expression are central to the aims and goals of CS conferences.  These aims and goals require an environment that recognizes the inherent worth of every person and group, that fosters dignity, understanding, and mutual respect, and that embraces diversity.
           </v-card-text>
         </v-slide-y-transition>
       </v-card>
       <p></p>
       <v-card>
         <v-card-media
-          src="https://globalhack.org/hack-resources/uploads/2017/05/Global-Hack-6-2710_FAQweb.jpg"
+          src="/static/travel3.jpg"
           height="400px"
-
+ 
         >
         </v-card-media>
         <v-card-title primary-title>
           <div>
             <div class="headline">Programming Competitions</div>
-            <span class="grey--text">1,000 miles of wonder</span>
+            <span class="grey--text">It's an opportunity for students to test their ability in designing, understanding and implementing algorithms.
+</span>
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat>Share</v-btn>
-          <v-btn flat color="purple">Explore</v-btn>
+ 
+          <v-btn flat color="purple" href="http://trycomputing.org/inspire/computing-student-opportunities">Learn More</v-btn>
           <v-spacer></v-spacer>
-          <v-btn icon @click.native="show = !show">
-            <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
-          </v-btn>
+          <v-btn icon @click.native="show4 = !show4">
+            <v-icon>{{ show4 ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
+                </v-btn>
         </v-card-actions>
         <v-slide-y-transition>
-          <v-card-text v-show="show">
-            I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+          <v-card-text v-show="show4">
+            A programming competition generally involves the host presenting a set of logical or mathematical problems to the contestants (who can vary in number from tens to several thousands), and contestants are required to write computer programs capable of solving each problem. Judging is based mostly upon number of problems solved and time spent for writing successful solutions, but may also include other factors (quality of output produced, execution time, program size, etc.)
           </v-card-text>
         </v-slide-y-transition>
       </v-card>
     </v-flex>
-
+ 
         </v-layout>
       </v-container>
     </v-flex>
@@ -133,11 +132,11 @@
 </template>
 <script>
   export default {
-   data() {
-      show: false
-      return {
-
-      }
-    }
-    }
+    data: () => ({
+      show1: false,
+      show2: false,
+      show3: false,
+      show4: false
+    })
+  }
 </script>
