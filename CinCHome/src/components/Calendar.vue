@@ -138,7 +138,7 @@ export default {
       )
     },
       // formats date into necessary format for the vue-event-calendar components
-      // to recognize it as a date in the calendar
+      // to recognize it as a date in the calendar. Collaborated with Elliott for this.
     getEventMonth (date) {
       var firstLetYear = date.charAt(0)
       var secondLetYear = date.charAt(1)
@@ -152,7 +152,7 @@ export default {
       return properDate
     }
   }
-    /* getEvents () {
+     getEvents () {
       axios.get('/api/calendarevents')
         .then(function(response) {
           console.log(response);
@@ -178,8 +178,6 @@ export default {
           console.log(error);
         })
       }
-      */
-      // date, title, description
 }
 </script>
 
