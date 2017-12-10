@@ -61,9 +61,9 @@ export default new Router({
       component: Calendar
     },
     {
-      path: 'Students/projectops',
+      path: '/Students/projectops',
       name: 'Project Opportunities',
-      components: Projects
+      component: Projects
     },
     {
       path: '/Students/travelops',

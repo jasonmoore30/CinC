@@ -1,154 +1,123 @@
 <template>
- <v-content>
+  <v-content>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></head>
     <p></p>
-    <p></p>
-<div id="app">
-  <v-app id="inspire">
-    <p></p>
-    <p></p>
-    <p class="text-sm-center">Here you can find all of the suggested CinC courses and even suggest a CinC course</p>
-    <p></p>
-    <div>
-   <v-data-table
-      v-bind:headers="headers"
-      :items="courses"
-      class="elevation-1"
-    >
-    <template slot="headerCell" scope="props">
-      <v-tooltip bottom>
-        <span slot="activator">
-          {{ props.header.text }}
-        </span>
-        <span>
-          {{ props.header.text }}
-        </span>
-      </v-tooltip>
-    </template>
+    <div id="app">
+      <v-app id="inspire">
+        <p></p>
+        <center>
+          <h2>Here you can find all of the suggested CinC courses and even suggest a CinC course</h2>
+        </center>
 
-    <template slot="courses" scope="props">
-      <td>{{ props.course.courseName }}</td>
-
-      <td class="text-xs-left">{{ props.course.dept }}</td>
-      <td class="text-xs-left">{{ props.course.faculty }}</td>
-      <td class="text-xs-left">{{ props.course.descrip }}</td>
-
-    <!--   <td>
+        <p></p>
+        <div>
+          <p>Here you can find all of the current CinC courses</p>
+          <v-data-table v-bind:headers="headers" :items="courses" class="elevation-1">
+            <template slot="headerCell" scope="props">
+              <v-tooltip bottom>
+                <span slot="activator">
+                  {{ props.header.text }}
+                </span>
+                <span>
+                  {{ props.header.text }}
+                </span>
+              </v-tooltip>
+            </template>
+            <template slot="courses" scope="props">
+              <td>{{ props.course.courseName }}</td>
+              <td class="text-xs-left">{{ props.course.dept }}</td>
+              <td class="text-xs-left">{{ props.course.faculty }}</td>
+              <td class="text-xs-left">{{ props.course.descrip }}</td>
+              <td><md-icon class=" md-size-2x fa fa-facebook-official"></md-icon></td>
+              <!--   <td>
+      <i class="glyphicon glyphicon-chevron-up" @click="upvote" :class="{disabled: upvoted}"></i>
+      <span class="label label-primary">{{ votes }}</span>
+      <i class="glyphicon glyphicon-chevron-down" @click="downvote" :class="{disabled: downvoted}"></i>
+      </td> -->
+            </template>
+          </v-data-table>
+        </div>
+        <p></p>
+        <div>
+          <p>Here is a list of suggested CinC courses</p>
+          <v-data-table v-bind:headers="headers" :items="courses" class="elevation-1">
+            <template slot="headerCell" scope="props">
+              <v-tooltip bottom>
+                <span slot="activator">
+                  {{ props.header.text }}
+                </span>
+                <span>
+                  {{ props.header.text }}
+                </span>
+              </v-tooltip>
+            </template>
+            <template slot="courses" scope="props">
+              <td>{{ props.course.courseName }}</td>
+              <td class="text-xs-left">{{ props.course.dept }}</td>
+              <td class="text-xs-left">{{ props.course.faculty }}</td>
+              <td class="text-xs-left">{{ props.course.descrip }}</td>
+              <!--   <td>
       <i class="glyphicon glyphicon-chevron-up" @click="upvote" :class="{disabled: upvoted}"></i>
       <span class="label label-primary">{{ votes }}</span>
       <i class="glyphicon glyphicon-chevron-down" @click="downvote" :class="{disabled: downvoted}"></i>
       </td> -->
 
-
-    </template>
-  </v-data-table>
-  </div>
-  <p></p>
-  <div>
-    <v-data-table
-      v-bind:headers="headers"
-      :items="courses"
-      class="elevation-1"
-    >
-    <template slot="headerCell" scope="props">
-      <v-tooltip bottom>
-        <span slot="activator">
-          {{ props.header.text }}
-        </span>
-        <span>
-          {{ props.header.text }}
-        </span>
-      </v-tooltip>
-    </template>
-
-    <template slot="courses" scope="props">
-      <td>{{ props.course.courseName }}</td>
-
-      <td class="text-xs-left">{{ props.course.dept }}</td>
-      <td class="text-xs-left">{{ props.course.faculty }}</td>
-      <td class="text-xs-left">{{ props.course.descrip }}</td>
-    <!--   <td>
-      <i class="glyphicon glyphicon-chevron-up" @click="upvote" :class="{disabled: upvoted}"></i>
-      <span class="label label-primary">{{ votes }}</span>
-      <i class="glyphicon glyphicon-chevron-down" @click="downvote" :class="{disabled: downvoted}"></i>
-      </td> -->
-
-
-    </template>
-  </v-data-table>
-  </div>
-    <v-layout row justify-center>
-      <v-dialog v-model="dialog" ref="form" persistent max-width="800px">
-        <v-btn color="primary" dark slot="activator">Suggest a Course</v-btn>
-
-        <v-card>
-          <v-card-title>
-            <span class="headline">Course Suggestions</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field label="First Name" required></v-text-field>
-                </v-flex>
-
-                <v-flex xs12 sm6 md4>
-                  <v-text-field label="Last Name" required></v-text-field>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field
-                   label="Email" required v-model="email"
-                   :rules="emailRules"
-                   required></v-text-field>
-                </v-flex>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field label="Course Title" required></v-text-field>
-                </v-flex>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field label="Course Description" required></v-text-field>
-                </v-flex>
-
-
-                <v-flex xs12 sm6>
-                  <v-select
-                    label="Department(s)"
-                    multiple
-                    autocomplete
-                    chips
-                    :items="depts"
-                  ></v-select>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field label="Faculty Name(s)"hint="Please include first and last name of faculty member separated with a comma"
-                    persistent-hint
-                    required required></v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-container>
-            <small>*indicates required field</small>
-          </v-card-text>
-          <v-checkbox
-      label="Do you agree?"
-      v-model="checkbox"
-      :rules="[v => !!v || 'You must agree to continue!']"
-      required
-      ></v-checkbox>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" flat @click.native="dialog = false">Close</v-btn>
-            <v-btn color="blue darken-1" flat @click="clear">Clear</v-btn>
-            <v-btn color="blue darken-1" flat @click="submit" :disabled="!valid" >Submit</v-btn>
-          </v-card-actions>
-        </v-card>
-
-      </v-dialog>
-    </v-layout>
-  </v-app>
-
-</div>
-</v-content>
+            </template>
+          </v-data-table>
+        </div>
+        <v-layout row justify-center>
+          <v-dialog v-model="dialog" ref="form" persistent max-width="800px">
+            <v-btn color="primary" dark slot="activator">Suggest a Course</v-btn>
+            <v-card>
+              <v-card-title>
+                <span class="headline">Course Suggestions</span>
+              </v-card-title>
+              <v-card-text>
+                <v-container grid-list-md>
+                  <v-layout wrap>
+                    <v-flex xs12 sm6 md4>
+                      <v-text-field label="First Name" required></v-text-field>
+                    </v-flex>
+                    <v-flex xs12 sm6 md4>
+                      <v-text-field label="Last Name" required></v-text-field>
+                    </v-flex>
+                    <v-flex xs12>
+                      <v-text-field label="Email" required v-model="email" :rules="emailRules" required></v-text-field>
+                    </v-flex>
+                    </v-flex>
+                    <v-flex xs12>
+                      <v-text-field label="Course Title" required></v-text-field>
+                    </v-flex>
+                    </v-flex>
+                    <v-flex xs12>
+                      <v-text-field label="Course Description" required></v-text-field>
+                    </v-flex>
+                    <v-flex xs12 sm6>
+                      <v-select label="Department(s)" multiple autocomplete chips :items="depts"></v-select>
+                    </v-flex>
+                    <v-flex xs12>
+                      <v-text-field label="Faculty Name(s)" hint="Please include first and last name of faculty member separated with a comma"
+                        persistent-hint required required></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+                <small>*indicates required field</small>
+              </v-card-text>
+              <v-checkbox label="Do you agree?" v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" required></v-checkbox>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-1" flat @click.native="dialog = false">Close</v-btn>
+                <v-btn color="blue darken-1" flat @click="clear">Clear</v-btn>
+                <v-btn color="blue darken-1" flat @click="submit" :disabled="!valid">Submit</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-layout>
+      </v-app>
+    </div>
+  </v-content>
 </template>
+
 <<script>
 export default {
   data () {

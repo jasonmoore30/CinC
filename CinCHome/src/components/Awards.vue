@@ -1,7 +1,9 @@
 <template>
   <v-content>
     <p></p>
-  <h3>Computer Science faculty nominates and awards computer science students</h3>
+<center>
+  <h3 >Furman University Computer Science Department has awarded outstanding CS students over the years.</h3>
+</center>
   <v-layout row>
     <v-flex xs10 offset-xs1>
       <v-card>
