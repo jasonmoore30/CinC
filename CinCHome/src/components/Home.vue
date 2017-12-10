@@ -24,6 +24,7 @@
       <v-container fluid grid-list-xl>
         <v-layout row wrap justify-space-between>
           <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" :href="cards.url">
+            <router-link :to="card.url">
             <v-card height="300px" width="300px">
               <v-tooltip>
                 <v-card-media slot="activator" :src="card.src" height="300px" width="300px">
@@ -31,8 +32,8 @@
                   <v-container fill-height fluid>
                     <v-layout row wrap align-center justify-center>
                       <v-flex xs12 class="text-xs-center">
-                        <div id="backBox" href="/Courses">
-                        <span class="headline white--text" v-text="card.title"></span>
+                        <div id="backBox">
+                          <span class="display-1 white--text">{{card.title}}</span>
                         </div>
                       </v-flex>
                     </v-layout>
@@ -41,6 +42,7 @@
                 </v-card-media>
               </v-tooltip>
             </v-card>
+            </router-link>
           </v-flex>
         </v-layout>
       </v-container>
@@ -135,7 +137,7 @@
         ],
         calBlogCards: [{
             title: "Calendar",
-            src: "http://www.delhifbc.com/uploads/2/1/9/6/21960794/upcomingevents_orig.jpg",
+            src: "/static/upcomingevents.jpg",
             flex: 6
         },
         {
@@ -175,6 +177,12 @@
 
   #backBox {
     background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  a:link {
+    color:white;
+    background-color: transparent;
+    text-decoration: none;
   }
 
   #calBox {
