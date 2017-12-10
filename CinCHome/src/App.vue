@@ -15,11 +15,7 @@
 
         <v-toolbar-title class="display-3"> <p></p> <p> </p> Computing in Community</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn icon large to="/">
-          <v-avatar>
-            <img src="/static/logo.png">
-          </v-avatar>
-        </v-btn>
+  
         <!--<v-btn v-bind:src="btnLogo.src" :to="btnLogo.url" large right>logo </v-btn> -->
         
 

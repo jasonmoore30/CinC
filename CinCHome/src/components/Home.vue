@@ -12,12 +12,15 @@
       <div class="grey lighten-3" id="about">
         <v-container >
           <v-layout justify-space-between row wrap >
+            <img src="/static/bwLogo.png" style="height:250px;width:250px;clear:both">
+            <div id= "aboutText">
             <span class="display-2 black--text" v-text="aboutTitle"></span>
             <span class="display-1 black--text" v-text="about"></span>
+            </div>
           </v-layout>
         </v-container>
       </div>
-
+  
       <v-container fluid grid-list-xl>
         <v-layout row wrap justify-space-between>
           <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" @click.native="cards.url">
@@ -70,7 +73,9 @@
       
 
       <div id="calBox">
-          <span> This is where the calendar will show </span>
+          <span class="calEventBox" onload="performGetRequest1()"> </span>
+          <span class="calEventBox" onload="performGetRequest2()"> </span>
+          <span class="calEventBox" onload="performGetRequest3()"> </span>
       </div>
 
       <div id="blogBox">
@@ -90,6 +95,7 @@
         aboutTitle: "Mission Statement:",
         about: "Bring the Greenville-Furman communities together through computing in daily life.",
         title: "Computing in Community",
+        calEvent: [],
 
         carouselImg: [{
             src: '/static/carousel1.jpg'
@@ -138,14 +144,33 @@
             flex: 6
         }],
       };
+    },
+
+    methods() {
+      
+      performGetRequest1() {
+        var resultElement = document.getElementById('1');
+        resultElement.innerHTML = '';
+      }
     }
   };
+
 
 </script>
 
 <style>
-#about {
+  #about {
     margin-top:2%;
+  }
+
+  #about img {
+    margin:auto;
+    clear:both;
+  }
+
+  #aboutText {
+    float: right;
+    clear: both;
   }
 
   #backBox {
