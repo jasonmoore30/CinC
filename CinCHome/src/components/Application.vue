@@ -5,12 +5,7 @@
         <h1 class="white--text mb-2 display-3">Cinc Applications</h1>
       </v-layout>
     </v-parallax>
-    <v-data-table
-      :headers="headers"
-      :items="items"
-      hide-actions
-      item-key="name"
-    >
+    <v-data-table :headers="headers" :items="items" hide-actions item-key="name">
       <template slot="items" slot-scope="props">
         <tr @click="props.expanded = !props.expanded">
           <td>{{ props.item.name }}</td>
@@ -28,8 +23,22 @@
       </template>
       
     </v-data-table>
-    <v-btn dark color="purple">Submit Application</v-btn>
-    <v-btn disabled dark color="purple">Submit Opportunity</v-btn>
+    <template>
+      <vue-clip :options="options">
+        <template slot="clip-uploader-action">
+          <div>
+            <div class="dz-message"><v-btn dark color="purple"> Submit Application</v-btn></div>
+          </div>
+        </template>
+
+        <template slot="clip-uploader-body" scope="props">
+          <div v-for="file in props.files">
+            <img v-bind:src="file.dataUrl" />
+              {{ file.name }} {{ file.status }}          
+          </div>
+        </template>
+      </vue-clip>
+    </template>
   </v-content>
 </template>
 
@@ -38,8 +47,8 @@ export default {
   data() {
     return {
       options: {
-          url: '/upload',
-          paramName: 'file'
+        url: '/upload',
+        paramName: 'file'
       },
       categories: ["Research", "Internship"],
       headers: [
@@ -80,3 +89,4 @@ export default {
   }
 };
 </script>
+
