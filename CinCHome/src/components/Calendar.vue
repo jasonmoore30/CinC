@@ -150,9 +150,8 @@ export default {
       var secondLetDay = date.charAt(9)
       var properDate = firstLetYear + secondLetYear + thirdLetYear + fourthLetYear + '/' + firstLetMonth + secondLetMonth + '/' + firstLetDay + secondLetDay
       return properDate
-    }
-  }
-     getEvents () {
+    },
+     /*getEvents () {
       axios.get('/api/calendarevents')
         .then(function(response) {
           console.log(response);
@@ -160,8 +159,9 @@ export default {
         .catch(function (error) {
           console.log(error);
         })
-      },
+      },*/
     addEvent () {
+      console.log('adding event')
       axios.post('/api/calendar/events/new') {
         title: this.title,
         email: this.email,
@@ -178,6 +178,7 @@ export default {
           console.log(error);
         })
       }
+}
 }
 </script>
 
