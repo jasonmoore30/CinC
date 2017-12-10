@@ -9,7 +9,7 @@
         <v-carousel-item v-for="(pic,i) in carouselImg" v-bind:src="pic.src" :key="i"></v-carousel-item>
       </v-carousel>
 
-      <div class="grey lighten-3">
+      <div class="grey lighten-3" id="about">
         <v-container >
           <v-layout justify-space-between row wrap >
             <span class="display-2 black--text" v-text="aboutTitle"></span>
@@ -20,7 +20,7 @@
 
       <v-container fluid grid-list-xl>
         <v-layout row wrap justify-space-between>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" :to="cards.url">
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" @click.native="cards.url">
             <v-card height="300px" width="300px">
               <v-tooltip>
                 <v-card-media slot="activator" :src="card.src" height="300px" width="300px">
@@ -45,16 +45,16 @@
   
      <v-container fluid grid-list-xl>
         <v-layout justify-space-between row wrap>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calCard" :key="card.title" :to="calCard.url">
-            <v-card height="300px" width="300px">
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calBlogCards" :key="card.title" :to="calBlogCards.url">
+            <v-card height="100px">
               <tooltip>
-                <v-card-media slot="activator" :src="card.src" height="300px" width= "300px">
+                <v-card-media slot="activator" :src="card.src" height="100px">
 
                   <v-container fill-height fluid>
                     <v-layout row wrap align-center justify-center>
                       <v-flex xs12 class="text-xs-center">
                         <div id="backBox">
-                        <span class="headline white--text" v-text="calCard.title"></span>
+                        <span class="headline white--text" v-text="calBlogCards.title"></span>
                         </div>
                       </v-flex>
                     </v-layout>
@@ -67,8 +67,17 @@
         </v-layout>
       </v-container>
 
-    </v-content>
+      
 
+      <div id="calBox">
+          <span> This is where the calendar will show </span>
+      </div>
+
+      <div id="blogBox">
+          <span> This is where the blog will show </span>
+      </div>
+
+    </v-content>
   </v-app>
 </template>
 
@@ -112,15 +121,20 @@
             flex: 6
           },
           {
-            title: "CinC Commutity Partners",
-            src: "https://parkergroupservices.com/wp-content/uploads/New-Home-The-Parker-Group.jpg",
+            title: "CinC Communtity Partners",
+            src: "/static/comunityPartnersPic.jpg",
             url: "/CommunityPartners",
             flex: 6
           }
         ],
-        calCard: [{
+        calBlogCards: [{
             title: "Calendar",
             src: "http://www.delhifbc.com/uploads/2/1/9/6/21960794/upcomingevents_orig.jpg",
+            flex: 6
+        },
+        {
+            title: "Blog",
+            src: "",
             flex: 6
         }],
       };
@@ -130,12 +144,32 @@
 </script>
 
 <style>
+#about {
+    margin-top:2%;
+  }
+
   #backBox {
     background-color: rgba(0, 0, 0, 0.3);
   }
 
-  #cardColumns {
-    column-count: 2;
-   }
+  #calBox {
+    background-color:lightgrey;
+    height: 300px;
+    width:47%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    float: left;
+    clear: none;
+  }
+
+  #blogBox {
+    background-color:lightgrey;
+    height: 300px;
+    width:47%;
+    margin-right: 2%;
+    margin-bottom:2%;
+    float: right;
+    clear: none;
+  }
 
 </style>
