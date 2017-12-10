@@ -14,7 +14,6 @@
           <v-layout justify-space-between row wrap >
             <img src="/static/bwLogo.png" style="height:250px;width:250px;clear:both">
             <div id= "aboutText">
-            <span class="display-2 black--text" v-text="aboutTitle"></span>
             <span class="display-1 black--text" v-text="about"></span>
             </div>
           </v-layout>
@@ -94,7 +93,6 @@
       return {
         clipped: false,
         fixed: false,
-        aboutTitle: "Mission Statement:",
         about: "Bring the Greenville-Furman communities together through computing in daily life.",
         title: "Computing in Community",
         calEvent: [],
