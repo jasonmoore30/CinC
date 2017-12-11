@@ -39,13 +39,13 @@
                             <v-text-field label="Email" v-model="email" :rules="emailRules" required></v-text-field>
                           </v-flex>
                           <v-flex xs12>
-                            <v-text-field label="Title" required v-model="entryTitle"></v-text-field>
+                            <v-text-field label="Title" required v-model="url"></v-text-field>
                           </v-flex>
                           <v-flex xs6>
-                            <v-select required v-bind:items="categories" v-model="category" label="Select the type of experience" single-line auto hide-details></v-select>
+                            <v-select required v-bind:items="categories" v-model="type" label="Select the type of experience" single-line auto hide-details></v-select>
                           </v-flex>
                           <v-flex xs12 sm12>
-                            <v-text-field multi-line label="Describe your experience. Be sure to describe what you did, learned, value, etc" required v-model="entryContent" :rules="entryRules" :counter="1500"></v-text-field>
+                            <v-text-field multi-line label="Describe your experience. Be sure to describe what you did, learned, value, etc" required v-model="desc" :rules="entryRules" :counter="1500"></v-text-field>
                           </v-flex>
                           <v-checkbox label="Do you agree?" v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" required></v-checkbox>
                         </v-layout>
@@ -54,7 +54,6 @@
                     </v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn class="purple--text darken-1" flat @click="clear">Clear</v-btn>
                       <v-btn class="purple--text darken-1" flat v-on:click="dialog = false">Cancel</v-btn>
                       <v-btn class="purple--text darken-1" flat v-on:click="NewExperience">Post</v-btn>
                     </v-card-actions>
@@ -91,7 +90,7 @@
                     <v-layout fill-height>
                       <v-flex xs10 align-end flexbox>
                         <span class="headline my-font-color">
-                          <em>{{format_date(experience.created_at) }}:</em> {{ experience.title }}
+                          <em>{{format_date(experience.created_at) }}:</em> {{ experience.url }}
                         </span>
                       </v-flex>
                       <v-flex xs2 align-end flexbox>
@@ -103,16 +102,16 @@
                 <v-card-title>
                   <!-- entry content -->
                   <v-layout row wrap>
-                    <v-flex xs9>
-                      <span v-html="experience"></span>
+                    <v-flex xs12>
+                      <span v-html="experience.firstname"></span>
+                      <span v-html="experience.lastname"></span>
                     </v-flex>
-                    <v-flex xs9>
+                    <v-flex xs12>
+                      <span v-html="experience.email"></span>
+                    </v-flex>
+                    <v-flex xs12>
                       <!-- columns for text -->
-                      <span v-html="experience.description"></span>
-                    </v-flex>
-                    <v-flex xs3>
-                      <!-- columns for picture -->
-                      <v-card-media v-bind:src="`http://cs.furman.edu/~ktreu/journal-advanced/images/${experience.image_url}`" height="125px" contain></v-card-media>
+                      <span v-html="experience.desc"></span>
                     </v-flex>
                     <v-flex xs12 md2>
                       <v-btn dark color="red" v-on:click="DeleteExperience(experience.id)">Delete Entry</v-btn>
@@ -151,8 +150,8 @@
                           </v-card-text>
                           <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn disabled class="blue--text darken-1" flat v-on:click="UpdateExperience(experience.id)">Update</v-btn>
-                            <v-btn class="blue--text darken-1" flat v-on:click="closeDialog(blogEntry)">Cancel</v-btn>
+                            <v-btn class="blue--text darken-1" flat v-on:click="UpdateExperience(experience.id)">Update</v-btn>
+                            <v-btn class="blue--text darken-1" flat v-on:click="closeDialog(experience)">Cancel</v-btn>
                           </v-card-actions>
                         </v-card>
                       </v-dialog>
@@ -169,6 +168,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -176,10 +176,13 @@ export default {
       dialog: false,
       deletealert: false,
       editalert: false,
-      email: "",
-      entryTitle: "",
-      entryContent: "",
-      category: "",
+      firstname: '',
+      lastname: '',
+      email: '',
+      url: '',
+      desc: '',
+      type: '',
+      categorySearch: '',
       experiences: [],
       emailRules: [
         v =>
@@ -190,17 +193,16 @@ export default {
         (v) => v && v.length <= 1500 || 'Entry must be less than 1500 characters'
       ],
       categories: ["Research", "Internship"],
-      category: ""
     };
   },
   methods: {
     closeAllDialog() {
-      this.blogEntries.forEach(obj => {
+      this.experiences.forEach(obj => {
         obj.editdialog = false;
       });
     },
     closeDialog(e) {
-      console.log(this.blogEntries);
+      console.log(this.experiences);
       console.log(e.editdialog);
       e.editdialog = false;
     },
@@ -220,13 +222,56 @@ export default {
       )
     },
     GetExperience(id) {
-      axios.get('https://safe-beach-15501.herokuapp.com/api/experiences/{id}')
+      axios.get('https://safe-beach-15501.herokuapp.com/api/experiences/' + id)
     },
     NewExperience() {
-      axios.post('https://safe-beach-15501.herokuapp.com/api/experiences/new')
+      let self = this
+      console.log(self.firstname, self.lastname, self.email,self.type, self.desc, self.url)
+      axios({
+        method: 'post',
+        headers: {
+          'Content-Type': 'application-json'
+        },
+        url: 'https://safe-beach-15501.herokuapp.com/api/experiences/new',
+        data: {
+          firstname: self.firstname, 
+          lastname: self.lastname, 
+          email: self.email, 
+          type: self.type, 
+          desc: self.desc,
+          url: self.url,
+          approved: 0
+        },
+        json: true
+      }).then(response => {
+          console.log(response)
+          self.GetExperiences()
+        }
+      );
+      // axios.post('https://safe-beach-15501.herokuapp.com/api/experiences/new', {
+        // firstname: self.firstname, 
+        // lastname: self.lastname, 
+        // email: self.email, 
+        // type: self.type, 
+        // desc: self.desc,
+        // url: self.url,
+      //   approved: 0
+      // }).then(
+      //   response => {
+      //     console.log(response)
+      //     self.GetExperiences()
+      //   }
+      // )
     },
-    UpdateExperience(id, entryTitle, entryContent) {
-      axios.put('https://safe-beach-15501.herokuapp.com/api/experiences/new')
+    UpdateExperience() {
+      let self = this
+      axios.put('https://safe-beach-15501.herokuapp.com/api/experiences/new').then(
+        response => {
+          console.log(response)
+          self.GetExperiences()
+        }
+      )
+
     },
     DeleteExperience(id) {
       axios.delete('https://safe-beach-15501.herokuapp.com/api/experiences/delete/{id}')
