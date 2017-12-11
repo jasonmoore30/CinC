@@ -24,23 +24,23 @@
         <v-layout row wrap justify-space-between>
           <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" :href="cards.url">
             <router-link :to="card.url">
-            <v-card height="300px" width="300px">
-              <v-tooltip>
-                <v-card-media slot="activator" :src="card.src" height="300px" width="300px">
+              <v-card height="300px" width="300px">
+                <v-tooltip>
+                  <v-card-media slot="activator" :src="card.src" height="300px" width="300px">
 
-                  <v-container fill-height fluid>
-                    <v-layout row wrap align-center justify-center>
-                      <v-flex xs12 class="text-xs-center">
-                        <div id="backBox">
-                          <span class="display-1 white--text">{{card.title}}</span>
-                        </div>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
+                    <v-container fill-height fluid>
+                      <v-layout row wrap align-center justify-center>
+                        <v-flex xs12 class="text-xs-center">
+                          <div id="backBox">
+                            <span class="headline white--text">{{card.title}}</span>
+                          </div>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
 
-                </v-card-media>
-              </v-tooltip>
-            </v-card>
+                  </v-card-media>
+                </v-tooltip>
+              </v-card>
             </router-link>
           </v-flex>
         </v-layout>
@@ -49,34 +49,33 @@
   
      <v-container fluid grid-list-xl>
         <v-layout justify-space-between row wrap>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calBlogCards" :key="card.title" :href="calBlogCards.url">
-            <v-card height="100px">
-              <tooltip>
-                <v-card-media slot="activator" :src="card.src" height="100px">
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calBlogCards" :key="card.title">
+             <router-link :to="card.url">
+              <v-card height="100px">
+                <tooltip>
+                  <v-card-media slot="activator" :src="card.src" height="100px">
 
-                  <v-container fill-height fluid>
-                    <v-layout row wrap align-center justify-center>
-                      <v-flex xs12 class="text-xs-center">
-                        <div id="backBox">
-                        <span class="headline white--text" v-text="calBlogCards.title"></span>
-                        </div>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
+                    <v-container fill-height fluid>
+                      <v-layout row wrap align-center justify-center>
+                        <v-flex xs12 class="text-xs-center">
+                          <div id="backBox">
+                          <span class="headline white--text" v-text="calBlogCards.title"></span>
+                          </div>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
 
-                </v-card-media>
-                </tooltip>
-            </v-card>
+                  </v-card-media>
+                  </tooltip>
+              </v-card>
+            </router-link>
           </v-flex>
         </v-layout>
       </v-container>
 
-      
-
       <div id="calBox">
-          <span class="calEventBox" onload="performGetRequest1()"> </span>
-          <span class="calEventBox" onload="performGetRequest2()"> </span>
-          <span class="calEventBox" onload="performGetRequest3()"> </span>
+
+         <span> {{this.calEvent[0].title}}</span>
       </div>
 
       <div id="blogBox">
@@ -88,6 +87,7 @@
 </template>
 
 <script>
+import axios from 'axios'
   export default {
     data() {
       return {
@@ -136,25 +136,40 @@
         calBlogCards: [{
             title: "Calendar",
             src: "/static/upcomingevents.jpg",
-            flex: 6
+            flex: 6,
+            url:"/Calendar"
         },
         {
             title: "Blog",
             src:"/static/blogPic.jpg",
-            flex: 6
+            flex: 6,
+            url:"/Blog"
         }],
       };
     },
 
-    methods() { 
+    methods: {
 
-      performGetRequest1(); {
-        var resultElement = document.getElementById('1');
-        resultElement.innerHTML = '';
+      fetchEvent() {
+      let self = this
+      axios.get('https://safe-beach-15501.herokuapp.com/api/calendar/events').then(
+        response => {
+          console.log(response)
+          let temp = response.data
+          temp.forEach(obj => {obj.editdialog = false})
+          self.calEvent = temp
+
+          // temp.forEach(obj => {obj.editdialog = false})  // new field added just for edit dialog
+          // self.blogEntries = temp
+        }
+      )
       }
+    },
+    mounted: function() {
+      self = this;
+      self.fetchEvent();
     }
-  };
-
+  }
 
 </script>
 

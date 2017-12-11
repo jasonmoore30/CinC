@@ -35,7 +35,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   body {
     font-family: Helvetica, sans-serif;
   }
