@@ -114,10 +114,12 @@
           <tr>
             <th>Title</th>
             <th>Post</th>
+            <th>Date</th>
           </tr>
           <tr>
             <td>{{this.blogPost[0].title}}</td>
             <td>{{this.blogPost[0].body}}</td>
+            <td>{{this.blogPost[0].post_date}}</td>
           </tr>
         </table>
       </div>
@@ -248,7 +250,7 @@ table, th, td{
   }
 
   #backBox {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   a:link {
