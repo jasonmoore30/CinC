@@ -55,7 +55,10 @@
   }
 
 </script>
-<style>
+<style scoped>
+#backBox {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
   body {
     font-family: Helvetica, sans-serif;
   }
