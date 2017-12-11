@@ -1,33 +1,49 @@
 <template>
   <v-content>
-    <v-parallax src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/18056693_1423117824428387_6400334492341698901_n.jpg?oh=def96893d7389e6446b27bd689ed627a&oe=5A93EC1D" height="1000">
+    <router-view></router-view>
+    <v-parallax src="../static/students1.jpg" height="700">
       <v-layout column align-center justify-center class="white--text">
-        <h1 class="white--text mb-2 display-3">CinC Students</h1>
+        <h1 class="white--text mb-2 display-3">Who are CinC Students</h1>
       </v-layout>
     </v-parallax>
+    <div align="center">
+      <h4>
+        CinC students have been a large part of the CinC community. They participate in research, programming competitions, and conferences.
+        CinC students work on projects with Furman faculty members, local Greenville community members, or even professional
+        tech companies! Explore the great things CinC students can do.
+      </h4>
+    </div>
+    <p></p>
+    <v-parallax src="../static/students2.jpg" height="600">
+      <v-layout column align-center justify-center class="white--text">
+        <h1 class="white--text mb-2 display-3">Learn more about CinC Student Experiences</h1>
+      </v-layout>
+    </v-parallax>
+    <p></p>
+    <div align="center">
+      <h4>
+        From internships to research, CinC students share their thoughts, advice, and things they've learned in our Students experiences
+        page.
+      </h4>
+    </div>
+    <p></p>
+    <v-parallax src="../static/students4.jpg" height="600">
+      <v-layout column align-center justify-center class="white--text">
+        <h1 class="white--text mb-2 display-3">CinC Student Opportunities</h1>
+      </v-layout>
+    </v-parallax>
+    <div align="center">
+      <h4>
+        CinC connects students to travel opportunities, like conferences, and project opportunities, like internships. Check out
+        the different projects that are open and upcoming events.
+      </h4>
+    </div>
+    <div class="text-xs-center">
+    <v-btn outline color="purple darken-3" >Travel Opportunities</v-btn>
+    <v-btn outline color="purple darken-3">Project Opportunities</v-btn>
+  </div>
 <p></p>
-    <p></p>
-    <p></p>
-    <h3>Meet the dedicated faculty and staff members in the Computer Science Department and see what courses they're offering</h3>
-    <v-parallax src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/17795939_1403594246380745_8462921258604241790_n.jpg?oh=824a64b0714989171c3f7870588ea347&oe=5A92A0A1" height="600">
-      <v-layout column align-center justify-center class="white--text">
-        <h1 class="white--text mb-2 display-3">CinC Faculty</h1>
-      </v-layout>
-    </v-parallax>
-    <p></p>
-    <p></p>
-    <p></p>
-    <h3>Looking for a Teaching Fellow or Student Fellow? Send an application here!</h3>
-    <v-parallax src="http://www.carolinarealtyguide.com/images/dreamstime_s_30890018_800.jpg" height="700">
-      <v-layout column align-center justify-center class="white--text">
-        <h1 class="white--text mb-2 display-3">CinC Faculty</h1>
-      </v-layout>
-    </v-parallax>
-    <p></p>
-    <p></p>
-    <p></p>
-    <h3>Take a look at the current project opportunities available for students. Want to submit a project idea? Apply here</h3>
-    </v-content>
+  </v-content>
 </template>
 <script>
   export default {
@@ -37,6 +53,7 @@
       }
     }
   }
+
 </script>
 <style>
   body {

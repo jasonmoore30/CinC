@@ -9,73 +9,81 @@
         <v-carousel-item v-for="(pic,i) in carouselImg" v-bind:src="pic.src" :key="i"></v-carousel-item>
       </v-carousel>
 
-      <div id="aboutStatment">
-        <v-container>
-          <v-layout justify-space-between row wrap class="grey">
-            <span class="display-3 black--text" v-text="aboutTitle"></span>
-            <span class="display-2 black--text" v-text="about"></span>
+      <div class="grey lighten-3" id="about">
+        <v-container >
+          <v-layout justify-space-between row wrap >
+            <img src="/static/bwLogo.png" style="height:250px;width:250px;clear:both">
+            <div id= "aboutText">
+            <span class="display-1 black--text" v-text="about"></span>
+            </div>
           </v-layout>
         </v-container>
       </div>
 
       <v-container fluid grid-list-xl>
-        <v-layout flex-direction:column align-start>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cardsL" :key="card.title" :to="cardsL.url">
-            <v-card height="300px">
+        <v-layout row wrap justify-space-between>
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" :href="cards.url">
+            <router-link :to="card.url">
+            <v-card height="300px" width="300px">
               <v-tooltip>
-                <v-card-media slot="activator" :src="card.src" height="300px">
+                <v-card-media slot="activator" :src="card.src" height="300px" width="300px">
 
                   <v-container fill-height fluid>
-                    <v-layout align-left justify-center>
+                    <v-layout row wrap align-center justify-center>
                       <v-flex xs12 class="text-xs-center">
-                        <span class="headline white--text" v-text="card.title"></span>
+                        <div id="backBox">
+                          <span class="display-1 white--text">{{card.title}}</span>
+                        </div>
                       </v-flex>
                     </v-layout>
                   </v-container>
+
                 </v-card-media>
               </v-tooltip>
             </v-card>
+            </router-link>
           </v-flex>
         </v-layout>
       </v-container>
 
-      <v-container fluid grid-list-xl>
-        <v-layout flex-direction:column>
-          <v-flex contain>
-            <v-card>
-              <v-layout>
 
-              </v-layout>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
-
-      <v-container fluid grid-list-xl>
-        <v-layout flex-direction:column>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cardsR" :key="card.title">
-            <v-card height="300px" >
-              <v-tooltip>
-                <v-card-media slot="activator" :src="card.src" height="300px">
+     <v-container fluid grid-list-xl>
+        <v-layout justify-space-between row wrap>
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calBlogCards" :key="card.title" :href="calBlogCards.url">
+            <v-card height="100px">
+              <tooltip>
+                <v-card-media slot="activator" :src="card.src" height="100px">
 
                   <v-container fill-height fluid>
-                    <v-layout align-right justify-center>
+                    <v-layout row wrap align-center justify-center>
                       <v-flex xs12 class="text-xs-center">
-                        <span class="headline white--text" v-text="card.title"></span>
+                        <div id="backBox">
+                        <span class="headline white--text" v-text="calBlogCards.title"></span>
+                        </div>
                       </v-flex>
                     </v-layout>
                   </v-container>
+
                 </v-card-media>
-              </v-tooltip>
+                </tooltip>
             </v-card>
           </v-flex>
         </v-layout>
       </v-container>
 
+
+
+      <div id="calBox">
+          <span class="calEventBox" onload="performGetRequest1()"> </span>
+          <span class="calEventBox" onload="performGetRequest2()"> </span>
+          <span class="calEventBox" onload="performGetRequest3()"> </span>
+      </div>
+
+      <div id="blogBox">
+          <span> This is where the blog will show </span>
+      </div>
 
     </v-content>
-
-
   </v-app>
 </template>
 
@@ -85,56 +93,101 @@
       return {
         clipped: false,
         fixed: false,
-        aboutTitle: "About statement:",
-        about: "This is our awesome about statement that is being used to seperate the two picture's stuff",
+        about: "Bring the Greenville-Furman communities together through computing in daily life.",
         title: "Computing in Community",
-
+        calEvent: [],
         carouselImg: [{
-            src: 'https://images.fineartamerica.com/images-medium-large-5/3-furman-university-charles-daniel-chapel-greenville-sc-willie-harper.jpg'
+            src: '/static/mallPic.jpg'
           },
           {
-            src: 'https://s3.amazonaws.com/newsimg.furman.edu/wp-content/uploads/2017/01/13173308/furman-sign-entrance-700.jpg'
+            src: '/static/carousel1.jpg'
           },
           {
-            src: 'https://gallabrae.com/wp-content/uploads/2015/09/Furman-main-gate.jpg'
-
+            src: '/static/fancyPic.jpg'
           }
         ],
-        cardsL: [{
+        cards: [{
             title: "CinC Students",
-            src: "https://c1.staticflickr.com/8/7304/9194117026_98de91b807_b.jpg",
+            src: "/static/studentspic.jpg",
             url: "/Students",
-            flex: 4
+            flex: 6
           },
           {
             title: "CinC Courses",
-            link: "/Courses",
+            url: "/Courses",
             src: "/static/20170918_ComputerScience_Lab-184.jpg",
-            flex: 4
+            flex: 6
           },
-        ],
-        cardsR: [{
+          {
             title: "CinC Faculty",
             src: "/static/20170918_ComputerScience_Lab-130.jpg",
             url: "/Faculty",
-            flex: 4
+            flex: 6
           },
           {
-            title: "CinC Commutity Partners",
-            src: "https://parkergroupservices.com/wp-content/uploads/New-Home-The-Parker-Group.jpg",
+            title: "CinC Communtity Partners",
+            src: "/static/comunityPartnersPic.jpg",
             url: "/CommunityPartners",
-            flex: 4
+            flex: 6
           }
         ],
+        calBlogCards: [{
+            title: "Calendar",
+            src: "/static/upcomingevents.jpg",
+            flex: 6
+        },
+        {
+            title: "Blog",
+            src:"/static/blogPic.jpg",
+            flex: 6
+        }],
       };
+    },
+    methods() {
+      performGetRequest1(); {
+        var resultElement = document.getElementById('1');
+        resultElement.innerHTML = '';
+      }
     }
   };
-
 </script>
 
 <style>
-  #aboutStatement {
-    background-color: grey;
+  #about {
+    margin-top:2%;
   }
-
+  #about img {
+    margin:auto;
+    clear:both;
+  }
+  #aboutText {
+    float: right;
+    clear: both;
+  }
+  #backBox {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  a:link {
+    color:white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  #calBox {
+    background-color:lightgrey;
+    height: 300px;
+    width:47%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    float: left;
+    clear: none;
+  }
+  #blogBox {
+    background-color:lightgrey;
+    height: 300px;
+    width:47%;
+    margin-right: 2%;
+    margin-bottom:2%;
+    float: right;
+    clear: none;
+  }
 </style>

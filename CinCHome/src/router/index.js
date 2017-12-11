@@ -14,8 +14,7 @@ import Calendar from '@/components/Calendar'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/Facutly/experiences',
       name: 'Experiences',
       component: Experiences
@@ -57,7 +56,7 @@ export default new Router({
     },
     {
       path: '/Calendar',
-      name:'Calendar',
+      name: 'Calendar',
       component: Calendar
     },
     {
@@ -69,6 +68,11 @@ export default new Router({
       path: '/Students/travelops',
       name: 'Travel Opportunities',
       component: Travel
+    },
+    {
+      path: '/Faculty/experiences',
+      name: "Faculty Experiences",
+      component: Experiences
     },
     {
       path: '/',
