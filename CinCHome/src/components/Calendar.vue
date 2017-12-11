@@ -9,9 +9,8 @@
         <div v-for="events in props.showEvents" class="event-item" :key="events.title">
           Date: {{events.date}}<br>
           Title: {{events.title}}<br>
-          Description: {{events.desc}}<br>
+          Description: {{events.description}}<br>
           Location: {{events.location}}<br>
-          Start Time: {{events.startTime}}
         </div>
       </template>
     </vue-event-calendar>
@@ -57,7 +56,7 @@
         </v-text-field>
         <v-text-field
           label="Start Time"
-          v-model="startTime"
+          v-model="start_time"
           required
           >
         </v-text-field>
@@ -79,67 +78,45 @@
 <script>
 import axios from 'axios'
 
-// let today = new Date()
 export default {
   name: 'cal',
   data () {
     return {
-      cincEvents: [{
-        date: `2017/12/25`,
-        title: 'Christmas Day',
-        desc: 'Time to see if Santa delivered me the winning powerball ticket.',
-        location: 'Johns Hall',
-        startTime: '7:00'
-      },
-      {
-        date: `2017/12/24`,
-        title: 'test',
-        desc: 'testing',
-        location: 'testing again',
-        startTime: '4pm'
-      }
-      ],
+      //date: start_time,
+      cincEvents: [],
       welcomeMessage: 'Suggest an Event',
       suggestedMonth: [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-      ],
-      month: null,
-      day: null,
-      title: '',
-      description: '',
-      location: '',
-      startTime: '',
-      email: ''
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     }
   },
   methods: {
     getEvents () {
       let self = this
-      axios.get('https://safe-beach-15501.herokuapp.com/api/calendar/events')
-      .then(response => {
+      axios.get('https://safe-beach-15501.herokuapp.com/api/calendar/events').then(
+        response => {
         console.log(response)
         let temp = response.data
-        temp.forEach(obj => {
-          obj.date = self.getEventMonth(obj.date)
-        })
+        temp.forEach(obj => {obj.editdialog = false})
+        temp.forEach(obj => {obj.date=self.formatDate(obj.start_time)})
         self.cincEvents = temp
       }
       )
     },
       // formats date into necessary format for the vue-event-calendar components
       // to recognize it as a date in the calendar
-    getEventMonth (date) {
+    formatDate (date) {
       var firstLetYear = date.charAt(0)
       var secondLetYear = date.charAt(1)
       var thirdLetYear = date.charAt(2)
@@ -150,17 +127,23 @@ export default {
       var secondLetDay = date.charAt(9)
       var properDate = firstLetYear + secondLetYear + thirdLetYear + fourthLetYear + '/' + firstLetMonth + secondLetMonth + '/' + firstLetDay + secondLetDay
       return properDate
-    }
+     }
+    // formatTime (start_time) {
+    //   // format so it returns the start time for each event
+    //   // 11,12,13,14,15
+    //   var firstHour = start_time.charAt(11)
+    //   var secondHour = start_time.charAt(12)
+    //   var colon = start_time.charAt(13)
+    //   var firstMinute = start_time.charAt(14)
+    //   var secondMinute = start_time.charAt(15)
+    //   var properStartTime = firstHour + secondHour + colon + firstMinute + secondMinute
+    //   return properStartTime
+    // }
+  },
+  mounted: function () {
+    this.getEvents()
   }
-    /* getEvents () {
-      axios.get('/api/calendarevents')
-        .then(function(response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-      },
+    /*
     addEvent () {
       axios.post('/api/calendar/events/new') {
         title: this.title,
@@ -179,7 +162,6 @@ export default {
         })
       }
       */
-      // date, title, description
 }
 </script>
 
@@ -191,7 +173,10 @@ export default {
   color: #2c3e50;
   margin-top: 30px;
 }
-h1, h2, h3 {
+h1 {
+  color:white;
+}
+h2, h3 {
   font-weight: normal;
   margin: 0;
   padding: 0;
