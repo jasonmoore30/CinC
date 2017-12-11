@@ -126,7 +126,7 @@ export default {
   methods: {
     fetchEntries () {
       let self = this
-      axios.get('/api/calendarevents')
+      axios.get('https://safe-beach-15501.herokuapp.com/api/calendar/events')
       .then(response => {
         console.log(response)
         let temp = response.data
