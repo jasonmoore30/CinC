@@ -115,7 +115,7 @@
                     </v-flex>
                     <v-flex xs12>
                       <!-- columns for text -->
-                      <span class="mb-5" v-html="experience.desc"></span>
+                      <span v-html="experience.desc"></span>
                     </v-flex>
                     <v-flex xs12 md2>
                       <v-btn dark color="red" v-on:click="DeleteExperience(experience.id)">Delete Entry</v-btn>
