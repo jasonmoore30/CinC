@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Courses from '@/components/Courses'
 import Students from '@/components/Students'
 import Experiences from '@/components/Experiences'
+import studentExperiences from '@/components/studentExperiences'
 import Travel from '@/components/Travel'
 import Projects from '@/components/Projects'
 import Awards from '@/components/Awards'
@@ -20,6 +21,11 @@ export default new Router({
       component: Experiences
     },
     {
+      path: '/Students/experiences',
+      name:'Student Experiences',
+      component: studentExperiences
+    },
+    {
       path: '/Faculty',
       name: 'Faculty',
       component: Faculty
@@ -29,11 +35,7 @@ export default new Router({
       name: "Courses",
       component: Courses
     },
-    {
-      path: '/Students/experiences',
-      name: 'Experiences',
-      component: Experiences
-    },
+
     {
       path: '/Students/awards',
       name: "Student Awards",

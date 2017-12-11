@@ -315,7 +315,7 @@
       },
       GetExperiences() {
         let self = this
-        axios.get('https://safe-beach-15501.herokuapp.com/api/experiences').then(
+        axios.get('https://safe-beach-15501.herokuapp.com/api/blog/posts').then(
           response => {
             console.log(response)
             let temp = response.data
@@ -327,16 +327,16 @@
         )
       },
       GetExperience(id) {
-        axios.get('https://safe-beach-15501.herokuapp.com/api/experiences/{id}')
+        axios.get('https://safe-beach-15501.herokuapp.com/api/blog/posts/{id}')
       },
       NewExperience() {
-        axios.post('https://safe-beach-15501.herokuapp.com/api/experiences/new')
+        axios.post('https://safe-beach-15501.herokuapp.com/api/blog/posts/new')
       },
       UpdateExperience(id, entryTitle, entryContent) {
-        axios.put('https://safe-beach-15501.herokuapp.com/api/experiences/new')
+        axios.put('https://safe-beach-15501.herokuapp.com/api/blog/posts/new')
       },
       DeleteExperience(id) {
-        axios.delete('https://safe-beach-15501.herokuapp.com/api/experiences/delete/{id}')
+        axios.delete('https://safe-beach-15501.herokuapp.com/api/blog/posts/delete/{id}')
       }
     },
     mounted: function () {

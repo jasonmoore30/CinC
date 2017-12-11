@@ -5,13 +5,13 @@
     <div id="app">
       <v-app id="inspire">
         <p></p>
+
         <center>
-          <h2>Here you can find all of the suggested CinC courses and even suggest a CinC course</h2>
+          <h4>Here you can find all of the current CinC courses and even suggest a CinC course</h4>
         </center>
 
         <p></p>
         <div>
-          <p>Here you can find all of the current CinC courses</p>
           <v-data-table v-bind:headers="headers" :items="courses" class="elevation-1">
             <template slot="headerCell" scope="props">
               <v-tooltip bottom>
@@ -29,42 +29,12 @@
               <td class="text-xs-left">{{ props.course.faculty }}</td>
               <td class="text-xs-left">{{ props.course.descrip }}</td>
               <td><md-icon class=" md-size-2x fa fa-facebook-official"></md-icon></td>
-              <!--   <td>
-      <i class="glyphicon glyphicon-chevron-up" @click="upvote" :class="{disabled: upvoted}"></i>
-      <span class="label label-primary">{{ votes }}</span>
-      <i class="glyphicon glyphicon-chevron-down" @click="downvote" :class="{disabled: downvoted}"></i>
-      </td> -->
-            </template>
-          </v-data-table>
-        </div>
-        <p></p>
-        <div>
-          <p>Here is a list of suggested CinC courses</p>
-          <v-data-table v-bind:headers="headers" :items="courses" class="elevation-1">
-            <template slot="headerCell" scope="props">
-              <v-tooltip bottom>
-                <span slot="activator">
-                  {{ props.header.text }}
-                </span>
-                <span>
-                  {{ props.header.text }}
-                </span>
-              </v-tooltip>
-            </template>
-            <template slot="courses" scope="props">
-              <td>{{ props.course.courseName }}</td>
-              <td class="text-xs-left">{{ props.course.dept }}</td>
-              <td class="text-xs-left">{{ props.course.faculty }}</td>
-              <td class="text-xs-left">{{ props.course.descrip }}</td>
-              <!--   <td>
-      <i class="glyphicon glyphicon-chevron-up" @click="upvote" :class="{disabled: upvoted}"></i>
-      <span class="label label-primary">{{ votes }}</span>
-      <i class="glyphicon glyphicon-chevron-down" @click="downvote" :class="{disabled: downvoted}"></i>
-      </td> -->
 
             </template>
           </v-data-table>
         </div>
+        <p></p>
+
         <v-layout row justify-center>
           <v-dialog v-model="dialog" ref="form" persistent max-width="800px">
             <v-btn color="purple darken-3" dark slot="activator">Suggest a Course</v-btn>
@@ -108,7 +78,7 @@
                 <v-spacer></v-spacer>
                 <v-btn color="purple darken-2" flat @click.native="dialog = false">Close</v-btn>
                 <v-btn color="purple darken-2" flat @click="clear">Clear</v-btn>
-                <v-btn color="purple darken-2" flat @click="submit" :disabled="!valid">Submit</v-btn>
+                <v-btn color="purple darken-2" flat @click="submit" :enabled="!valid">Submit</v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -119,11 +89,10 @@
 </template>
 
 <<script>
+import axios from 'axios'
 export default {
   data () {
     return {
-       upvoted: false,
-       downvoted: false,
        headers: [
           {
             text: 'Course Name',
@@ -131,22 +100,10 @@ export default {
             sortable: true,
             value: 'courseName'
           },
-          { text: 'Department(s)', value: 'dept', sortable: false, align: 'left',  },
-          { text: 'Taught By', value: 'faculty', sortable: false, align: 'left',  },
-          { text: 'Description', value: 'descrip', sortable: false, align: 'left',  },
-          { text: 'Vote', value: 'vote', sortable: true, align: 'left', }
-        ],
-        headers2: [
-          {
-            text: 'Suggested Course Name',
-            align: 'left',
-            sortable: true,
-            value: 'sugcourseName'
-          },
-          { text: 'Department(s)', value: 'dept', sortable: false, align: 'left',  },
-          { text: 'Taught By', value: 'faculty', sortable: false, align: 'left',  },
-          { text: 'Description', value: 'descrip', sortable: false, align: 'left',  },
-          { text: 'Vote', value: 'vote', sortable: true, align: 'left', }
+          { text: 'Department(s)', value: 'dept', sortable: true, align: 'left',  },
+          { text: 'Taught By', value: 'faculty', sortable: true, align: 'left',  },
+          { text: 'Description', value: 'descrip', sortable: true, align: 'left',  },
+          { text: 'CinC Component', value: 'cincComp', sortable: true, align: 'left', }
         ],
         courses: [
           {
@@ -210,45 +167,30 @@ export default {
     }
     },
     methods: {
-      toggle (index) {
-        const i = this.selected.indexOf(index)
-
-        if (i > -1) {
-          this.selected.splice(i, 1)
-        } else {
-          this.selected.push(index)
+    GetCourse(id) {
+      let self = this
+      axios.get('https://safe-beach-15501.herokuapp.com/api/courses').then(
+        response => {
+          console.log(response)
+          let temp = response.data
+          temp.forEach(obj => {obj.editdialog = false})  // new field added just for edit dialog
+          self.coursess = temp
         }
-      },
-      upvote: function() {
-      this.upvoted = !this.upvoted;
-      this.downvoted = false;
+      )
     },
-    downvote: function() {
-      this.downvoted = !this.downvoted;
-      this.upvoted = false;
-    },
-    clear () {
-        this.$refs.form.reset()
-      }
-    },
-    computed: {
-    votes: function() {
-
-      if (this.upvoted) {
-        return this.post.votes + 1;
-      } else if (this.downvoted) {
-        return this.post.votes - 1;
-      } else {
-        return this.post.votes;
-      }
+    mounted: function() {
+    let self = this
+    self.GetCourses()
+  }
 
     }
-  },
-
   }
 
 </script>
-<style>
+<style scoped>
+ #backBox {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 body {
   font-family: Helvetica, sans-serif;
 }
