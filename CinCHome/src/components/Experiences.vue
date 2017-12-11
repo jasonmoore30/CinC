@@ -8,7 +8,7 @@
             <v-card-media class="lighten-4 purple">
               <v-layout row wrap class="my-3">
                 <v-flex xs8 flexbox>
-                  <div class="headline text-xs-left my-font-color pl-3 pt-3">{{ title }}</div>
+                  <div class="headline text-xs-left my-font-color pl-3 pt-3">Experiences</div>
                 </v-flex>
                 <v-flex xs4 flexbox>
                     <v-select class="pr-3 pb-2"
@@ -29,8 +29,11 @@
                     <v-card-text>
                       <v-container grid-list-md>
                         <v-layout wrap>
-                          <v-flex xs12>
-                            <v-text-field label="Name" v-model="name" required></v-text-field>
+                          <v-flex xs6>
+                            <v-text-field label="First Name" v-model="firstname" required></v-text-field>
+                          </v-flex>
+                          <v-flex xs6>
+                            <v-text-field label="Last Name" v-model="lastname" required></v-text-field>
                           </v-flex>
                           <v-flex xs12>
                             <v-text-field label="Email" v-model="email" :rules="emailRules" required></v-text-field>
@@ -42,7 +45,7 @@
                             <v-select required v-bind:items="categories" v-model="category" label="Select the type of experience" single-line auto hide-details></v-select>
                           </v-flex>
                           <v-flex xs12 sm12>
-                            <v-text-field multi-line label="Describe your experience. Be sure to describe what you did, learned, value, etc" required v-model="entryContent" :rules="entryRules" :counter="300"></v-text-field>
+                            <v-text-field multi-line label="Describe your experience. Be sure to describe what you did, learned, value, etc" required v-model="entryContent" :rules="entryRules" :counter="1500"></v-text-field>
                           </v-flex>
                           <v-checkbox label="Do you agree?" v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" required></v-checkbox>
                         </v-layout>
@@ -112,7 +115,7 @@
                       <v-card-media v-bind:src="`http://cs.furman.edu/~ktreu/journal-advanced/images/${experience.image_url}`" height="125px" contain></v-card-media>
                     </v-flex>
                     <v-flex xs12 md2>
-                      <v-btn dark color="red" v-on:click="deleteEntry(experience.id)">Delete Entry</v-btn>
+                      <v-btn dark color="red" v-on:click="DeleteExperience(experience.id)">Delete Entry</v-btn>
                     </v-flex>
                     <v-layout row justify-left>
                       <v-dialog v-model="experience.editdialog" persistent width="50%">
@@ -124,11 +127,14 @@
                           <v-card-text>
                             <v-container grid-list-md>
                               <v-layout wrap>
-                                <v-flex xs12>
-                                  <v-text-field label="Name" required></v-text-field>
+                                <v-flex xs6>
+                                  <v-text-field label="First Name" v-model="experience.firstname" required></v-text-field>
+                                </v-flex>
+                                <v-flex xs6>
+                                  <v-text-field label="Last Name" v-model="experience.lastname" required></v-text-field>
                                 </v-flex>
                                 <v-flex xs12>
-                                  <v-text-field label="Email" required></v-text-field>
+                                  <v-text-field label="Email" v-model="experience.email" required></v-text-field>
                                 </v-flex>
                                 <v-flex xs12>
                                   <v-text-field label="Title" required v-model="experience.title"></v-text-field>
@@ -137,7 +143,7 @@
                                   <v-select label="Type of Experience" v-bind:items="categories" v-model="experience.type" single-line auto hide-details></v-select>
                                 </v-flex>
                                 <v-flex xs12 sm12>
-                                  <v-text-field multi-line label="Entry" required v-model="experience.description"></v-text-field>
+                                  <v-text-field multi-line label="Entry" required v-model="experience.desc"></v-text-field>
                                 </v-flex>
                               </v-layout>
                             </v-container>
@@ -170,24 +176,20 @@ export default {
       dialog: false,
       deletealert: false,
       editalert: false,
-      title: "Experiences",
       email: "",
       entryTitle: "",
       entryContent: "",
       category: "",
-      experiences: [
-        
-      ],
+      experiences: [],
       emailRules: [
         v =>
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
           "Email must be valid"
       ],
       entryRules: [
-        (v) => v && v.length <= 300 || 'Entry must be less than 300 words'
+        (v) => v && v.length <= 1500 || 'Entry must be less than 1500 characters'
       ],
       categories: ["Research", "Internship"],
-      categorySearch: "",
       category: ""
     };
   },
@@ -205,33 +207,34 @@ export default {
     format_date(date) {
       let nicedate = new Date(date);
       return nicedate.toLocaleDateString();
+    },
+    GetExperiences() {
+      let self = this
+      axios.get('https://safe-beach-15501.herokuapp.com/api/experiences').then(
+        response => {
+          console.log(response)
+          let temp = response.data
+          temp.forEach(obj => {obj.editdialog = false})  // new field added just for edit dialog
+          self.experiences = temp
+        }
+      )
+    },
+    GetExperience(id) {
+      axios.get('https://safe-beach-15501.herokuapp.com/api/experiences/{id}')
+    },
+    NewExperience() {
+      axios.post('https://safe-beach-15501.herokuapp.com/api/experiences/new')
+    },
+    UpdateExperience(id, entryTitle, entryContent) {
+      axios.put('https://safe-beach-15501.herokuapp.com/api/experiences/new')
+    },
+    DeleteExperience(id) {
+      axios.delete('https://safe-beach-15501.herokuapp.com/api/experiences/delete/{id}')
     }
   },
-  created() {
-    this.GetExperiences();
-  },
-  GetExperiences() {
+  mounted: function() {
     let self = this
-    axios.get('https://safe-beach-15501.herokuapp.com/api/experiences').then(
-      response => {
-        console.log(response)
-        let temp = response.data
-        temp.forEach(obj => {obj.editdialog = false})  // new field added just for edit dialog
-        self.experiences = temp
-      }
-    )
-  },
-  GetExperience(id) {
-    axios.get('https://safe-beach-15501.herokuapp.com/api/experiences/{id}')
-  },
-  NewExperience() {
-    axios.post('https://safe-beach-15501.herokuapp.com/api/experiences/new')
-  },
-  UpdateExperience(id, entryTitle, entryContent) {
-    axios.put('https://safe-beach-15501.herokuapp.com/api/experiences/new')
-  },
-  DeleteExperience(id) {
-    axios.delete('https://safe-beach-15501.herokuapp.com/api/experiences/delete/{id}')
-  }
-};
+    self.GetExperiences()
+  } 
+}
 </script>
