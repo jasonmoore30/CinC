@@ -1,13 +1,9 @@
 <template>
  <v-content>
-
-
-
     <p></p>
     <p></p>
 <div id="app">
   <v-app id="inspire">
-
     <p></p>
     <p></p>
     <p class="text-sm-center">Here you can find all of the suggested CinC courses and even suggest a CinC course</p>
@@ -46,6 +42,7 @@
     </template>
   </v-data-table>
   </div>
+  <p></p>
   <div>
     <v-data-table
       v-bind:headers="headers"

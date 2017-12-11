@@ -9,6 +9,7 @@ import Awards from '@/components/Awards'
 import Home from '@/components/Home'
 import Community from "@/components/Community"
 import Faculty from '@/components/Faculty'
+import Calendar from '@/components/Calendar'
 
 Vue.use(Router)
 
@@ -48,6 +49,16 @@ export default new Router({
       path: '/Students',
       name: 'Students',
       component: Students
+    },
+    {
+      path: '/Courses',
+      name: 'Courses',
+      component: Courses
+    },
+    {
+      path: '/Calendar',
+      name:'Calendar',
+      component: Calendar
     },
     {
       path: 'Students/projectops',

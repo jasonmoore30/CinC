@@ -1,3 +1,4 @@
+
 <template>
   <div id="cal">
     <h1 class="t-center">CinC Events</h1>
@@ -54,6 +55,7 @@
   </v-card>
   </div>
 </template>
+
 <script>
 import axios from 'axios'
 
@@ -103,7 +105,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #cal {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -112,7 +114,7 @@ export default {
   margin-top: 30px;
 }
 h1, h2, h3 {
- font-weight: normal;
+  font-weight: normal;
   margin: 0;
   padding: 0;
 }
@@ -135,3 +137,4 @@ a {
   margin-top: 150px;
 }
 </style>
+
