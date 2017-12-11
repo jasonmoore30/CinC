@@ -35,7 +35,6 @@
             </v-list>
           </v-menu>
           <p></p>
-          <p></p>
           <v-menu open-on-hover top offset-y>
             <v-tabs-item slot="activator">
               CinC Faculty

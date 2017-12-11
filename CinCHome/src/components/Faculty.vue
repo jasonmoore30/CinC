@@ -1,33 +1,56 @@
 <template>
 <v-content>
 
-<v-parallax src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/17991925_1430645887008914_8905570794179922479_n.jpg?oh=3dc06f00af134b068c67040a42935494&oe=5A9813A5" height="500">
+<v-parallax src="../static/fac1.jpg" height="500">
+<div id="backBox">
       <v-layout column align-center justify-center class="white--text">
         <h1 class="white--text mb-3 display-3">CinC Faculty</h1>
       </v-layout>
+</div>
     </v-parallax>
-    <p></p>
-    <p></p>
-    <p></p>
-    <h3>Meet the dedicated faculty and staff members in the Computer Science Department and see what courses they're offering</h3>
-    <v-parallax src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/17155195_1373612002712303_6131280186533422218_n.jpg?oh=24a7f3f5a918ec8f8a482b9380c34f26&oe=5A9A5276" height="600">
+   <div align="center">
+      <h4>
+        CinC faculty are the backbone of the CinC community. They are the ones providing research projects and connecting students with internships.
+        CinC faculty work hard to ensure that projects with CinC students, local Greenville community members, and professional tech companies get done. Explore the great things CinC faculty can do.
+      </h4>
+    </div>
+    <v-parallax src="../static/fac2.jpg" height="600">
+<div id="backBox">
       <v-layout column align-center justify-center class="white--text">
         <h1 class="white--text mb-2 display-3">CinC Faculty</h1>
       </v-layout>
+</div>
     </v-parallax>
     <p></p>
+    <div align="center">
+      <h4>
+        If you're looking for a student fellow for a current project, have a project idea, or just want to browse ongoing projects, look no further.
+      </h4>
+    </div>
+ <div class="text-xs-center">
+      <v-btn outline color="purple darken-3" href="/#/Faculty/projects">Faculty Projects</v-btn>
+      <v-btn outline color="purple darken-3" href="/#/Faculty/teachingfellow">Teaching Fellow</v-btn>
+      <v-btn outline color="purple darken-3" href="/#/Faculty/studentfellow">Student Fellow</v-btn>
+    </div>
     <p></p>
-    <p></p>
-    <h3>Looking for a Teaching Fellow or Student Fellow? Send an application here!</h3>
-    <v-parallax src="http://www.carolinarealtyguide.com/images/dreamstime_s_30890018_800.jpg" height="700">
+    <v-parallax src="../static/fac3.jpg" height="700">
+<div id="backBox">
       <v-layout column align-center justify-center class="white--text">
         <h1 class="white--text mb-2 display-3">CinC Faculty</h1>
       </v-layout>
+</div>
     </v-parallax>
     <p></p>
+    <div align="center">
+      <h4>
+        Explore some of the current CinC courses and read up on some faculty experiences.
+      </h4>
+    </div>
+ <div class="text-xs-center">
+      <v-btn outline color="purple darken-3" href="/#/Faculty/experiences">Faculty Experiences</v-btn>
+      <v-btn outline color="purple darken-3" href="/#/Faculty/courses">CinC Courses</v-btn>
+    </div>
     <p></p>
-    <p></p>
-    <h3>Take a look at the current project opportunities available for students. Want to submit a project idea? Apply here</h3>
     </v-content>
 </template>
 <script>
@@ -39,7 +62,11 @@
     }
   }
 </script>
-<style>
+<<style scoped>
+#backBox {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
   body {
     font-family: Helvetica, sans-serif;
   }
