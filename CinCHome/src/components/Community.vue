@@ -185,16 +185,12 @@
                       <!-- columns for text -->
                       <span v-html="experience.description"></span>
                     </v-flex>
-                    <v-flex xs3>
-                      <!-- columns for picture -->
-                      <v-card-media v-bind:src="`http://cs.furman.edu/~ktreu/journal-advanced/images/${experience.image_url}`" height="125px" contain></v-card-media>
-                    </v-flex>
-                    <v-flex xs12 md2>
-                      <v-btn dark color="red" v-on:click="DeleteExperience(experience.id)">Delete Entry</v-btn>
-                    </v-flex>
-                    <v-layout row justify-left>
+<v-layout row justify-left>
+                      <v-btn dark color="red" v-on:click="DeleteBlogPost(experience.id)">Delete Entry</v-btn>
+
                       <v-dialog v-model="experience.editdialog" persistent width="50%">
                         <v-btn dark color="grey" slot="activator">Edit This Experience</v-btn>
+
                         <v-card>
                           <v-card-title>
                             <span class="headline">Edit This Experience</span>
@@ -226,7 +222,7 @@
                           </v-card-text>
                           <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn disabled class="blue--text darken-1" flat v-on:click="UpdateExperience(experience.id)">Update</v-btn>
+                            <v-btn disabled class="blue--text darken-1" flat v-on:click="UpdateBlogPost(experience.id)">Update</v-btn>
                             <v-btn class="blue--text darken-1" flat v-on:click="closeDialog(blogEntry)">Cancel</v-btn>
                           </v-card-actions>
                         </v-card>
@@ -243,6 +239,7 @@
   </v-content>
 </template>
 <script>
+import axios from 'axios'
   export default {
     data() {
       return {

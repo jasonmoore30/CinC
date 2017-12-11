@@ -169,7 +169,7 @@ export default {
     methods: {
     GetCourse(id) {
       let self = this
-      axios.get('https://safe-beach-15501.herokuapp.com/api/courses').then(
+      axios.get('https://safe-beach-15501.herokuapp.com/api/courses/{id}').then(
         response => {
           console.log(response)
           let temp = response.data
