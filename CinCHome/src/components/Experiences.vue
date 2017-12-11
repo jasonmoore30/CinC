@@ -8,7 +8,7 @@
             <v-card-media class="lighten-4 purple">
               <v-layout row wrap class="my-3">
                 <v-flex xs8 flexbox>
-                  <div class="headline text-xs-left my-font-color pl-3 pt-3">Experiences</div>
+                  <div class="headline text-xs-left my-font-color pl-3 pt-3">Faculty Experiences</div>
                 </v-flex>
                 <v-flex xs4 flexbox>
                     <v-select class="pr-3 pb-2"
@@ -102,14 +102,14 @@
                 <v-card-title>
                   <!-- entry content -->
                   <v-layout row wrap>
-                    <v-flex xs12>
-                      <span v-html="experience.firstname"></span>
-                      <span v-html="experience.lastname"></span>
+                    <v-flex xs12 class="pb-2">
+                      <span class="title" v-html="experience.firstname"></span>
+                      <span class="title" v-html="experience.lastname"></span>
                     </v-flex>
-                    <v-flex xs12>
-                      <span v-html="experience.email"></span>
+                    <v-flex xs12 class="pb-3">
+                      <span class="subheading" v-html="experience.email"></span>
                     </v-flex>
-                    <v-flex xs12>
+                    <v-flex xs12 class="pb-3">
                       <!-- columns for text -->
                       <span v-html="experience.desc"></span>
                     </v-flex>

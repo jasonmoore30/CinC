@@ -1,113 +1,108 @@
 <template>
-  <v-content>
-    <v-parallax src="http://www.furman.edu/admission/EngageFurman/Visit/PublishingImages/PlanVisit.jpg" height="500">
+<v-content>
+ 
+    <v-parallax src="../static/fac1.jpg" height="500">
+      <div id="backBox">
+        <v-layout column align-center justify-center class="white--text">
+          <h1 class="white--text mb-3 display-3">CinC Faculty</h1>
+        </v-layout>
+      </div>
+    </v-parallax>
+   <div align="center">
+      <h4>
+        CinC faculty are the backbone of the CinC community. They are the ones providing research projects and connecting students with internships.
+        CinC faculty work hard to ensure that projects with CinC students, local Greenville community members, and professional tech companies get done. Explore the great things CinC faculty can do.
+      </h4>
+    </div>
+    <v-parallax src="../static/fac2.jpg" height="600">
+<div id="backBox">
       <v-layout column align-center justify-center class="white--text">
         <h1 class="white--text mb-2 display-3">CinC Faculty</h1>
       </v-layout>
+</div>
     </v-parallax>
-
-    <v-tabs dark grow>
-      <v-toolbar color="purple" dark>
-        <v-tabs-bar class="purple" slot="extension">
-          <v-tabs-slider color="yellow"></v-tabs-slider>
-          <v-tabs-item v-for="(tabName, i) in tabNames" :key="i" :to="tabName.url" :href="'#tab-' + (i + 1)">
-            {{ tabName.title }}
-          </v-tabs-item>
-          <v-menu :nudge-width="100" left bottom>
-            <v-list class="grey lighten-3">
-              <v-list-tile tag="a" v-for="op in ops" :key="op.title" @click="">
-                {{ op.title }}
-              </v-list-tile>
-            </v-list>
-          </v-menu>
-        </v-tabs-bar>
-      </v-toolbar>
-      <v-tabs-items>
-        <v-tabs-content v-for="i in 5" :key="i" :id="'tab-' + i">
-          <v-card flat>
-
-          </v-card>
-        </v-tabs-content>
-      </v-tabs-items>
-    </v-tabs>
-  </v-content>
+    <p></p>
+    <div align="center">
+      <h4>
+        If you're looking for a student fellow for a current project, have a project idea, or just want to browse ongoing projects, look no further.
+      </h4>
+    </div>
+ <div class="text-xs-center">
+      <v-btn outline color="purple darken-3" href="/#/Faculty/projects">Faculty Projects</v-btn>
+      <v-btn outline color="purple darken-3" href="/#/Faculty/teachingfellow">Teaching Fellow</v-btn>
+      <v-btn outline color="purple darken-3" href="/#/Faculty/studentfellow">Student Fellow</v-btn>
+    </div>
+    <p></p>
+    <v-parallax src="../static/fac3.jpg" height="700">
+<div id="backBox">
+      <v-layout column align-center justify-center class="white--text">
+        <h1 class="white--text mb-2 display-3">CinC Faculty</h1>
+      </v-layout>
+</div>
+    </v-parallax>
+    <p></p>
+    <div align="center">
+      <h4>
+        Explore some of the current CinC courses and read up on some faculty experiences.
+      </h4>
+    </div>
+ <div class="text-xs-center">
+      <v-btn outline color="purple darken-3" href="/#/Faculty/experiences">Faculty Experiences</v-btn>
+      <v-btn outline color="purple darken-3" href="/#/Faculty/courses">CinC Courses</v-btn>
+    </div>
+    <p></p>
+    </v-content>
 </template>
 <script>
   export default {
     data() {
       return {
-        tabNames: [
-          {
-            title: "Faculty Home",
-            url: "/faculty"
-          },
-          {
-            title: "Project Opportunities",
-            url: "/projects"
-          },
-          {
-            title: "Experiences",
-            url: "/experiences"
-          },
-          {
-            title: "CinC Courses",
-            url: "/courses"
-          },
-          {
-            title: "Student Awards",
-            url: "/awards"
-          },
-          {
-            title: "Travel Opportunities",
-            url: "/travel"
-          }
-        ],
-        ops: [{
-            title: "Research Conferences"
-          },
-          {
-            title: "Research Competitions"
-          },
-          {
-            title: "Programming Competitions"
-          },
-          {
-            title: "Grace Hopper Celebration of Women in Computing"
-          }
-        ]
+ 
       }
     }
   }
 </script>
-<style>
+<<style scoped>
+#backBox {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+ 
   body {
     font-family: Helvetica, sans-serif;
   }
+ 
   .container {
     width: 5000px;
   }
+ 
   h1 {
     text-align: center;
   }
+ 
   img {
     text-align: center;
   }
+ 
   .submitted {
     color: #4fc08d;
   }
+ 
   .disabled {
     color: orange;
   }
   /* some simple transitions to make the upvote and downvote
 buttons fade in as a visual cue for the user */
+ 
   .glyphicon {
     opacity: 1;
     transition: opacity 0.25s ease-in-out;
     -moz-transition: opacity 0.25s ease-in-out;
     -webkit-transition: opacity 0.25s ease-in-out;
   }
+ 
   .glyphicon:hover {
     opacity: 0.75;
     cursor: pointer;
   }
+ 
 </style>
