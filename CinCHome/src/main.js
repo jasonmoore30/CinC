@@ -13,6 +13,12 @@ import vueEventCalendar from 'vue-event-calendar'
 import axios from 'axios'
 
 
+import axios from 'axios'
+
+Vue.use(Vuetify)
+Vue.use(axios)
+
+
 Vue.use(Vuetify)
 Vue.use(axios)
 var AddToCalendar = require('vue-add-to-calendar');

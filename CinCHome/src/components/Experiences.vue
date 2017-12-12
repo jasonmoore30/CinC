@@ -238,7 +238,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #app {
   width: 90%;
   margin: auto;
