@@ -72,15 +72,15 @@
         <!-- rest of page content -->
         <v-flex xs12 md3>
           <!-- nav box -->
-
-
+ 
+ 
           <!--<v-app>
             <v-alert color="success" icon="check_circle" dismissible v-model="deletealert">
               Entry successfully deleted.
             </v-alert>
           </v-app>-->
         </v-flex>
-
+ 
         <v-flex xs12>
           <!-- entries -->
 
@@ -113,7 +113,7 @@
                     <v-flex xs12 class="pb-3">
                       <span class="subheading" v-html="experience.email"></span>
                     </v-flex>
-                    <v-flex xs12>
+                    <v-flex xs12 class="pb-3">
                       <!-- columns for text -->
                       <span v-html="experience.desc"></span>
                     </v-flex>
@@ -170,7 +170,7 @@
     </v-container>
   </v-app>
 </template>
-
+ 
 <script>
 import axios from 'axios'
 export default {
@@ -180,7 +180,7 @@ export default {
       dialog: false,
       deletealert: false,
       editalert: false,
-      firstname: "",
+      firstname: "", 
       lastname: "",
       email: "",
       url: "", //title
@@ -244,10 +244,10 @@ export default {
         },
         url: 'https://safe-beach-15501.herokuapp.com/api/experiences/new',
         data: {
-          firstname: self.firstname,
-          lastname: self.lastname,
-          email: self.email,
-          type: self.type,
+          firstname: self.firstname, 
+          lastname: self.lastname, 
+          email: self.email, 
+          type: self.type, 
           desc: self.desc,
           url: self.url,
           approved: 0
@@ -259,10 +259,10 @@ export default {
         }
       );
       // axios.post('https://safe-beach-15501.herokuapp.com/api/experiences/new', {
-        // firstname: self.firstname,
-        // lastname: self.lastname,
-        // email: self.email,
-        // type: self.type,
+        // firstname: self.firstname, 
+        // lastname: self.lastname, 
+        // email: self.email, 
+        // type: self.type, 
         // desc: self.desc,
         // url: self.url,
       //   approved: 0

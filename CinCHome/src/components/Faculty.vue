@@ -1,12 +1,12 @@
 <template>
 <v-content>
-
-<v-parallax src="../static/fac1.jpg" height="500">
-<div id="backBox">
-      <v-layout column align-center justify-center class="white--text">
-        <h1 class="white--text mb-3 display-3">CinC Faculty</h1>
-      </v-layout>
-</div>
+ 
+    <v-parallax src="../static/fac1.jpg" height="500">
+      <div id="backBox">
+        <v-layout column align-center justify-center class="white--text">
+          <h1 class="white--text mb-3 display-3">CinC Faculty</h1>
+        </v-layout>
+      </div>
     </v-parallax>
    <div align="center">
       <h4>
@@ -57,7 +57,6 @@
   export default {
     data() {
       return {
-
       }
     }
   }
@@ -92,17 +91,14 @@
   }
   /* some simple transitions to make the upvote and downvote
 buttons fade in as a visual cue for the user */
-
   .glyphicon {
     opacity: 1;
     transition: opacity 0.25s ease-in-out;
     -moz-transition: opacity 0.25s ease-in-out;
     -webkit-transition: opacity 0.25s ease-in-out;
   }
-
   .glyphicon:hover {
     opacity: 0.75;
     cursor: pointer;
   }
-
 </style>

@@ -71,7 +71,7 @@
     </v-footer>
   </v-app>
 </template>
-
+ 
 <script>
   export default {
     data() {
@@ -151,12 +151,10 @@
       }
     }
   }
-
+ 
 </script>
-
 <style>
   #aboutStatement {
     background-color: grey;
   }
-
 </style>
