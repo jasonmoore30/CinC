@@ -78,25 +78,6 @@ export default new Router({
     },
     {
       path: '/',
-<<<<<<< HEAD
-      name: 'Hello',
-      component: Hello
-    }, 
-    {
-      path: '/Faculty/experiences',
-      name: 'Experiences',
-      component: Experiences
-    },
-    {
-      path: '/Faculty',
-      name: 'Faculty',
-      component: Faculty
-    } ,
-    {
-      path: '/application', 
-      name: 'Application', 
-      component: Application
-=======
       name: 'CinC Home',
       component: Home
     },
@@ -104,7 +85,6 @@ export default new Router({
       path: '/CommunityPartners',
       name: "CinC Community",
       component: Community
->>>>>>> master
     }
   ]
 })
