@@ -17,9 +17,9 @@
         <v-card-title>
           Current Scholars
           <v-spacer></v-spacer>
-          <v-text-field append-icon="search" label="Search" single-line hide-details v-model="search"></v-text-field>
+          <v-text-field append-icon="search" label="Search" single-line hide-details v-model="search1"></v-text-field>
         </v-card-title>
-        <v-data-table v-bind:headers="headers1" v-bind:items="items1" v-bind:search="search" hide-actions item-key="name">
+        <v-data-table v-bind:headers="headers1" v-bind:items="items1" v-bind:search="search1" hide-actions item-key="name">
           <template slot="items" slot-scope="props">
               <td>{{ props.item.name }}</td>
               <td class="text-xs-right">{{ props.item.email }}</td>
@@ -78,6 +78,7 @@
         max25chars: (v) => v.length <= 25 || 'Input too long!',
         tmp: '',
         search: '',
+        search1: '',
         pagination: {},
         headers1: [{
           text: 'Scholars',
@@ -99,6 +100,24 @@
             name: 'Andrea Tartaro',
             email: 'andrea.tartaro@furman.edu',
             department: 'Computer Science'
+          },
+          {
+            value: false, 
+            name: 'Kevin Treu', 
+            email: 'kevin.treu@furman.edu',
+            department: 'Computer Science'
+          },
+          {
+            value: false, 
+            name: 'Chris Healy',
+            email: 'chris.healy@furman.edu', 
+            department: 'Computer Science'
+          }, 
+          {
+            value: false, 
+            name: "John Quinn",
+            email: 'john.quinn@furman.edu',
+            department: 'Biology'
           }
         ],
         headers: [{
@@ -139,15 +158,15 @@
         ],
         items: [{
             value: false,
-            name: 'Intern at Infor',
+            name: 'Animal Sounds',
             semester: 'Summer',
-            type: "internship",
-            location: "Greenville",
-            funds: "none",
-            credit: 'yes',
-            description: "Infor delivers fully integrated enterprise solutions for a wide range of industries, as well as best-in-class, stand-alone products that address the essential challenges its customers face in areas such as enterprise resource planning, supply chain planning and execution, customer and supplier relationship management, asset management, product lifecycle management, financial and performance management, and business intelligence. With 13,000 employees, offices in over 40 countries, and customers in more than 200 countries, Infor provides enterprise solutions to more than 70,000 customers. ",
-            contact: "Kyle Green",
-            email: "kgreen@infor.com"
+            type: "research",
+            location: "on campus",
+            funds: "Furman Advantage",
+            credit: 'no',
+            description: "This project focuses on tracking animal sounds all around the Greenville area in order to see if there is a correlation to weather.",
+            contact: "John Quinn",
+            email: "john.quinn@furman.edu"
           },
           {
             value: false,
@@ -163,15 +182,15 @@
           },
           {
             value: false,
-            name: 'intern at IBM',
-            semester: 'Fall',
-            type: "internship",
-            location: "not local off campus",
-            funds: "IBM",
-            credit: 'yes',
-            description: "Performance and Programmatic Marketing Interns will work collaboratively, as part of a team, on a project that addresses a strategic IBM business challenge. Projects are representative of the type of work Performance and Programmatic Marketing employees are engaged in every day. The internship project will culminate with a set of recommendations and final presentation to the IBM Performance and Programmatic Marketing Leaders. In addition to the project, the internship includes a number of educational, networking and social activities.",
-            contact: "Kevin James",
-            email: "kevin.james@ibm.com"
+            name: 'Traffic History',
+            semester: 'Summer',
+            type: "research",
+            location: "on campus",
+            funds: "Furman Advantage",
+            credit: 'no',
+            description: "Focuses on the allocation of traffic data to note specific traffic patterns.",
+            contact: "Chris Healy",
+            email: "chris.healy@furman.edu"
           }
 
         ]

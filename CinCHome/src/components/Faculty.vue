@@ -29,8 +29,6 @@
     </div>
  <div class="text-xs-center">
       <v-btn outline color="purple darken-3" href="/#/Faculty/projects">Faculty Projects</v-btn>
-      <v-btn outline color="purple darken-3" href="/#/Faculty/teachingfellow">Teaching Fellow</v-btn>
-      <v-btn outline color="purple darken-3" href="/#/Faculty/studentfellow">Student Fellow</v-btn>
     </div>
     <p></p>
     <v-parallax src="../static/fac3.jpg" height="700">

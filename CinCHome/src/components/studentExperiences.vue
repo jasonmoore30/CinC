@@ -113,7 +113,7 @@
                     <v-flex xs12 class="pb-3">
                       <span class="subheading" v-html="experience.email"></span>
                     </v-flex>
-                    <v-flex xs12>
+                    <v-flex xs12 class="pb-3">
                       <!-- columns for text -->
                       <span v-html="experience.desc"></span>
                     </v-flex>

@@ -55,7 +55,7 @@
                     <v-card-actions>
                       <v-spacer></v-spacer>
                       <v-btn class="purple--text darken-1" flat v-on:click="dialog = false">Cancel</v-btn>
-                      <v-btn class="purple--text darken-1" flat v-on:click="NewExperience">Post</v-btn>
+                      <v-btn class="purple--text darken-1" flat v-on:click="NewExperience()">Post</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
@@ -150,7 +150,7 @@
                           </v-card-text>
                           <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn class="blue--text darken-1" flat v-on:click="UpdateExperience(experience.id)">Update</v-btn>
+                            <v-btn class="blue--text darken-1" flat v-on:click="UpdateExperience()">Update</v-btn>
                             <v-btn class="blue--text darken-1" flat v-on:click="closeDialog(experience)">Cancel</v-btn>
                           </v-card-actions>
                         </v-card>

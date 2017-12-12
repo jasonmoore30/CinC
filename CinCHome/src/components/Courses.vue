@@ -24,7 +24,7 @@
               </v-tooltip>
             </template>
             <template slot="courses" scope="props">
-              <td>{{ props.course.courseName }}</td>
+              <td>{{ props.course.title }}</td>
               <td class="text-xs-left">{{ props.course.dept }}</td>
               <td class="text-xs-left">{{ props.course.faculty }}</td>
               <td class="text-xs-left">{{ props.course.descrip }}</td>
@@ -45,22 +45,19 @@
               <v-card-text>
                 <v-container grid-list-md>
                   <v-layout wrap>
-                    <v-flex xs12 sm6 md4>
-                      <v-text-field label="First Name" required></v-text-field>
-                    </v-flex>
-                    <v-flex xs12 sm6 md4>
-                      <v-text-field label="Last Name" required></v-text-field>
+                    <v-flex xs12>
+                      <v-text-field label="Name" v-model="faculty" required></v-text-field>
                     </v-flex>
                     <v-flex xs12>
                       <v-text-field label="Email" required v-model="email" :rules="emailRules" required></v-text-field>
                     </v-flex>
                     </v-flex>
                     <v-flex xs12>
-                      <v-text-field label="Course Title" required></v-text-field>
+                      <v-text-field label="Course Title" v-model="title" required></v-text-field>
                     </v-flex>
                     </v-flex>
                     <v-flex xs12>
-                      <v-text-field label="Course Description" required></v-text-field>
+                      <v-text-field label="Course Description" v-model="descrip" required></v-text-field>
                     </v-flex>
                     <v-flex xs12 sm6>
                       <v-select label="Department(s)" multiple autocomplete chips :items="depts"></v-select>
@@ -76,9 +73,8 @@
               <v-checkbox label="Do you agree?" v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" required></v-checkbox>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="purple darken-2" flat @click.native="dialog = false">Close</v-btn>
-                <v-btn color="purple darken-2" flat @click="clear">Clear</v-btn>
-                <v-btn color="purple darken-2" flat @click="submit" :enabled="!valid">Submit</v-btn>
+                <v-btn color="purple darken-2" flat v-on:click.native="dialog = false">Close</v-btn>
+                <v-btn color="purple darken-2" flat v-on:click="NewCourse()">Submit</v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -93,6 +89,12 @@ import axios from 'axios'
 export default {
   data () {
     return {
+      faculty: '', 
+      faculty2: '', 
+      dept: '',
+      dept2: '',
+      descrip: '',
+      title: '',
        headers: [
           {
             text: 'Course Name',
@@ -105,68 +107,45 @@ export default {
           { text: 'Description', value: 'descrip', sortable: true, align: 'left',  },
           { text: 'CinC Component', value: 'cincComp', sortable: true, align: 'left', }
         ],
-        courses: [
-          {
-            value: false,
-            courseName: 'Intro to Bioinformatics',
-            dept: 'Biology, Computer Science',
-            faculty: 'Dr. Rawlings',
-            descrip: 'This course will be an introduction to bioinformatics'
-          },
-          {
-            value: false,
-            courseName: 'Test',
-            dept: 'test',
-            faculty: 'Test',
-            descrip: 'Test'
-          },
-         {
-            value: false,
-            courseName: 'Test',
-            dept: 'test',
-            faculty: 'Test',
-            descrip: 'Test'
-          }
+      courses: [],
+      dialog: false,
+      depts: [
+        {text: 'Art'},
+        {text: 'Asian Studies'},
+        {text: 'Biology'},
+        {text: 'Business and Accounting'},
+        {text: 'Chemistry'},
+        {text: 'Classics'},
+        {text: 'Communication Studies'},
+        {text: 'Computer Science'},
+        {text: 'Earth and Environmental Sciences'},
+        {text: 'Economics'},
+        {text: 'Education'},
+        {text: 'English'},
+        {text: 'Health Sciences'},
+        {text: 'History'},
+        {text: 'Mathematics'},
+        {text: 'Military Science'},
+        {text: 'Modern Languages and Literatures'},
+        {text: 'Music'},
+        {text: 'Philosophy'},
+        {text: 'Physics'},
+        {text: 'Politics and International Affairs'},
+        {text: 'Psychology'},
+        {text: 'Religion'},
+        {text: 'Sociology'},
+        {text: 'Theatre Arts'},
+      ],
  
-        ],
-       dialog: false,
-       depts: [
-       {text: 'Art'},
-       {text: 'Asian Studies'},
-       {text: 'Biology'},
-       {text: 'Business and Accounting'},
-       {text: 'Chemistry'},
-       {text: 'Classics'},
-       {text: 'Communication Studies'},
-       {text: 'Computer Science'},
-       {text: 'Earth and Environmental Sciences'},
-       {text: 'Economics'},
-       {text: 'Education'},
-       {text: 'English'},
-       {text: 'Health Sciences'},
-       {text: 'History'},
-       {text: 'Mathematics'},
-       {text: 'Military Science'},
-       {text: 'Modern Languages and Literatures'},
-       {text: 'Music'},
-       {text: 'Philosophy'},
-       {text: 'Physics'},
-       {text: 'Politics and International Affairs'},
-       {text: 'Psychology'},
-       {text: 'Religion'},
-       {text: 'Sociology'},
-       {text: 'Theatre Arts'},
-    ],
- 
-    checkbox: false,
-    email: '',
-    emailRules: [
+      checkbox: false,
+      email: '',
+      emailRules: [
         (v) => !!v || 'E-mail is required',
         (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
       ]
-    }
-    },
-    methods: {
+    };
+  },
+  methods: {
     GetCourses() {
       let self = this
       axios.get('https://safe-beach-15501.herokuapp.com/api/courses').then(
@@ -178,11 +157,31 @@ export default {
         }
       )
     },
-    mounted: function() {
+    NewCourse() {
+      let self = this
+      axios.post('https://safe-beach-15501.herokuapp.com/api/courses/new', {
+        title: self.title,
+        dept: self.dept, 
+        dept2: self.dept2,
+        descrip: self.descrip,
+        faculty: self.faculty, 
+        faculty2: self.faculty2, 
+        cincComp: self.cincComp
+      }).then(
+        reponse => {
+          console.log(response)
+          self.GetCourses()
+        }
+      )
+      this.dialog = false
+    }
+  },
+  mounted: function() {
     let self = this
     self.GetCourses()
-  }}
   }
+}
+  
  
 </script>
 <style scoped>
