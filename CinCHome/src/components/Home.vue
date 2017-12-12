@@ -148,7 +148,6 @@ import axios from 'axios'
           },
           {
             src: '/static/fancyPic.jpg'
-
           }
         ],
         cards: [{
@@ -243,7 +242,6 @@ table, th, td{
     margin:auto;
     clear:both;
   }
-
   #aboutText {
     float: right;
     clear: both;
@@ -278,5 +276,4 @@ table, th, td{
     float: right;
     clear: none;
   }
-
 </style>

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Courses from '@/components/Courses'
 import Students from '@/components/Students'
 import Experiences from '@/components/Experiences'
+import studentExperiences from '@/components/studentExperiences'
 import Travel from '@/components/Travel'
 import Projects from '@/components/Projects'
 import Awards from '@/components/Awards'
@@ -14,11 +15,15 @@ import Calendar from '@/components/Calendar'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/Facutly/experiences',
       name: 'Experiences',
       component: Experiences
+    },
+    {
+      path: '/Students/experiences',
+      name:'Student Experiences',
+      component: studentExperiences
     },
     {
       path: '/Faculty',
@@ -30,11 +35,7 @@ export default new Router({
       name: "Courses",
       component: Courses
     },
-    {
-      path: '/Students/experiences',
-      name: 'Experiences',
-      component: Experiences
-    },
+
     {
       path: '/Students/awards',
       name: "Student Awards",
@@ -57,18 +58,23 @@ export default new Router({
     },
     {
       path: '/Calendar',
-      name:'Calendar',
+      name: 'Calendar',
       component: Calendar
     },
     {
-      path: 'Students/projectops',
+      path: '/Students/projectops',
       name: 'Project Opportunities',
-      components: Projects
+      component: Projects
     },
     {
       path: '/Students/travelops',
       name: 'Travel Opportunities',
       component: Travel
+    },
+    {
+      path: '/Faculty/experiences',
+      name: "Faculty Experiences",
+      component: Experiences
     },
     {
       path: '/',
