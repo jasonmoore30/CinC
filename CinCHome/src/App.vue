@@ -1,29 +1,29 @@
 <template>
   <v-app light>
- 
+
     <head>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
+
       <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
     </head>
     <v-spacer></v-spacer>
     <router-view></router-view>
     <v-tabs dark grow>
-      <v-toolbar extended color="purple" fixed prominent dark extended scroll threshold="100" scroll-target="#scrolling-techniques"
+      <v-toolbar extended color="purple"  fixed prominent dark extended scroll threshold="100" scroll-target="#scrolling-techniques"
         app>
         <p></p>
- 
-        <v-toolbar-title>Computing in Community</v-toolbar-title>
-        <v-spacer></v-spacer>
- 
+
+        <v-toolbar-title class="display-3"> <p></p> <p> </p> Computing in Community</v-toolbar-title>
+        <v-spacer></v-spacer>      
+
         <v-tabs-bar class="purple" slot="extension">
-          <v-tabs-slider color="gray"></v-tabs-slider>
- 
+
+
           <!-- The toolbar items -->
           <v-tabs-item v-for="(homeTab, i) in homeTabs" :key="i" :to="homeTab.url" :href="'#tab-' + (i + 1)">
             {{ homeTab.title }}
           </v-tabs-item>
-          <v-menu open-on-hover top offset-y>
+          <v-menu open-on-hover bottom offset-y>
             <v-tabs-item slot="activator">
               CinC Students
               <v-icon>arrow_drop_down</v-icon>
@@ -34,7 +34,6 @@
               </v-list-tile>
             </v-list>
           </v-menu>
-          <p></p>
           <p></p>
           <v-menu open-on-hover top offset-y>
             <v-tabs-item slot="activator">
@@ -51,19 +50,23 @@
             {{ tabName.title }}
           </v-tabs-item>
         </v-tabs-bar>
-        </v-toolbar>
+      </v-toolbar>
     </v-tabs>
- 
+
     <v-footer class="pa-3" color="grey lighten-1" :fixed="fixed" app>
       <v-spacer></v-spacer>
       <div align="right">
         <p>3300 Poinsett Highway Greenville, South Carolina, 29613</p>
+        <div><md-icon class="md-size-2x fa fa-envelope-o" aria-hidden="true"></md-icon> CinC@furman.edu</div>
         <v-btn icon href="https://www.facebook.com/Furman-University-Computer-Science-130685927004923/">
-          <md-icon class="fa fa-facebook-official"></md-icon>
-        </v-btn> Connect with us on Facebook
+          <md-icon class=" md-size-2x fa fa-facebook-official"></md-icon>
+        </v-btn>
         <v-btn icon href="http://instagram.com/furmancompsci">
-          <md-icon class="fa fa-instagram"></md-icon>
-        </v-btn> Connect with us on Instagram
+          <md-icon class="md-size-2x fa fa-instagram" aria-hidden="true"></md-icon>
+        </v-btn>
+
+
+
       </div>
     </v-footer>
   </v-app>
@@ -143,10 +146,6 @@
           {
             title: "Faculty Experiences",
             url: "/Faculty/experiences"
-          }, 
-          {
-            title: "Faculty Application", 
-            url: "/Faculty/application"
           }
         ]
       }
@@ -154,10 +153,8 @@
   }
  
 </script>
- 
 <style>
   #aboutStatement {
     background-color: grey;
   }
- 
 </style>

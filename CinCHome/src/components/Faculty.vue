@@ -29,6 +29,8 @@
     </div>
  <div class="text-xs-center">
       <v-btn outline color="purple darken-3" href="/#/Faculty/projects">Faculty Projects</v-btn>
+      <v-btn outline color="purple darken-3" href="/#/Faculty/teachingfellow">Teaching Fellow</v-btn>
+      <v-btn outline color="purple darken-3" href="/#/Faculty/studentfellow">Student Fellow</v-btn>
     </div>
     <p></p>
     <v-parallax src="../static/fac3.jpg" height="700">
@@ -55,7 +57,6 @@
   export default {
     data() {
       return {
- 
       }
     }
   }
@@ -64,43 +65,40 @@
 #backBox {
     background-color: rgba(0, 0, 0, 0.5);
   }
- 
+
   body {
     font-family: Helvetica, sans-serif;
   }
- 
+
   .container {
     width: 5000px;
   }
- 
+
   h1 {
     text-align: center;
   }
- 
+
   img {
     text-align: center;
   }
- 
+
   .submitted {
     color: #4fc08d;
   }
- 
+
   .disabled {
     color: orange;
   }
   /* some simple transitions to make the upvote and downvote
 buttons fade in as a visual cue for the user */
- 
   .glyphicon {
     opacity: 1;
     transition: opacity 0.25s ease-in-out;
     -moz-transition: opacity 0.25s ease-in-out;
     -webkit-transition: opacity 0.25s ease-in-out;
   }
- 
   .glyphicon:hover {
     opacity: 0.75;
     cursor: pointer;
   }
- 
 </style>

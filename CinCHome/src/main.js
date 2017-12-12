@@ -8,9 +8,22 @@ import './stylus/main.styl'
 
 import App from './App'
 import router from './router'
+import '../node_modules/vue-event-calendar/dist/style.css'
+import vueEventCalendar from 'vue-event-calendar'
+import axios from 'axios'
+
+
+import axios from 'axios'
 
 Vue.use(Vuetify)
+Vue.use(axios)
 
+
+Vue.use(Vuetify)
+Vue.use(axios)
+var AddToCalendar = require('vue-add-to-calendar');
+Vue.use(AddToCalendar);
+Vue.use(vueEventCalendar, {locale: 'us', color: 'purple'})
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
