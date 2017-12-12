@@ -9,12 +9,12 @@
     <v-spacer></v-spacer>
     <router-view></router-view>
     <v-tabs dark grow>
-      <v-toolbar extended color="purple" fixed prominent dark extended scroll threshold="100" scroll-target="#scrolling-techniques"
+      <v-toolbar extended color="purple"  fixed prominent dark extended scroll threshold="100" scroll-target="#scrolling-techniques"
         app>
         <p></p>
 
-        <v-toolbar-title>Computing in Community</v-toolbar-title>
-        <v-spacer></v-spacer>
+        <v-toolbar-title class="display-3"> <p></p> <p> </p> Computing in Community</v-toolbar-title>
+        <v-spacer></v-spacer>      
 
         <v-tabs-bar class="purple" slot="extension">
 
@@ -23,7 +23,7 @@
           <v-tabs-item v-for="(homeTab, i) in homeTabs" :key="i" :to="homeTab.url" :href="'#tab-' + (i + 1)">
             {{ homeTab.title }}
           </v-tabs-item>
-          <v-menu open-on-hover top offset-y>
+          <v-menu open-on-hover bottom offset-y>
             <v-tabs-item slot="activator">
               CinC Students
               <v-icon>arrow_drop_down</v-icon>

@@ -19,68 +19,109 @@
           </v-layout>
         </v-container>
       </div>
-
+  
       <v-container fluid grid-list-xl>
         <v-layout row wrap justify-space-between>
           <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" :href="cards.url">
             <router-link :to="card.url">
-            <v-card height="300px" width="300px">
-              <v-tooltip>
-                <v-card-media slot="activator" :src="card.src" height="300px" width="300px">
+              <v-card height="300px" width="300px">
+                <v-tooltip>
+                  <v-card-media slot="activator" :src="card.src" height="300px" width="300px">
 
-                  <v-container fill-height fluid>
-                    <v-layout row wrap align-center justify-center>
-                      <v-flex xs12 class="text-xs-center">
-                        <div id="backBox">
-                          <span class="display-1 white--text">{{card.title}}</span>
-                        </div>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
+                    <v-container fill-height fluid>
+                      <v-layout row wrap align-center justify-center>
+                        <v-flex xs12 class="text-xs-center">
+                          <div id="backBox">
+                            <span class="headline white--text">{{card.title}}</span>
+                          </div>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
 
-                </v-card-media>
-              </v-tooltip>
-            </v-card>
+                  </v-card-media>
+                </v-tooltip>
+              </v-card>
             </router-link>
           </v-flex>
         </v-layout>
       </v-container>
 
-
+  
      <v-container fluid grid-list-xl>
         <v-layout justify-space-between row wrap>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calBlogCards" :key="card.title" :href="calBlogCards.url">
-            <v-card height="100px">
-              <tooltip>
-                <v-card-media slot="activator" :src="card.src" height="100px">
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calBlogCards" :key="card.title">
+             <router-link :to="card.url">
+              <v-card height="100px">
+                <tooltip>
+                  <v-card-media slot="activator" :src="card.src" height="100px">
 
-                  <v-container fill-height fluid>
-                    <v-layout row wrap align-center justify-center>
-                      <v-flex xs12 class="text-xs-center">
-                        <div id="backBox">
-                        <span class="headline white--text" v-text="calBlogCards.title"></span>
-                        </div>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
+                    <v-container fill-height fluid>
+                      <v-layout row wrap align-center justify-center>
+                        <v-flex xs12 class="text-xs-center">
+                          <div id="backBox">
+                          <span class="headline white--text" v-text="calBlogCards.title"></span>
+                          </div>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
 
-                </v-card-media>
-                </tooltip>
-            </v-card>
+                  </v-card-media>
+                  </tooltip>
+              </v-card>
+            </router-link>
           </v-flex>
         </v-layout>
       </v-container>
 
+      <!-- <div id="calBox">
 
+         <span class="display-1 white"> Title: {{this.calEvent[0].title}}</span>
+      </div> -->
 
-      <div id="calBox">
-          <span class="calEventBox" onload="performGetRequest1()"> </span>
-          <span class="calEventBox" onload="performGetRequest2()"> </span>
-          <span class="calEventBox" onload="performGetRequest3()"> </span>
-      </div>
+    <div id="calBox">
+      <table>
+        <caption><b>Calendar</b></caption>
+        <tr>
+          <th>Title</th>
+          <th>Event</th>
+          <th>Event Date </th>
+          <th>Location </th>
+        </tr>
+        <tr>
+          <td>{{this.calEvent[0].title}}</td>
+          <td>{{this.calEvent[0].description}}</td>
+          <td>{{this.calEvent[0].start_time}}</td>
+          <td>{{this.calEvent[0].location}}</td>
+        </tr>
+        <tr>
+          <td>{{this.calEvent[1].title}}</td>
+          <td>{{this.calEvent[1].description}}</td>
+          <td>{{this.calEvent[1].start_time}}</td>
+          <td>{{this.calEvent[1].location}}</td>
+        </tr>
+        <tr>
+          <td>{{this.calEvent[2].title}}</td>
+          <td>{{this.calEvent[2].description}}</td>
+          <td>{{this.calEvent[2].start_time}}</td>
+          <td>{{this.calEvent[2].location}}</td>
+        </tr>
+      </table>
+    </div>
 
       <div id="blogBox">
-          <span> This is where the blog will show </span>
+        <table>
+          <caption>Most Recent Blog Post </caption>
+          <tr>
+            <th>Title</th>
+            <th>Post</th>
+            <th>Date</th>
+          </tr>
+          <tr>
+            <td>{{this.blogPost[0].title}}</td>
+            <td>{{this.blogPost[0].body}}</td>
+            <td>{{this.blogPost[0].post_date}}</td>
+          </tr>
+        </table>
       </div>
 
     </v-content>
@@ -88,6 +129,7 @@
 </template>
 
 <script>
+import axios from 'axios'
   export default {
     data() {
       return {
@@ -96,6 +138,8 @@
         about: "Bring the Greenville-Furman communities together through computing in daily life.",
         title: "Computing in Community",
         calEvent: [],
+        blogPost: [],
+
         carouselImg: [{
             src: '/static/mallPic.jpg'
           },
@@ -134,28 +178,66 @@
         calBlogCards: [{
             title: "Calendar",
             src: "/static/upcomingevents.jpg",
-            flex: 6
+            flex: 6,
+            url:"/Calendar"
         },
         {
             title: "Blog",
             src:"/static/blogPic.jpg",
-            flex: 6
+            flex: 6,
+            url:"/Blog"
         }],
       };
     },
-    methods() {
-      performGetRequest1(); {
-        var resultElement = document.getElementById('1');
-        resultElement.innerHTML = '';
+
+    methods: {
+
+      fetchEvent() {
+      let self = this
+      axios.get('https://safe-beach-15501.herokuapp.com/api/calendar/events').then(
+        response => {
+          console.log(response)
+          let temp = response.data
+          temp.forEach(obj => {obj.editdialog = false})
+          self.calEvent = temp
+        }
+      )
+      },
+      fetchBlog() {
+      let self = this
+      axios.get('https://safe-beach-15501.herokuapp.com/api/blog/posts').then(
+        response => {
+          console.log(response)
+          let temp = response.data
+          temp.forEach(obj => {obj.editdialog = false})
+          self.blogPost = temp
+        }
+      )
       }
+    },
+    mounted: function() {
+      self = this;
+      self.fetchEvent();
+      self.fetchBlog();
     }
-  };
+  }
+
 </script>
 
 <style>
+
+table, th, td{
+  border:1px solid white;
+  border-collapse:collapse;
+  margin: 2%;
+  color:white;
+  font-size:14px;
+
+}
   #about {
     margin-top:2%;
   }
+
   #about img {
     margin:auto;
     clear:both;
@@ -164,16 +246,19 @@
     float: right;
     clear: both;
   }
+
   #backBox {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
   }
+
   a:link {
     color:white;
     background-color: transparent;
     text-decoration: none;
   }
+
   #calBox {
-    background-color:lightgrey;
+    background-color:purple;
     height: 300px;
     width:47%;
     margin-left: 2%;
@@ -181,9 +266,10 @@
     float: left;
     clear: none;
   }
+
   #blogBox {
-    background-color:lightgrey;
-    height: 300px;
+    background-color:purple;
+    height: 100px;
     width:47%;
     margin-right: 2%;
     margin-bottom:2%;
