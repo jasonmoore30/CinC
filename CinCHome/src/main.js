@@ -8,7 +8,7 @@ import './stylus/main.styl'
 
 import App from './App'
 import router from './router'
-import 'vue-event-calendar/dist/style.css'
+import '../node_modules/vue-event-calendar/dist/style.css'
 import vueEventCalendar from 'vue-event-calendar'
 import axios from 'axios'
 
