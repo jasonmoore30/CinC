@@ -16,61 +16,7 @@
     </vue-event-calendar>
 
   <v-card>
-    <v-card-title>
-      <h3>{{welcomeMessage}}</h3>
-    </v-card-title>
 
-    <div class=eventForm>
-    <v-card-text>
-      <v-form>
-        <v-select
-          :items="suggestedMonth"
-          v-model="month"
-          label="Month"
-          required
-          >
-        </v-select>
-        <v-text-field
-          v-model="day"
-          label="Day"
-          required
-          >
-        </v-text-field>
-        <v-text-field
-          label="Title"
-          v-model="title"
-          required
-          >
-        </v-text-field>
-        <v-text-field
-          label="Description"
-          v-model="desc"
-          required
-          >
-        </v-text-field>
-        <v-text-field
-          label="Location"
-          v-model="location"
-          required
-          >
-        </v-text-field>
-        <v-text-field
-          label="Start Time"
-          v-model="start_time"
-          required
-          >
-        </v-text-field>
-        <v-text-field
-          label="Email"
-          v-model="email"
-          required
-        >
-        </v-text-field>
-
-        <v-btn @click="addEvent">Submit</v-btn>
-      </v-form>
-    </v-card-text>
-  </div>
   </v-card>
   </div>
 </template>
@@ -83,22 +29,7 @@ export default {
   data () {
     return {
       //date: start_time,
-      cincEvents: [],
-      welcomeMessage: 'Suggest an Event',
-      suggestedMonth: [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ]
+      cincEvents: []
     }
   },
   methods: {
@@ -127,7 +58,7 @@ export default {
       var secondLetDay = date.charAt(9)
       var properDate = firstLetYear + secondLetYear + thirdLetYear + fourthLetYear + '/' + firstLetMonth + secondLetMonth + '/' + firstLetDay + secondLetDay
       return properDate
-     }
+    }
     // formatTime (start_time) {
     //   // format so it returns the start time for each event
     //   // 11,12,13,14,15
@@ -143,25 +74,6 @@ export default {
   mounted: function () {
     this.getEvents()
   }
-    /*
-    addEvent () {
-      axios.post('/api/calendar/events/new') {
-        title: this.title,
-        email: this.email,
-        description: this.description,
-        location: this.location,
-        month: this.month,
-        day: this.day,
-        startTime: this.startTime
-      }
-        .then(function(response) {
-          console.log(response);
-        })
-        .catch(function(error) {
-          console.log(error);
-        })
-      }
-      */
 }
 </script>
 
