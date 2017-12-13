@@ -1,7 +1,7 @@
 <template>
 <v-content>
  
-    <v-parallax src="../static/fac1.jpg" height="500">
+    <v-parallax src="static/fac1.jpg" height="500">
       <div id="backBox">
         <v-layout column align-center justify-center class="white--text">
           <h1 class="white--text mb-3 display-3">CinC Faculty</h1>
@@ -14,7 +14,7 @@
         CinC faculty work hard to ensure that projects with CinC students, local Greenville community members, and professional tech companies get done. Explore the great things CinC faculty can do.
       </h4>
     </div>
-    <v-parallax src="../static/fac2.jpg" height="600">
+    <v-parallax src="static/fac2.jpg" height="600">
 <div id="backBox">
       <v-layout column align-center justify-center class="white--text">
         <h1 class="white--text mb-2 display-3">CinC Faculty</h1>
@@ -33,7 +33,7 @@
       <v-btn outline color="purple darken-3" href="/#/Faculty/studentfellow">Student Fellow</v-btn>
     </div>
     <p></p>
-    <v-parallax src="../static/fac3.jpg" height="700">
+    <v-parallax src="static/fac3.jpg" height="700">
 <div id="backBox">
       <v-layout column align-center justify-center class="white--text">
         <h1 class="white--text mb-2 display-3">CinC Faculty</h1>

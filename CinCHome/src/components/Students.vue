@@ -1,7 +1,7 @@
 <template>
   <v-content>
     <router-view></router-view>
-    <v-parallax src="../static/students1.jpg" height="700">
+    <v-parallax src="static/students1.jpg" height="700">
       <div id="backBox">
         <v-layout column align-center justify-center class="white--text">
           <h1 class="white--text mb-2 display-3">
@@ -18,7 +18,7 @@
       </h4>
     </div>
     <p></p>
-    <v-parallax src="../static/students2.jpg" height="600">
+    <v-parallax src="static/students2.jpg" height="600">
       <div id="backBox">
         <v-layout column align-center justify-center class="white--text">
           <h1 class="white--text mb-2 display-3">
@@ -40,7 +40,7 @@
       <v-btn outline color="purple darken-3" href="/#/Students/awards">Student Awards</v-btn>
     </div>
     <p></p>
-    <v-parallax src="../static/students4.jpg" height="600">
+    <v-parallax src="static/students4.jpg" height="600">
       <div id="backBox">
         <v-layout column align-center justify-center class="white--text">
           <h1 class="white--text mb-2 display-3">

@@ -1,6 +1,6 @@
 <template>
   <v-content>
-    <v-parallax src="../static/bridge.jpg"
+    <v-parallax src="static/bridge.jpg"
       height="700">
       <div id="backBox">
         <v-layout column align-center justify-center class="white--text">
@@ -17,7 +17,7 @@
     </div>
 
     <p></p>
-    <v-parallax src="../static/peacecenter.jpg"
+    <v-parallax src="static/peacecenter.jpg"
       height="700">
 <div id="backBox">
       <v-layout column align-center justify-center class="white--text">
@@ -62,7 +62,7 @@
     </div>
 
     <p></p>
-    <v-parallax src="../static/dt.jpg" height="700">
+    <v-parallax src="static/dt.jpg" height="700">
 <div id="backBox">
       <v-layout column align-center justify-center class="white--text">
         <h1 class="white--text mb-2 display-3">Got Something to Share?</h1>
@@ -245,32 +245,32 @@ import axios from 'axios'
       return {
         cards: [{
 
-            src: '/static/bcbs.jpg',
+            src: 'static/bcbs.jpg',
             flex: 4
           },
           {
 
-            src: '/static/blackbaud.jpg',
+            src: 'static/blackbaud.jpg',
             flex: 4
           },
           {
 
-            src: '/static/furm.png',
+            src: 'static/furm.png',
             flex: 4
           },
           {
 
-            src: '/static/ghs.png',
+            src: 'static/ghs.png',
             flex: 4
           },
           {
 
-            src: '/static/ibm.png',
+            src: 'static/ibm.png',
             flex: 4
           },
           {
 
-            src: '/static/infor.png',
+            src: 'static/infor.png',
             flex: 4
           }
         ],
