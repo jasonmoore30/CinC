@@ -5,7 +5,6 @@ import Students from '@/components/Students'
 import Experiences from '@/components/Experiences'
 import studentExperiences from '@/components/studentExperiences'
 import Travel from '@/components/Travel'
-import Projects from '@/components/Projects'
 import FacProjects from '@/components/FacProjects'
 import Awards from '@/components/Awards'
 import Home from '@/components/Home'
@@ -62,11 +61,11 @@ export default new Router({
       name: 'Calendar',
       component: Calendar
     },
-    {
-      path: '/Students/projectops',
-      name: 'Project Opportunities',
-      component: Projects
-    },
+    // {
+    //   path: '/Students/projectops',
+    //   name: 'Project Opportunities',
+    //   component: Projects
+    // },
     {
       path: '/Students/travelops',
       name: 'Travel Opportunities',
