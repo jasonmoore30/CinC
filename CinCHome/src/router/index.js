@@ -61,11 +61,11 @@ export default new Router({
       name: 'Calendar',
       component: Calendar
     },
-    {
-      path: '/Students/projectops',
-      name: 'Project Opportunities',
-      component: Projects
-    },
+    // {
+    //   path: '/Students/projectops',
+    //   name: 'Project Opportunities',
+    //   component: Projects
+    // },
     {
       path: '/Students/travelops',
       name: 'Travel Opportunities',
