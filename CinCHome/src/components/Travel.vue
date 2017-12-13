@@ -10,7 +10,7 @@
           <v-flex xs12 sm12 >
       <v-card>
         <v-card-media
-          src="/static/gracehopper.png"
+          src="static/gracehopper.png"
           height="400px"
  
         >
@@ -40,7 +40,7 @@ The Grace Hopper Celebration consists of a combination of technical sessions and
  
       <v-card>
         <v-card-media
-          src="/static/travel1.jpg"
+          src="static/travel1.jpg"
           height="400px"
  
         >
@@ -68,7 +68,7 @@ The Grace Hopper Celebration consists of a combination of technical sessions and
       <p></p>
       <v-card>
         <v-card-media
-          src="/static/travel2.jpg"
+          src="static/travel2.jpg"
           height="400px"
  
         >
@@ -95,7 +95,7 @@ The Grace Hopper Celebration consists of a combination of technical sessions and
       <p></p>
       <v-card>
         <v-card-media
-          src="/static/travel3.jpg"
+          src="static/travel3.jpg"
           height="400px"
  
         >

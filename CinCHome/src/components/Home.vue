@@ -18,7 +18,7 @@
       <div class="grey lighten-3" id="about">
         <v-container>
           <v-layout justify-space-between row wrap >
-            <img src="/static/bwLogo.png" style="height:250px;width:250px;clear:both">
+            <img src="static/bwLogo.png" style="height:250px;width:250px;clear:both">
             <div id= "aboutText">
             <span class="display-1 black--text" v-text="about"></span>
             </div>
@@ -159,49 +159,49 @@ import axios from 'axios'
         blogPosts: [],
 
         carouselImg: [{
-            src: '/static/mallPic.jpg'
+            src: 'static/mallPic.jpg'
           },
           {
-            src: '/static/carousel1.jpg'
+            src: 'static/carousel1.jpg'
           },
           {
-            src: '/static/fancyPic.jpg'
+            src: 'static/fancyPic.jpg'
           }
         ],
         cards: [{
             title: "CinC Students",
-            src: "/static/studentspic.jpg",
+            src: "static/studentspic.jpg",
             url: "/Students",
             flex: 6
           },
           {
             title: "CinC Courses",
             url: "/Courses",
-            src: "/static/20170918_ComputerScience_Lab-184.jpg",
+            src: "static/20170918_ComputerScience_Lab-184.jpg",
             flex: 6
           },
           {
             title: "CinC Faculty",
-            src: "/static/20170918_ComputerScience_Lab-130.jpg",
+            src: "static/20170918_ComputerScience_Lab-130.jpg",
             url: "/Faculty",
             flex: 6
           },
           {
             title: "CinC Communtity Partners",
-            src: "/static/comunityPartnersPic.jpg",
+            src: "static/comunityPartnersPic.jpg",
             url: "/CommunityPartners",
             flex: 6
           }
         ],
         calBlogCards: [{
             title: "Calendar",
-            src: "/static/upcomingevents.jpg",
+            src: "static/upcomingevents.jpg",
             flex: 6,
             url:"/Calendar"
         },
         {
             title: "Blog",
-            src:"/static/blogPic.jpg",
+            src:"static/blogPic.jpg",
             flex: 6,
             url:"/Blog"
         }],

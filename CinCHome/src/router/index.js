@@ -11,6 +11,7 @@ import Home from '@/components/Home'
 import Community from "@/components/Community"
 import Faculty from '@/components/Faculty'
 import Calendar from '@/components/Calendar'
+import Blog from '@/components/Blog'
 
 Vue.use(Router)
 
@@ -85,6 +86,11 @@ export default new Router({
       path: '/CommunityPartners',
       name: "CinC Community",
       component: Community
+    },
+    {
+      path: '/Blog',
+      name: "Blog",
+      component: Blog
     }
   ]
 })

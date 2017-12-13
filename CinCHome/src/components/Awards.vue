@@ -141,217 +141,217 @@
             inset: true
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Melissa Amick',
             subtitle: "1996"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Greg Cogdell',
             subtitle: "1996"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Sherry Dillinger',
             subtitle: "1997"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Chad Huneycutt',
             subtitle: "1997"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Derek Bruff',
             subtitle: "1998"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Sara Koenug',
             subtitle: "1998"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Hans Bechtel',
             subtitle: "1999"
           },
 {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Konstantin Stoyanov',
             subtitle: "1999"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Lindsey Collicott',
             subtitle: "2000"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'David Bykowski',
             subtitle: "2000"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Brian Franklin',
             subtitle: "2001"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'John Miller',
             subtitle: "2001"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Luke Chuang',
             subtitle: "2002"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Jonathan Howarth',
             subtitle: "2002"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Winter Liu',
             subtitle: "2002"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Will Lowry',
             subtitle: "2003"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Jacob Schroder',
             subtitle: "2003"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Kevin Crosby',
             subtitle: "2004"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Carl Johnson',
             subtitle: "2004"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Kevin Smith',
             subtitle: "2005"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Tyler Johnson',
             subtitle: "2006"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Adam Murphree',
             subtitle: "2006"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Joel Coffman',
             subtitle: "2007"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Brittany Smith',
             subtitle: "2007"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Stephen Abbott',
             subtitle: "2008"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Justin Moore',
             subtitle: "2008"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'William Baucom',
             subtitle: "2009"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Angelica Blackman',
             subtitle: "2010"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'David McHugh',
             subtitle: "2010"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Chad Stolper',
             subtitle: "2011"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Phillip Calvin',
             subtitle: "2012"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Ashley Videtto',
             subtitle: "2012"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Diane Mickelson',
             subtitle: "2013"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Tyler Droll',
             subtitle: "2013"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Paul Aluri',
             subtitle: "2014"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Seth Greenstein',
             subtitle: "2014"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Douglas Wartler',
             subtitle: "2014"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Jeff Dye',
             subtitle: "2015"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Richard Harch',
             subtitle: "2015"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Sam Hill',
             subtitle: "2016"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Andrew Safigan',
             subtitle: "2016"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Daniela Mesa Sanchez',
             subtitle: "2017"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Danny Rivers',
             subtitle: "2017"
           }
@@ -365,27 +365,27 @@
             inset: true
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Jeff Dye',
             subtitle: "2014-15"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Sam Hill',
             subtitle: "2014-15"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Andrew Emerson',
             subtitle: "2015-16"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Madeline Bauer',
             subtitle: "2016-17"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Andrew Emerson',
             subtitle: "2016-17"
           },
@@ -400,12 +400,12 @@
             inset: true
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Aubrey Connors',
             subtitle: "2017"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Trilby Hren',
             subtitle: "2017"
           }
@@ -419,37 +419,37 @@
             inset: true
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Tony Snyder',
             subtitle: "2007"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Amanda Noyes',
             subtitle: "2009"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Kory Kraft',
             subtitle: "2013"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Jonathan Mellman',
             subtitle: "2014"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Rahul Isaac',
             subtitle: "2015"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Maggie Grisell',
             subtitle: "2016"
           },
           {
-            avatar: '/static/BellTower.png',
+            avatar: 'static/BellTower.png',
             title: 'Patrick Musau',
             subtitle: "2017"
           }
