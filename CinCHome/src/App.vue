@@ -52,7 +52,7 @@
         </v-tabs-bar>
       </v-toolbar>
     </v-tabs>
-
+   
     <v-footer class="pa-3" color="grey lighten-1" :fixed="fixed" app>
       <v-spacer></v-spacer>
       <div align="right">

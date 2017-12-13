@@ -16,7 +16,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [{
-      path: '/Facutly/experiences',
+      path: '/Faculty/experiences',
       name: 'Experiences',
       component: Experiences
     },
@@ -32,7 +32,7 @@ export default new Router({
     },
     {
       path: '/Faculty/courses',
-      name: "Courses",
+      name: "Faculty Courses",
       component: Courses
     },
 
@@ -78,7 +78,7 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'CinC Home',
+      name: 'Home Page',
       component: Home
     },
     {

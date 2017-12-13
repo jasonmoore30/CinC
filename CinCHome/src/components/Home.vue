@@ -1,7 +1,13 @@
 <template>
+
   <v-app light>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    </head>
     <v-spacer></v-spacer>
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
 
 
     <v-content>
@@ -10,7 +16,7 @@
       </v-carousel>
 
       <div class="grey lighten-3" id="about">
-        <v-container >
+        <v-container>
           <v-layout justify-space-between row wrap >
             <img src="/static/bwLogo.png" style="height:250px;width:250px;clear:both">
             <div id= "aboutText">
@@ -22,7 +28,8 @@
   
       <v-container fluid grid-list-xl>
         <v-layout row wrap justify-space-between>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in cards" :key="card.title" :href="cards.url">
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="(card, i) in cards" :key="i" :href="cards.url">
+          <!-- <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="(card.title, card) in cards"   :href="cards.url"> -->
             <router-link :to="card.url">
               <v-card height="300px" width="300px">
                 <v-tooltip>
@@ -49,7 +56,7 @@
   
      <v-container fluid grid-list-xl>
         <v-layout justify-space-between row wrap>
-          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="card in calBlogCards" :key="card.title">
+          <v-flex v-bind="{ [`xs${card.flex}`]: true }" v-for="(card, i) in calBlogCards" :key="i">
              <router-link :to="card.url">
               <v-card height="100px">
                 <tooltip>
@@ -59,7 +66,7 @@
                       <v-layout row wrap align-center justify-center>
                         <v-flex xs12 class="text-xs-center">
                           <div id="backBox">
-                          <span class="headline white--text" v-text="calBlogCards.title"></span>
+                          <span class="headline white--text" v-text="card.title"></span>
                           </div>
                         </v-flex>
                       </v-layout>
@@ -87,7 +94,13 @@
           <th>Event Date </th>
           <th>Location </th>
         </tr>
-        <tr>
+        <tr v-for="(event, i) in calEvents" :key="i">
+           <td>{{event.title}}</td>
+          <td>{{event.description}}</td>
+          <td>{{event.start_time}}</td>
+          <td>{{event.location}}</td>
+        </tr>
+        <!-- <tr>
           <td>{{this.calEvent[0].title}}</td>
           <td>{{this.calEvent[0].description}}</td>
           <td>{{this.calEvent[0].start_time}}</td>
@@ -104,7 +117,7 @@
           <td>{{this.calEvent[2].description}}</td>
           <td>{{this.calEvent[2].start_time}}</td>
           <td>{{this.calEvent[2].location}}</td>
-        </tr>
+        </tr> -->
       </table>
     </div>
 
@@ -116,11 +129,16 @@
             <th>Post</th>
             <th>Date</th>
           </tr>
-          <tr>
+          <tr v-for="(blogPost, i) in blogPosts" :key="i">
+            <td>{{blogPost.title}}</td>
+            <td>{{blogPost.body}}</td>
+            <td>{{blogPost.post_date}}</td>
+          </tr>
+          <!-- <tr>
             <td>{{this.blogPost[0].title}}</td>
             <td>{{this.blogPost[0].body}}</td>
             <td>{{this.blogPost[0].post_date}}</td>
-          </tr>
+          </tr> -->
         </table>
       </div>
 
@@ -137,8 +155,8 @@ import axios from 'axios'
         fixed: false,
         about: "Bring the Greenville-Furman communities together through computing in daily life.",
         title: "Computing in Community",
-        calEvent: [],
-        blogPost: [],
+        calEvents: [],
+        blogPosts: [],
 
         carouselImg: [{
             src: '/static/mallPic.jpg'
@@ -187,41 +205,39 @@ import axios from 'axios'
             flex: 6,
             url:"/Blog"
         }],
-      };
+      }
     },
 
     methods: {
 
-      fetchEvent() {
+      fetchEvent: async function() {
       let self = this
-      axios.get('https://safe-beach-15501.herokuapp.com/api/calendar/events').then(
+       axios.get('https://safe-beach-15501.herokuapp.com/api/calendar/events').then(
         response => {
           console.log(response)
           let temp = response.data
           temp.forEach(obj => {obj.editdialog = false})
-          self.calEvent = temp
+          self.calEvents = temp
         }
       )
       },
-      fetchBlog() {
+      fetchBlog: async function() {
       let self = this
       axios.get('https://safe-beach-15501.herokuapp.com/api/blog/posts').then(
         response => {
           console.log(response)
           let temp = response.data
           temp.forEach(obj => {obj.editdialog = false})
-          self.blogPost = temp
+          self.blogPosts = temp
         }
       )
       }
     },
     mounted: function() {
-      self = this;
-      self.fetchEvent();
-      self.fetchBlog();
+       this.fetchEvent();
+       this.fetchBlog();
     }
   }
-
 </script>
 
 <style>
