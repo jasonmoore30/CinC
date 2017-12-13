@@ -6,6 +6,7 @@ import Experiences from '@/components/Experiences'
 import studentExperiences from '@/components/studentExperiences'
 import Travel from '@/components/Travel'
 import Projects from '@/components/Projects'
+import FacProjects from '@/components/FacProjects'
 import Awards from '@/components/Awards'
 import Home from '@/components/Home'
 import Community from "@/components/Community"
@@ -70,6 +71,11 @@ export default new Router({
       path: '/Students/travelops',
       name: 'Travel Opportunities',
       component: Travel
+    },
+    {
+      path: '/Faculty/facultyprojects',
+      name: 'Faculty Projects',
+      component: FacProjects
     },
     {
       path: '/Faculty/experiences',
