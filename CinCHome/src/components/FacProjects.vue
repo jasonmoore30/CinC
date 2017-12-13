@@ -1,6 +1,6 @@
 <template>
 <v-content>
-<v-parallax src="../static/research.jpg" height="650">
+<v-parallax src="static/research.jpg" height="650">
 <div id="backBox">
   <v-layout column align-center justify-center class="white--text">
         <h1 class="white--text mb-2 display-3">Project Opportunities</h1>
